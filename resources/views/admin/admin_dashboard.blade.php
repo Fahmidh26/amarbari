@@ -7,12 +7,22 @@
   <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
   <meta name="author" content="NobleUI">
   <meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-  <title>Admin Panel - Real Estate </title>
+  <title>Admin Panel - Amar Bari </title>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- End fonts -->
+
+  <!-- DataTable css for this page -->
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
+  <!-- End plugin css for this page -->
+
+  {{-- Select Search and Tags --}}
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendors/select2/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendors/jquery-tags-input/jquery.tagsinput.min.css') }}">
+   {{-- END Select Search and Tags --}}
+
   <!-- core:css -->
   <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
   <!-- endinject -->
@@ -47,10 +57,6 @@
      @yield('admin')
 
       <!-- partial:partials/_footer.html -->
-      <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
-        <p class="text-muted mb-1 mb-md-0">Copyright © 2022 <a href="https://www.nobleui.com" target="_blank">NobleUI</a>.</p>
-        <p class="text-muted">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i></p>
-      </footer>
     @include('admin.body.footer')
       <!-- partial -->
 
@@ -93,5 +99,37 @@
  }
  @endif 
 </script>
+
+{{-- SWEET ALERT --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{{-- SWEET ALERT DELETE--}}
+<script src="{{ asset('backend/assets/js/code/code.js') }}"></script>
+{{-- VALIDATION JS --}}
+<script src="{{ asset('backend/assets/js/code/validate.min.js') }}"></script>
+
+<!-- Start datatables -->
+<script src="{{ asset('backend/assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script> 
+<script src="{{ asset('backend/assets/js/data-table.js') }}"></script>
+<!-- End datatables -->
+
+<!-- Input Tags & Search -->
+<script src="{{ asset('backend/assets/vendors/inputmask/jquery.inputmask.min.js') }}"></script>
+<script src="{{ asset('backend/assets/vendors/select2/select2.min.js') }}"></script>
+<script src="{{ asset('backend/assets/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+
+<script src="{{ asset('backend/assets/vendors/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
+
+<script src="{{ asset('backend/assets/js/inputmask.js') }}"></script>
+<script src="{{ asset('backend/assets/js/select2.js') }}"></script>
+<script src="{{ asset('backend/assets/js/typeahead.js') }}"></script>
+<script src="{{ asset('backend/assets/js/tags-input.js') }}"></script>
+
+  <!--END Input Tags & Search-->
+
+  <!-- tinymce | TEXT EDITOR -->
+  <script src="{{ asset('backend/assets/vendors/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/tinymce.js') }}"></script>
+<!--END tinymce TEXT EDITOR-->
 </body>
 </html>    
