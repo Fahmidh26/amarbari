@@ -119,6 +119,10 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
             Route::get('/all/property', 'AllProperty')->name('all.property'); 
 
             Route::get('/add/property', 'AddProperty')->name('add.property');
+
+            Route::post('/store/property', 'StoreProperty')->name('store.property');
+
+            Route::get('/edit/property/{id}', 'EditProperty')->name('edit.property');
         
         });
 
