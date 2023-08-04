@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\RedirectIfAuthenticated;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,14 +66,37 @@ Route::middleware(['auth','role:admin'])->group(function(){
 });
 // END ADMIN MIDDLEWARE
 
+
+
 // AGENT MIDDLEWARE
+
 Route::middleware(['auth','role:agent'])->group(function(){
+
     Route::get('/agent/dashboard', [AgentController::class , 'AgentDashboard'])->name('agent.dashboard');
+
+    Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
+
+    Route::get('/agent/profile', [AgentController::class, 'AgentProfile'])->name('agent.profile');
+
+    Route::post('/agent/profile/store', [AgentController::class, 'AgentProfileStore'])->name('agent.profile.store');
+
+    Route::get('/agent/change/password', [AgentController::class, 'AgentChangePassword'])->name('agent.change.password');
+
+    Route::post('/agent/update/password', [AgentController::class, 'AgentUpdatePassword'])->name('agent.update.password');
+
 });
+
 // END AGENT MIDDLEWARE
 
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login'); 
+
+
+// MIDDLEWARE PREVENT /Login
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class); 
+
+Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class); 
+
+Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register'); 
 
  /// ADMIN Group Middleware 
  Route::middleware(['auth','role:admin'])->group(function(){ 
@@ -138,8 +162,21 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
 
             Route::get('/delete/property/{id}', 'DeleteProperty')->name('delete.property');
 
+            Route::get('/details/property/{id}', 'DetailsProperty')->name('details.property');
+
+            Route::post('/inactive/property', 'InactiveProperty')->name('inactive.property');
+
+            Route::post('/active/property', 'ActiveProperty')->name('active.property');
         
         });
+
+        // Agent All Route from admin 
+    Route::controller(AdminController::class)->group(function(){
+
+            Route::get('/all/agent', 'AllAgent')->name('all.agent'); 
+
+
+    });
 
 
 }); // End Group Admin Middleware
