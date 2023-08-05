@@ -1,5 +1,5 @@
-@extends('admin.admin_dashboard')
-@section('admin')
+@extends('agent.agent_dashboard')
+@section('agent')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 <div class="page-content">
@@ -16,8 +16,10 @@
        <div class="card">
     <div class="card-body">
         <h6 class="card-title">Add Property </h6>
-        <form method="post" action="{{ route('store.property') }}" id="myForm" enctype="multipart/form-data">
-            @csrf
+
+
+            <form method="post" action="{{ route('agent.store.property') }}" id="myForm" enctype="multipart/form-data">
+                @csrf
 
 
     <div class="row">
@@ -40,7 +42,7 @@
 
 
     <div class="col-sm-6">
-        <div class="form-group mb-3">
+            <div class="form-group mb-3">
                 <label class="form-label">Lowest Price </label>
                 <input type="text" name="lowest_price" class="form-control"  >
             </div>
@@ -48,7 +50,7 @@
 
 
             <div class="col-sm-6">
-                <div class="form-group mb-3">
+            <div class="form-group mb-3">
                 <label class="form-label">Max Price </label>
                 <input type="text" name="max_price" class="form-control"  >
             </div>
@@ -58,9 +60,10 @@
          <div class="col-sm-6">
             <div class="form-group mb-3">
                 <label class="form-label">Main Thambnail </label>
-                <input type="file" name="property_thambnail" class="form-control" onChange="mainThamUrl(this)">
+                <input type="file" name="property_thambnail" class="form-control" onChange="mainThamUrl(this)"  >
+
                 <img src="" id="mainThmb">
-               
+
             </div>
         </div><!-- Col -->
 
@@ -70,7 +73,9 @@
             <div class="form-group mb-3">
                 <label class="form-label">Multiple Image </label>
                 <input type="file" name="multi_img[]" class="form-control" id="multiImg" multiple="" >
-                <div class="row" id="preview_img"> </div>
+
+         <div class="row" id="preview_img"> </div>
+
             </div>
         </div><!-- Col -->
 
@@ -128,7 +133,7 @@
         <div class="col-sm-3">
             <div class="mb-3">
                 <label class="form-label">State</label>
-                <input type="text" name="state"  class="form-control" >
+                 <input type="text" name="state"  class="form-control" >
             </div>
         </div><!-- Col -->
 
@@ -161,7 +166,13 @@
                  <input type="text" name="neighborhood"  class="form-control" >
             </div>
         </div><!-- Col -->
+
+
     </div><!-- Row -->
+
+
+
+
     <div class="row">
         <div class="col-sm-6">
             <div class="mb-3">
@@ -178,89 +189,86 @@
             </div>
         </div><!-- Col -->
     </div><!-- Row -->
-    <div class="row">
+
+
+
+        <div class="row">
         <div class="col-sm-4">
             <div class="mb-3">
                 <label class="form-label">Property Type </label>
                 <select name="ptype_id" class="form-select" id="exampleFormControlSelect1">
-                    <option selected="" disabled="">Select Type</option>
-                   @foreach($propertytype as $ptype)
-                    <option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
-                   @endforeach
-                </select>
+                <option selected="" disabled="">Select Type</option>
+               @foreach($propertytype as $ptype)
+                <option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
+               @endforeach
+            </select>
             </div>
         </div><!-- Col -->
         <div class="col-sm-4">
             <div class="mb-3">
                 <label class="form-label">Property Amenities </label>
-                <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+     <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
 
-                    @foreach($amenities as $ameni)
-                   <option value="{{ $ameni->amenitis_name }}">{{ $ameni->amenitis_name }}</option>
-                  @endforeach
-   
-               </select>
+                 @foreach($amenities as $ameni)
+                <option value="{{ $ameni->amenitis_name }}">{{ $ameni->amenitis_name }}</option>
+               @endforeach
+
+            </select>
             </div>
         </div><!-- Col -->
-        <div class="col-sm-4">
-            <div class="mb-3">
-                <label class="form-label"> Agent </label>
-                <select name="agent_id" class="form-select" id="exampleFormControlSelect1">
-                    <option selected="" disabled="">Select Agent</option>
-                   @foreach($activeAgent as $agent)
-                    <option value="{{ $agent->id }}">{{ $agent->name }}</option>
-                   @endforeach
-                </select>
-            </div>
-        </div><!-- Col -->
+
 
 
     </div><!-- Row -->
-    <div class="col-sm-12">
-        <div class="mb-3">
-            <label class="form-label">Short Description</label>
-            <textarea name="short_descp" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-        </div>
-    </div><!-- Col -->
 
 
+      <div class="col-sm-12">
+            <div class="mb-3">
+                <label class="form-label">Short Description</label>
+          <textarea name="short_descp" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 
-  <div class="col-sm-12">
-        <div class="mb-3">
-            <label class="form-label">Long Description</label>
+            </div>
+        </div><!-- Col -->
 
-            <textarea name="long_descp" class="form-control" name="tinymce" id="tinymceExample" rows="10"></textarea>
 
-        </div>
-    </div><!-- Col -->
+
+      <div class="col-sm-12">
+            <div class="mb-3">
+                <label class="form-label">Long Description</label>
+
+                <textarea name="long_descp" class="form-control" name="tinymce" id="tinymceExample" rows="10"></textarea>
+
+            </div>
+        </div><!-- Col -->
 
 
 <hr>
 
-<div class="mb-3">
-        <div class="form-check form-check-inline">
+ <div class="mb-3">
+            <div class="form-check form-check-inline">
 <input type="checkbox" name="featured" value="1" class="form-check-input" id="checkInline1">
-            <label class="form-check-label" for="checkInline1">
-               Features Property 
-            </label>
-        </div>
+                <label class="form-check-label" for="checkInline1">
+                   Features Property 
+                </label>
+            </div>
 
 
-     <div class="form-check form-check-inline">
+         <div class="form-check form-check-inline">
 <input type="checkbox" name="hot" value="1" class="form-check-input" id="checkInline">
-            <label class="form-check-label" for="checkInline">
-                Hot Property 
-            </label>
+                <label class="form-check-label" for="checkInline">
+                    Hot Property 
+                </label>
+            </div>
+
+
         </div>
 
 
-    </div>
-    <!--   //////////// Facilities Option /////////////// -->
+<!--   //////////// Facilities Option /////////////// -->
 
-    <div class="row add_item">
+        <div class="row add_item">
         <div class="col-md-4">
-              <div class="mb-2">
+              <div class="mb-3">
                     <label for="facility_name" class="form-label">Facilities </label>
                     <select name="facility_name[]" id="facility_name" class="form-control">
                           <option value="">Select Facility</option>
@@ -289,9 +297,13 @@
         </div>
  </div> <!---end row-->
 
+
+
  <button type="submit" class="btn btn-primary">Save Changes </button>
 
+
             </form>
+
     </div>
 </div>
 
@@ -307,62 +319,71 @@
 
 			</div>
 
-<!--========== Start of add multiple class with ajax ==============-->
+
+
+
+
+
+ <!--========== Start of add multiple class with ajax ==============-->
 <div style="visibility: hidden">
-    <div class="whole_extra_item_add" id="whole_extra_item_add">
-       <div class="whole_extra_item_delete" id="whole_extra_item_delete">
-          <div class=" mt-2">
-             <div class="row">
- 
-                <div class="form-group col-md-4">
-                   <label for="facility_name">Facilities</label>
-                   <select name="facility_name[]" id="facility_name" class="form-control">
-                         <option value="">Select Facility</option>
-                         <option value="Hospital">Hospital</option>
-                         <option value="SuperMarket">Super Market</option>
-                         <option value="School">School</option>
-                         <option value="Entertainment">Entertainment</option>
-                         <option value="Pharmacy">Pharmacy</option>
-                         <option value="Airport">Airport</option>
-                         <option value="Railways">Railways</option>
-                         <option value="Bus Stop">Bus Stop</option>
-                         <option value="Beach">Beach</option>
-                         <option value="Mall">Mall</option>
-                         <option value="Bank">Bank</option>
-                   </select>
-                </div>
-                <div class="form-group col-md-4">
-                   <label for="distance">Distance</label>
-                   <input type="text" name="distance[]" id="distance" class="form-control" placeholder="Distance (Km)">
-                </div>
-                <div class="form-group col-md-4" style="padding-top: 20px">
-                   <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Add</i></span>
-                   <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remove</i></span>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
- </div>      
- 
- 
- 
-             <!----For Section-------->
- <script type="text/javascript">
-    $(document).ready(function(){
-       var counter = 0;
-       $(document).on("click",".addeventmore",function(){
-             var whole_extra_item_add = $("#whole_extra_item_add").html();
-             $(this).closest(".add_item").append(whole_extra_item_add);
-             counter++;
-       });
-       $(document).on("click",".removeeventmore",function(event){
-             $(this).closest("#whole_extra_item_delete").remove();
-             counter -= 1
-       });
-    });
- </script>
- <!--========== End of add multiple class with ajax ==============-->
+   <div class="whole_extra_item_add" id="whole_extra_item_add">
+      <div class="whole_extra_item_delete" id="whole_extra_item_delete">
+         <div class="container mt-2">
+            <div class="row">
+
+               <div class="form-group col-md-4">
+                  <label for="facility_name">Facilities</label>
+                  <select name="facility_name[]" id="facility_name" class="form-control">
+                        <option value="">Select Facility</option>
+                        <option value="Hospital">Hospital</option>
+                        <option value="SuperMarket">Super Market</option>
+                        <option value="School">School</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Pharmacy">Pharmacy</option>
+                        <option value="Airport">Airport</option>
+                        <option value="Railways">Railways</option>
+                        <option value="Bus Stop">Bus Stop</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Mall">Mall</option>
+                        <option value="Bank">Bank</option>
+                  </select>
+               </div>
+               <div class="form-group col-md-4">
+                  <label for="distance">Distance</label>
+                  <input type="text" name="distance[]" id="distance" class="form-control" placeholder="Distance (Km)">
+               </div>
+               <div class="form-group col-md-4" style="padding-top: 20px">
+                  <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Add</i></span>
+                  <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remove</i></span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>      
+
+
+
+            <!----For Section-------->
+<script type="text/javascript">
+   $(document).ready(function(){
+      var counter = 0;
+      $(document).on("click",".addeventmore",function(){
+            var whole_extra_item_add = $("#whole_extra_item_add").html();
+            $(this).closest(".add_item").append(whole_extra_item_add);
+            counter++;
+      });
+      $(document).on("click",".removeeventmore",function(event){
+            $(this).closest("#whole_extra_item_delete").remove();
+            counter -= 1
+      });
+   });
+</script>
+<!--========== End of add multiple class with ajax ==============-->
+
+
+
+
 
 <script type="text/javascript">
     $(document).ready(function (){
@@ -371,7 +392,7 @@
                 property_name: {
                     required : true,
                 },
-                property_status: {
+                 property_status: {
                     required : true,
                 },
                  lowest_price: {
@@ -383,6 +404,7 @@
                  ptype_id: {
                     required : true,
                 },
+                 
                 
             },
             messages :{
@@ -419,7 +441,8 @@
     
 </script>
 
-<script type="text/javascript">
+
+ <script type="text/javascript">
     function mainThamUrl(input){
         if (input.files && input.files[0]) {
             var reader = new FileReader();

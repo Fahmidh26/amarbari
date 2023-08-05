@@ -39,6 +39,10 @@
   <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
   {{-- Toaster --}}
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+  {{-- Toggle CDN --}}
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
 </head>
 <body>
   <div class="main-wrapper">
