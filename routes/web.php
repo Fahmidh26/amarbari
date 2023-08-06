@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Agent\AgentPropertyController;
+use App\Http\Controllers\Frontend\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -168,6 +169,10 @@ Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name(
             Route::post('/inactive/property', 'InactiveProperty')->name('inactive.property');
 
             Route::post('/active/property', 'ActiveProperty')->name('active.property');
+
+            Route::get('/admin/package/history', 'AdminPackageHistory')->name('admin.package.history');
+
+            Route::get('/package/invoice/{id}', 'PackageInvoice')->name('package.invoice');
         
         });
 
@@ -240,8 +245,17 @@ Route::controller(AgentPropertyController::class)->group(function(){
     
     Route::post('/store/professional/plan', 'StoreProfessionalPlan')->name('store.professional.plan');
 
+    Route::get('/package/history', 'PackageHistory')->name('package.history');
+
+    Route::get('/agent/package/invoice/{id}', 'AgentPackageInvoice')->name('agent.package.invoice');
+
 });
 
 }); // End Group Agent Middleware
+
+
+// Frontend Property Details All Route 
+
+Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']); 
 
 
