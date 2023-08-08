@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>Easy - RealState </title>
+<title>Amar Bari</title>
 <!-- Fav Icon -->
-<link rel="icon" href="{{ asset('frontend/assets/images/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('frontend/assets/images/favicon.png') }}" type="image/x-icon">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <!-- Stylesheets -->
@@ -23,6 +23,14 @@
 <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/responsive.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i9HFrhkBE&callback=initMap&libraries=maps,marker&v=beta">
+</script>
+<script>
+    function initMap() {
+      console.log('Maps JavaScript API loaded.');
+    }
+  </script>
 </head>
 <!-- page wrapper -->
 <body>
@@ -76,6 +84,13 @@
     <script src="{{ asset('frontend/assets/js/jQuery.style.switcher.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/jquery-ui.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/nav-tool.js') }}"></script>
+
+
+    {{-- <!-- map script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i9HFrhkBE"></script>
+    <script src="{{ asset('frontend/assets/js/gmaps.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/map-helper.js') }}"></script> --}}
+
     <!-- main-js -->
     <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
 
@@ -102,9 +117,9 @@
     </script>
 
     <!-- map script -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
-    <script src="{{ asset('frontend/assets/js/gmaps.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/map-helper.js') }}"></script>
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script> --}}
+    {{-- <script src="{{ asset('frontend/assets/js/gmaps.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/map-helper.js') }}"></script> --}}
     
 </body><!-- End of .page_wrapper -->
 </html>

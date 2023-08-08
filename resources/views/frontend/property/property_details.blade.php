@@ -126,20 +126,14 @@
                                         <li><span>City:</span> {{ $property->city }}</li>
                                     </ul>
                                 </ul>
-                                <div class="google-map-area">
-                                    <div 
-                                        class="google-map" 
-                                        id="contact-google-map" 
-                                        data-map-lat="{{ $property->latitude }}" 
-                                        data-map-lng="{{ $property->longitude }}" 
-                                        data-icon-path="{{ asset('frontend/assets/images/icons/map-marker.png') }}"  
-                                        data-map-title="Brooklyn, New York, United Kingdom" 
-                                        data-map-zoom="12" 
-                                        data-markers='{
-                                            "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","{{ asset('frontend/assets/images/icons/map-marker.png') }}"]
-                                        }'>
-                                    </div>
-                                </div>
+                                <div style="height:300px; width:700px;">
+                                    
+                                    <gmp-map center="{{ $property->latitude }},{{ $property->longitude }}" zoom="14" map-id="DEMO_MAP_ID">
+                                        <gmp-advanced-marker position="{{ $property->latitude }},{{ $property->longitude }}" title="My location">
+                                        </gmp-advanced-marker>
+                                      </gmp-map>                                    
+                                </div> 
+                        
                             </div>
                             <div class="nearby-box content-widget">
                                 <div class="title-box">
