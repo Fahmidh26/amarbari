@@ -47,6 +47,13 @@ Route::middleware('auth')->group(function () {
 
 });
 
+ // User WishlistAll Route 
+ Route::controller(WishlistController::class)->group(function(){
+
+    Route::get('/user/wishlist', 'UserWishlist')->name('user.wishlist'); 
+
+});
+
 require __DIR__.'/auth.php';
 
 // START
@@ -255,7 +262,9 @@ Route::controller(AgentPropertyController::class)->group(function(){
 
 
 // Frontend Property Details All Route 
+Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']);
 
-Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']); 
+// Wishlist Add Route 
+  Route::post('/add-to-wishList/{property_id}', [WishlistController::class, 'AddToWishList']);  
 
 

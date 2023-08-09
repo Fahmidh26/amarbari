@@ -9,6 +9,9 @@
 <link rel="icon" href="{{ asset('frontend/assets/images/favicon.png') }}" type="image/x-icon">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<meta name="csrf-token" content="{{ csrf_token() }}" >
+
 <!-- Stylesheets -->
 <link href="{{ asset('frontend/assets/css/font-awesome-all.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/flaticon.css') }}" rel="stylesheet">
@@ -93,7 +96,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
 
     <!-- main-js -->
     <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
@@ -116,7 +119,51 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
      @endif 
     </script>
 
-    <!-- map script -->
+    <script type="text/javascript">
+    // Need to add this for form submit without submit
+      $.ajaxSetup({
+          headers:{
+              'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+          }
+      })
+      
+      // Add To Wishlist 
+      function addToWishList(property_id){
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            url: "/add-to-wishList/"+property_id,
+            success:function(data){
+                // Start Message 
+            const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  
+                  showConfirmButton: false,
+                  timer: 3000 
+            })
+            if ($.isEmptyObject(data.error)) {
+                    
+                    Toast.fire({
+                    type: 'success',
+                    icon: 'success', 
+                    title: data.success, 
+                    })
+            }else{
+               
+           Toast.fire({
+                    type: 'error',
+                    icon: 'error', 
+                    title: data.error, 
+                    })
+                }
+              // End Message  
+            }
+        })
+      }
+  </script>
+
+      <!-- map script -->
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script> --}}
     {{-- <script src="{{ asset('frontend/assets/js/gmaps.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/map-helper.js') }}"></script> --}}

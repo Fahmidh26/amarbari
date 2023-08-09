@@ -36,7 +36,7 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->lim
                                         </div>
                                         <div class="buy-btn pull-right"><a href="property-details.html">For {{ $item->property_status }}</a></div>
                                     </div>
-                                    <div class="title-text"><h4><a href="property-details.html">{{ $item->property_name }}</a></h4></div>
+                                    <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->property_name }}</a></h4></div>
                         <div class="price-box clearfix">
                             <div class="price-info pull-left">
                                 <h6>Start From</h6>
@@ -44,7 +44,7 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->lim
                             </div>
                             <ul class="other-option pull-right clearfix">
                                 <li><a href="property-details.html"><i class="icon-12"></i></a></li>
-                                <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                                <li><a aria-label="Add To Wishlist" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
                             </ul>
                         </div>
                         <p>{{ $item->short_descp }}</p>
@@ -58,8 +58,16 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->lim
                 </div>
             </div>
         </div>
+        
         @endforeach 
-
+{{-- 
+        <div class="container" style="width: 500px; height:250px">
+            <gmp-map center="{{ $item->latitude }},{{ $item->longitude }}" zoom="14" map-id="DEMO_MAP_ID">
+                @foreach($property as $item)
+                <gmp-advanced-marker position="{{ $item->latitude }},{{ $item->longitude }}" title="My location">
+                </gmp-advanced-marker>
+                @endforeach
+              </gmp-map>  </div> --}}
 
                 </div>
                 <div class="more-btn centred"><a href="property-list.html" class="theme-btn btn-one">View All Listing</a></div>
