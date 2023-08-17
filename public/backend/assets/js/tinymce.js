@@ -1,6 +1,3 @@
-// npm package: tinymce
-// github link: https://github.com/tinymce/tinymce
-
 $(function() {
   'use strict';
 
@@ -26,8 +23,17 @@ $(function() {
           content: 'Test 2'
         }
       ],
-      content_css: []
+      content_css: [],
+      setup: function(editor) {
+        editor.on('BeforeSetContent', function(e) {
+          // Unescape HTML entities before rendering
+          e.content = tinymce.html.Entities.decode(e.content);
+        });
+        editor.on('SaveContent', function(e) {
+          // Escape HTML entities before saving
+          e.content = tinymce.html.Entities.encodeAllRaw(e.content);
+        });
+      }
     });
   }
-
 });

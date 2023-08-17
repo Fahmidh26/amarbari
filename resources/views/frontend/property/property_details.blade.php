@@ -126,7 +126,7 @@
                                         <li><span>City:</span> {{ $property->city }}</li>
                                     </ul>
                                 </ul>
-                                <div style="height:300px; width:700px;">
+                                <div >
                                     
                                     <gmp-map center="{{ $property->latitude }},{{ $property->longitude }}" zoom="14" map-id="DEMO_MAP_ID">
                                         <gmp-advanced-marker position="{{ $property->latitude }},{{ $property->longitude }}" title="My location">
