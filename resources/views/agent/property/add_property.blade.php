@@ -43,7 +43,7 @@
 
     <div class="col-sm-6">
             <div class="form-group mb-3">
-                <label class="form-label">Lowest Price </label>
+                <label class="form-label">Discounted Price </label>
                 <input type="text" name="lowest_price" class="form-control"  >
             </div>
         </div><!-- Col -->
@@ -51,7 +51,7 @@
 
             <div class="col-sm-6">
             <div class="form-group mb-3">
-                <label class="form-label">Max Price </label>
+                <label class="form-label"> Price </label>
                 <input type="text" name="max_price" class="form-control"  >
             </div>
         </div><!-- Col -->

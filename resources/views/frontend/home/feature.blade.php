@@ -40,7 +40,13 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->lim
                         <div class="price-box clearfix">
                             <div class="price-info pull-left">
                                 <h6>Start From</h6>
-                                <h4>TK {{ $item->lowest_price }}</h4>
+                                @if ( $item->lowest_price == NULL)
+                                    <h4>TK {{ $item->max_price }}</h4>
+                                @else
+                                    <h4>TK {{ $item->lowest_price }}</h4>
+                                    <strike class="text-danger font-weight-bold">TK {{ $item->max_price }}</strike>
+                                @endif
+                              
                             </div>
                             <ul class="other-option pull-right clearfix">
                                 <li><a href="property-details.html"><i class="icon-12"></i></a></li>

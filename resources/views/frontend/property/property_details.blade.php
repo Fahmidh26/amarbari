@@ -58,7 +58,12 @@
                                 <li><a href="property-details.html">For {{ $property->property_status }}</a></li>
                             </ul>
                             <div class="price-box pull-right">
-                                <h3>TK {{ $property->lowest_price }}</h3>
+                                @if ( $property->lowest_price == NULL)
+                                    <h4>TK {{ $property->max_price }}</h4>
+                                @else
+                                    <h4>TK {{ $property->lowest_price }}</h4>
+                                    <strike class="text-danger font-weight-bold">TK {{ $property->max_price }}</strike>
+                                @endif
                             </div>
                         </div>
                         <ul class="other-option pull-right clearfix">
@@ -175,10 +180,27 @@
                             </div>
                             <div class="schedule-box content-widget">
                                 <div class="title-box">
-                                    <h4>Schedule A Tour</h4>
+                                    <h4>Contact Us</h4>
                                 </div>
                                 <div class="form-inner">
-                                    <form action="property-details.html" method="post">
+                                    <form action="property-details.html" method="post" class="default-form">
+                                        <div class="form-group">
+                                            <input type="text" name="name" placeholder="Your name" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Your Email" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="phone" placeholder="Phone" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="message" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="form-group message-btn">
+                                            <button type="submit" class="theme-btn btn-one">Send Message</button>
+                                        </div>
+                                    </form>
+                                    {{-- <form action="property-details.html" method="post">
                                         <div class="row clearfix">
                                             <div class="col-lg-6 col-md-12 col-sm-12 column">
                                                 <div class="form-group">
@@ -218,7 +240,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
                         </div>
@@ -256,8 +278,32 @@
                                  @endif 
                     
                                 </div>
-                                <div class="form-inner">
-                                    <form action="property-details.html" method="post" class="default-form">
+                              
+                                <div class="details-box content-widget">
+                                    <style>
+                                        .list-item {
+                                          margin-bottom: 10px; /* Adjust this value as needed */
+                                        }
+                                      
+                                        .list-item strong {
+                                          font-weight: 450; /* Adjust the font weight as needed */
+                                          color: black; /* Adjust the color as needed */
+                                        }
+                                      </style>
+                                      
+                                      <ul>
+                                        <li class="list-item"><strong>Property ID:</strong> <span>{{ $property->property_code }}</span></li>
+                                        <li class="list-item"><strong>Rooms:</strong> <span>{{ $property->bedrooms }}</span></li>
+                                        <li class="list-item"><strong>Garage Size:</strong> <span>{{ $property->garage_size }} Sq Ft</span></li>
+                                        <li class="list-item"><strong>Property Type:</strong> <span>{{ $property->type->type_name }}</span></li>
+                                        <li class="list-item"><strong>Bathrooms:</strong> <span>{{ $property->bathrooms }}</span></li>
+                                        <li class="list-item"><strong>Property Status:</strong> <span>For {{ $property->property_status }}</span></li>
+                                        <li class="list-item"><strong>Property Size:</strong> <span>{{ $property->property_size }} Sq Ft</span></li>
+                                        <li class="list-item"><strong>Garage:</strong> <span>{{ $property->garage }}</span></li>
+                                      </ul>
+                                      
+
+                                    {{-- <form action="property-details.html" method="post" class="default-form">
                                         <div class="form-group">
                                             <input type="text" name="name" placeholder="Your name" required="">
                                         </div>
@@ -273,9 +319,10 @@
                                         <div class="form-group message-btn">
                                             <button type="submit" class="theme-btn btn-one">Send Message</button>
                                         </div>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
+                            
                             <div class="calculator-widget sidebar-widget">
                                 <div class="calculate-inner">
                                     <div class="widget-title">
