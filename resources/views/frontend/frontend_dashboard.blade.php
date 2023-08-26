@@ -12,8 +12,12 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}" >
 
+
+
+
+
 <!-- Stylesheets -->
-<link href="{{ asset('frontend/assets/css/font-awesome-all.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/font-awesome-css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/flaticon.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/owl.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/bootstrap.css') }}" rel="stylesheet">
@@ -26,9 +30,13 @@
 <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/responsive.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+{{-- MAP --}}
 <script async
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i9HFrhkBE&callback=initMap&libraries=maps,marker&v=beta">
 </script>
+
+
 <script>
     function initMap() {
       console.log('Maps JavaScript API loaded.');
@@ -163,11 +171,28 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
       }
   </script>
 
+
       <!-- map script -->
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script> --}}
     {{-- <script src="{{ asset('frontend/assets/js/gmaps.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/map-helper.js') }}"></script> --}}
     
+    <!-- // start load Wishlist Data  -->
+
+<script type="text/javascript">
+  function wishlist(){
+      $.ajax({
+          type: "GET",
+          dataType: 'json',
+          url: "/get-wishlist-property/"
+          success:function(response){
+              $('#wishQty').text(response.wishQty);
+          }
+      })
+  }
+  
+</script>
+
 </body><!-- End of .page_wrapper -->
 </html>
   

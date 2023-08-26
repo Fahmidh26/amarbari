@@ -233,9 +233,68 @@
             <textarea name="long_descp" class="form-control" name="tinymce" id="tinymceExample" rows="10"></textarea>
 
         </div>
+  </div><!-- Col -->
+
+<hr>
+<h6 class="card-title">Legal Information</h6>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="mb-3">
+            <label class="form-label">Division</label>
+            <input type="text" name="division"  class="form-control" >
+        </div>
+    </div><!-- Col -->
+    <div class="col-sm-3">
+        <div class="mb-3">
+            <label class="form-label">District</label>
+            <input type="text" name="district"  class="form-control" >
+        </div>
+    </div><!-- Col -->
+    <div class="col-sm-3">
+        <div class="mb-3">
+            <label class="form-label">Upazila</label>
+             <input type="text" name="upazila"  class="form-control" >
+        </div>
     </div><!-- Col -->
 
+      <div class="col-sm-3">
+        <div class="mb-3">
+            <label class="form-label">Khatiyan Type</label>
+             <input type="text" name="khatiyan_type"  class="form-control" >
+        </div>
+    </div><!-- Col --> 
 
+</div><!-- Row -->
+
+{{-- Second Row --}}
+<div class="row">
+    <div class="col-sm-3">
+        <div class="mb-3">
+            <label class="form-label">Mouja</label>
+            <input type="text" name="mouja"  class="form-control" >
+        </div>
+    </div><!-- Col -->
+    <div class="col-sm-3">
+        <div class="mb-3">
+            <label class="form-label">Khatiyan Number</label>
+            <input type="text" name="khatiyan_no"  class="form-control" >
+        </div>
+    </div><!-- Col -->
+    <div class="col-sm-3">
+        <div class="mb-3">
+            <label class="form-label">Owner's Name</label>
+             <input type="text" name="owner_name"  class="form-control" >
+        </div>
+    </div><!-- Col -->
+
+      <div class="col-sm-3">
+        <div class="mb-3">
+            <label class="form-label">Dag Number</label>
+             <input type="text" name="dag_number"  class="form-control" >
+        </div>
+    </div><!-- Col --> 
+
+</div><!-- Row -->
 <hr>
 
 <div class="mb-3">

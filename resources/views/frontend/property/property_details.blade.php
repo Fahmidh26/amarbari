@@ -2,6 +2,12 @@
 @section('main')
 
 
+<script src="https://kit.fontawesome.com/7e6003b995.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+
    <!--Page Title-->
         <section class="page-title-two bg-color-1 centred">
             <div class="pattern-layer">
@@ -84,6 +90,16 @@
             @endforeach
         </div>
     </div>
+
+                            <div class="discription-box content-widget">
+                                <div class="title-box">
+                                    <h4>Property Address</h4>
+                                </div>
+                                <div class="text">
+                                    <p>{{$property->address}}</p>
+                                </div>
+                            </div>
+
                             <div class="discription-box content-widget">
                                 <div class="title-box">
                                     <h4>Property Description</h4>
@@ -92,6 +108,7 @@
                                     <p>{!! $property->long_descp !!}</p>
                                 </div>
                             </div>
+
                             <div class="details-box content-widget">
                                 <div class="title-box">
                                     <h4>Property Details</h4>
@@ -118,7 +135,26 @@
                                     @endforeach
                                 </ul>
                             </div>
+
                             <div class="location-box content-widget">
+                                <div class="title-box">
+                                    <h4>Legal Information</h4>
+                                </div>
+                                <ul class="info clearfix">
+                                    <li><span>Division:</span> {{ $property->division }}</li> 
+                                    <li><span>District:</span> {{ $property->district }}</li>
+                                    <li><span>Upazila:</span> {{ $property->upazila }}</li>
+                                    <li><span>Khatiyan Type:</span> {{ $property->khatiyan_type }}</li>
+                                    <li><span>Mouja:</span> {{ $property->mouja }}</li>
+                                    <li><span>Khatiyan No:</span> {{ $property->khatiyan_no }}</li>
+                                    <li><span>Owner:</span> {{ $property->owner_name }}</li>
+                                    <li><span>Dag Number:</span> {{ $property->dag_number }}</li>
+                                </ul>
+                                <div class="title-box">
+                                    <a target="_blank" href="https://eporcha.gov.bd/">Verify</a>
+                                </div>
+                            </div>
+                            {{-- <div class="location-box content-widget">
                                 <div class="title-box">
                                     <h4>Location</h4>
                                 </div>
@@ -139,7 +175,7 @@
                                       </gmp-map>                                    
                                 </div> 
                         
-                            </div>
+                            </div> --}}
                             <div class="nearby-box content-widget">
                                 <div class="title-box">
                                     <h4>What’s Nearby?</h4>
@@ -183,24 +219,8 @@
                                     <h4>Contact Us</h4>
                                 </div>
                                 <div class="form-inner">
-                                    <form action="property-details.html" method="post" class="default-form">
-                                        <div class="form-group">
-                                            <input type="text" name="name" placeholder="Your name" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" name="email" placeholder="Your Email" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="phone" placeholder="Phone" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea name="message" placeholder="Message"></textarea>
-                                        </div>
-                                        <div class="form-group message-btn">
-                                            <button type="submit" class="theme-btn btn-one">Send Message</button>
-                                        </div>
-                                    </form>
-                                    {{-- <form action="property-details.html" method="post">
+                                
+                                     <form action="property-details.html" method="post">
                                         <div class="row clearfix">
                                             <div class="col-lg-6 col-md-12 col-sm-12 column">
                                                 <div class="form-group">
@@ -240,7 +260,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form> --}}
+                                    </form> 
                                 </div>
                             </div>
                         </div>
@@ -280,30 +300,10 @@
                                 </div>
                               
                                 <div class="details-box content-widget">
-                                    <style>
-                                        .list-item {
-                                          margin-bottom: 10px; /* Adjust this value as needed */
-                                        }
-                                      
-                                        .list-item strong {
-                                          font-weight: 450; /* Adjust the font weight as needed */
-                                          color: black; /* Adjust the color as needed */
-                                        }
-                                      </style>
-                                      
-                                      <ul>
-                                        <li class="list-item"><strong>Property ID:</strong> <span>{{ $property->property_code }}</span></li>
-                                        <li class="list-item"><strong>Rooms:</strong> <span>{{ $property->bedrooms }}</span></li>
-                                        <li class="list-item"><strong>Garage Size:</strong> <span>{{ $property->garage_size }} Sq Ft</span></li>
-                                        <li class="list-item"><strong>Property Type:</strong> <span>{{ $property->type->type_name }}</span></li>
-                                        <li class="list-item"><strong>Bathrooms:</strong> <span>{{ $property->bathrooms }}</span></li>
-                                        <li class="list-item"><strong>Property Status:</strong> <span>For {{ $property->property_status }}</span></li>
-                                        <li class="list-item"><strong>Property Size:</strong> <span>{{ $property->property_size }} Sq Ft</span></li>
-                                        <li class="list-item"><strong>Garage:</strong> <span>{{ $property->garage }}</span></li>
-                                      </ul>
-                                      
 
-                                    {{-- <form action="property-details.html" method="post" class="default-form">
+                                    
+                                      
+                                 <form action="property-details.html" method="post" class="default-form">
                                         <div class="form-group">
                                             <input type="text" name="name" placeholder="Your name" required="">
                                         </div>
@@ -319,7 +319,7 @@
                                         <div class="form-group message-btn">
                                             <button type="submit" class="theme-btn btn-one">Send Message</button>
                                         </div>
-                                    </form> --}}
+                                    </form> 
                                 </div>
                             </div>
                             
@@ -328,34 +328,35 @@
                                     <div class="widget-title">
                                         <h4>Mortgage Calculator</h4>
                                     </div>
-                                    <form method="post" action="mortgage-calculator.html" class="default-form">
+                                    <form id="mortgage-calculator" class="default-form">
                                         <div class="form-group">
-                                            <i class="fas fa-dollar-sign"></i>
-                                            <input type="number" name="total_amount" placeholder="Total Amount">
+                                            <i><strong> &#2547;</strong></i>
+                                            <input type="number" id="total_amount" placeholder="Total Amount">
                                         </div>
                                         <div class="form-group">
-                                            <i class="fas fa-dollar-sign"></i>
-                                            <input type="number" name="down_payment" placeholder="Down Payment">
+                                            <i><strong> &#2547;</strong></i>
+                                            <input type="number" id="down_payment" placeholder="Down Payment">
                                         </div>
                                         <div class="form-group">
                                             <i class="fas fa-percent"></i>
-                                            <input type="number" name="interest_rate" placeholder="Interest Rate">
+                                            <input type="number" id="interest_rate" placeholder="Interest Rate">
                                         </div>
                                         <div class="form-group">
                                             <i class="far fa-calendar-alt"></i>
-                                            <input type="number" name="loan" placeholder="Loan Terms(Years)">
+                                            <input type="number" id="loan_term" placeholder="Loan Terms (Years)">
                                         </div>
                                         <div class="form-group">
                                             <div class="select-box">
-                                                <select class="wide">
-                                                   <option data-display="Monthly">Monthly</option>
-                                                   <option value="1">Yearly</option>
+                                                <select id="payment_frequency" class="wide">
+                                                    <option value="12">Monthly</option>
+                                                    <option value="1">Yearly</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group message-btn">
-                                            <button type="submit" class="theme-btn btn-one">Calculate Now</button>
+                                            <button type="button" id="calculate_btn" class="theme-btn btn-one">Calculate Now</button>
                                         </div>
+                                         <div id="result"></div>
                                     </form>
                                 </div>
                             </div>
@@ -448,6 +449,26 @@
         </section>
         <!-- subscribe-section end -->
 
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            $("#calculate_btn").click(function() {
+                const totalAmount = parseFloat($("#total_amount").val());
+                const downPayment = parseFloat($("#down_payment").val());
+                const interestRate = parseFloat($("#interest_rate").val()) / 100;
+                const loanTermYears = parseFloat($("#loan_term").val());
+                const paymentFrequency = parseFloat($("#payment_frequency").val());
+        
+                const loanAmount = totalAmount - downPayment;
+                const numberOfPayments = loanTermYears * paymentFrequency;
+                const monthlyInterestRate = interestRate / paymentFrequency;
+                
+                const mortgagePayment = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+                
+                $("#result").html("Your monthly mortgage payment: TK " + mortgagePayment.toFixed(2));
+            });
+        });
+        </script>
+        
 
 @endsection
