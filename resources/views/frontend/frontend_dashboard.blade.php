@@ -10,14 +10,14 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-<meta name="csrf-token" content="{{ csrf_token() }}" >
+<meta name="_token" content="{{ csrf_token() }}">
 
 
 
 
 
 <!-- Stylesheets -->
-<link href="{{ asset('frontend/assets/css/font-awesome-css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/font-awesome-all.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/flaticon.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/owl.css') }}" rel="stylesheet">
 <link href="{{ asset('frontend/assets/css/bootstrap.css') }}" rel="stylesheet">
@@ -80,6 +80,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
             <span class="fal fa-angle-up"></span>
         </button>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jequery plugins -->
     <script src="{{ asset('frontend/assets/js/jquery.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/popper.min.js') }}"></script>
@@ -96,7 +97,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
     <script src="{{ asset('frontend/assets/js/jquery-ui.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/nav-tool.js') }}"></script>
 
-
     {{-- <!-- map script -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i9HFrhkBE"></script>
     <script src="{{ asset('frontend/assets/js/gmaps.js') }}"></script>
@@ -108,6 +108,14 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
+      $(function () {
+    $.ajaxSetup({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+    });
+});
+    </script>
+   
+   <script>
      @if(Session::has('message'))
      var type = "{{ Session::get('alert-type','info') }}"
      switch(type){
@@ -127,13 +135,16 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
      @endif 
     </script>
 
+
+    
+
+    {{-- Wishlist --}}
     <script type="text/javascript">
-    // Need to add this for form submit without submit
-      $.ajaxSetup({
-          headers:{
-              'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-          }
-      })
+      // $.ajaxSetup({
+      //     headers:{
+      //         'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+      //     }
+      // })
       
       // Add To Wishlist 
       function addToWishList(property_id){
@@ -169,7 +180,62 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
             }
         })
       }
-  </script>
+    </script>
+
+<!-- // start load Wishlist Data  -->
+
+<script type="text/javascript">
+  function wishlist(){
+      $.ajax({
+          type: "GET",
+          dataType: 'json',
+          url: "/get-wishlist-property/",
+          success:function(response){
+              $('#wishQty').text(response.wishQty);
+              var rows = ""
+                $.each(response.wishlist, function(key,value){
+                  rows += `<div class="deals-block-one">
+        <div class="inner-box">
+            <div class="image-box">
+                <figure class="image"><img src="/${value.property.property_thambnail}" alt=""></figure>
+                <div class="batch"><i class="icon-11"></i></div>
+                <span class="category">Featured</span>
+                <div class="buy-btn"><a href="#">For ${value.property.property_status}</a></div>
+            </div>
+            <div class="lower-content">
+                <div class="title-text"><h4><a href="">${value.property.property_name}</a></h4></div>
+                <div class="price-box clearfix">
+                    <div class="price-info pull-left">
+                        <h6>Start From</h6>
+                        <h4>$${value.property.lowest_price}</h4>
+                    </div>
+                     
+                </div>
+               
+                <ul class="more-details clearfix">
+                    <li><i class="icon-14"></i>${value.property.bedrooms} Beds</li>
+                    <li><i class="icon-15"></i>${value.property.    bathrooms} Baths</li>
+                    <li><i class="icon-16"></i>${value.property.    property_size} Sq Ft</li>
+                </ul>
+                <div class="other-info-box clearfix">
+                    
+                    <ul class="other-option pull-right clearfix">
+                       
+                        <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> `  
+                });
+      $('#wishlist').html(rows);       
+          }
+      })
+  }
+
+  wishlist();
+  
+</script>
 
 
       <!-- map script -->
@@ -179,19 +245,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
     
     <!-- // start load Wishlist Data  -->
 
-<script type="text/javascript">
-  function wishlist(){
-      $.ajax({
-          type: "GET",
-          dataType: 'json',
-          url: "/get-wishlist-property/"
-          success:function(response){
-              $('#wishQty').text(response.wishQty);
-          }
-      })
-  }
-  
-</script>
 
 </body><!-- End of .page_wrapper -->
 </html>

@@ -54,7 +54,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/get-wishlist-property', 'GetWishlistProperty'); 
 
+
 });
+
 
 require __DIR__.'/auth.php';
 

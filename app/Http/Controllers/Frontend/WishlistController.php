@@ -17,6 +17,9 @@ use Carbon\Carbon;
 class WishlistController extends Controller
 {
     public function AddToWishList(Request $request, $property_id){
+
+        dd("Inside AddToWishList");
+        
         if(Auth::check()){
 
             $exists = Wishlist::where('user_id',Auth::id())->where('property_id',$property_id)->first();
@@ -35,7 +38,9 @@ class WishlistController extends Controller
         }else{
             return response()->json(['error' => 'At First Login Your Account']);
         }
+
     } // End Method 
+
 
     public function UserWishlist(){
 
@@ -55,4 +60,5 @@ class WishlistController extends Controller
         return response()->json(['wishlist' => $wishlist, 'wishQty' => $wishQty]);
 
     }// End Method 
+
 }

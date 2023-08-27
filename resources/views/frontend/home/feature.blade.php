@@ -1,6 +1,8 @@
 @php
 $property = App\Models\Property::where('status','1')->where('featured','1')->orderBy('id','DESC')->limit(3)->get();
+
 @endphp
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
  <section class="feature-section sec-pad bg-color-1">
             <div class="auto-container">
