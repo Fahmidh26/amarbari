@@ -26,6 +26,13 @@ class AgentPropertyController extends Controller
         $property = Property::where('agent_id',$id)->latest()->get();
         return view('agent.property.all_property',compact('property'));
 
+    } // End Method
+    
+    
+    public function addtoW(){
+        dd("Inside Controller");
+        return response()->json(['success' => 'Test Get Method Wish']);
+
     } // End Method 
 
     public function AgentAddProperty(){

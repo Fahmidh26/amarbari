@@ -2,7 +2,9 @@
 $property = App\Models\Property::where('status','1')->where('featured','1')->orderBy('id','DESC')->limit(3)->get();
 
 @endphp
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 
  <section class="feature-section sec-pad bg-color-1">
             <div class="auto-container">
@@ -51,8 +53,8 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->ord
                               
                             </div>
                             <ul class="other-option pull-right clearfix">
-                                <li><a href="property-details.html"><i class="icon-12"></i></a></li>
-                                <li><a aria-label="Add To Wishlist" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
+                               <li><a aria-label="Compare" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
+                               <li><a aria-label="Add To Wishlist" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
                             </ul>
                         </div>
                         <p>{{ $item->short_descp }}</p>
@@ -80,4 +82,6 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->ord
                 </div>
                 <div class="more-btn centred"><a href="property-list.html" class="theme-btn btn-one">View All Listing</a></div>
             </div>
+
+
         </section>
