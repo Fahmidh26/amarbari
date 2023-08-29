@@ -195,8 +195,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
                 <div class="price-box clearfix">
                     <div class="price-info pull-left">
                         <h6>Start From</h6>
-                        
-                        <h4>${value.property.lowest_price === null ? 'TK ' + value.property.max_price : value.property.lowest_price + '<h4">TK ' + value.property.max_price + '</strike>'}</h4>
+                        ${value.property.lowest_price === null ? 
+
+
+                        <h4>${value.property.lowest_price === null ? 'TK ' + value.property.max_price :'TK ' value.property.lowest_price + '<strike class="text-danger">TK ' + value.property.max_price + '</strike>'}</h4>
                       
                     </div>
                      
