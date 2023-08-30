@@ -93,11 +93,11 @@
 
                             <div class="discription-box content-widget">
                                 <div class="title-box">
-                                    <h4>Property Address</h4>
+                                    <h4>{{$property->address}}</h4>
                                 </div>
-                                <div class="text">
+                                {{-- <div class="text">
                                     <p>{{$property->address}}</p>
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="discription-box content-widget">
@@ -136,6 +136,7 @@
                                 </ul>
                             </div>
 
+                            @if(Auth::check())
                             <div class="location-box content-widget">
                                 <div class="title-box">
                                     <h4>Legal Information</h4>
@@ -154,6 +155,7 @@
                                     <a target="_blank" href="https://eporcha.gov.bd/">Verify</a>
                                 </div>
                             </div>
+                            @endif
                             {{-- <div class="location-box content-widget">
                                 <div class="title-box">
                                     <h4>Location</h4>
