@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2023 at 01:56 PM
+-- Generation Time: Aug 30, 2023 at 01:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,6 +43,20 @@ INSERT INTO `amenities` (`id`, `amenitis_name`, `created_at`, `updated_at`) VALU
 (3, 'Refrigerator', NULL, NULL),
 (4, 'fan', NULL, NULL),
 (5, 'gym', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `compares`
+--
+
+CREATE TABLE `compares` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `property_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -122,7 +136,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2023_08_02_151406_create_facilities_table', 4),
 (10, '2023_08_05_160511_create_package_plans_table', 5),
 (11, '2023_08_05_160951_create_package_plans_table', 6),
-(12, '2023_08_09_062822_create_wishlists_table', 7);
+(12, '2023_08_09_062822_create_wishlists_table', 7),
+(13, '2023_08_29_054848_create_compares_table', 8),
+(14, '2023_08_29_062920_create_wishlists_table', 9);
 
 -- --------------------------------------------------------
 
@@ -269,7 +285,7 @@ INSERT INTO `properties` (`id`, `ptype_id`, `amenities_id`, `property_name`, `pr
 (4, '2', 'Refrigerator,fan', 'Sophia Waters', 'sophia-waters', 'AB004', 'rent', '220', '164', 'upload/property/thambnail/1773409997531513.png', 'Voluptatem at volupt', NULL, '5', '2', '1', 'Aut non qui fugiat e', '2000', 'https://www.youtube.com/embed/_-6Ess_OUN4', 'Eiusmod et et offici', 'Ad laborum Assumend', 'Sit adipisicing est', 'Maiores id voluptat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', 2, '1', '2023-08-05 11:12:47', NULL),
 (5, '2', 'Air Conditioning,Refrigerator,fan,gym', 'ifaz er bari', 'ifaz-er-bari', 'AB004', 'rent', '20000', '50000', 'upload/property/thambnail/1773546748014522.jpg', 'saddsc asdsdads', '<p><span style=\"color: rgb(255, 255, 255);\">sadads sadasdasd asdasd</span></p>', '8', '4', '2', '2000', '50000', 'https://www.youtube.com/embed/_-6Ess_OUN4', 'West Wind Point, Shahjadpur, Dhaka 1212', 'Dhaka', '22.356852', '91.783180', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, '1', '2023-08-06 23:26:24', '2023-08-08 04:31:28'),
 (6, '4', 'Air Conditioning,Refrigerator,gym', 'JKH', 'jkh', 'AB005', 'rent', '200', '1800', 'upload/property/thambnail/1773742561560924.jpg', 'sdda vasdads', '<p>asdds asdads asdads</p>', '2', '1', '1', '1500', '20000', 'https://www.youtube.com/embed/hXM0w1DPL3I', 'West Wind Point, Shahjadpur, Dhaka 1212', 'Dhaka', '23.810331', '90.412521', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, '1', '2023-08-09 03:18:45', NULL),
-(7, '2', 'gym', 'Lysandra Kelley', 'lysandra-kelley', 'AB006', 'rent', '688', '277', 'upload/property/thambnail/1774923693639763.PNG', 'Nostrum occaecat iur', NULL, 'Dolore mollit fuga', 'Commodi laboriosam', 'Expedita sunt expedi', 'Distinctio Non ut m', 'Exercitationem magni', 'Id molestiae accusa', 'Sed velit odit sit v', 'Culpa quibusdam ver', 'Iste nostrum aut eni', 'Aut laboris Nam ipsu', 'Non in suscipit id n', 'Omnis molestiae sit', 'Eu et est amet corr', 'Est esse do officia', 'Aut placeat volupta', 'Voluptatibus aute it', 'Shelley Woods', '875as', '1', '1', 4, '1', '2023-08-22 04:12:21', NULL);
+(7, '2', 'gym', 'Lysandra Kelley', 'lysandra-kelley', 'AB006', 'rent', '', '277', 'upload/property/thambnail/1774923693639763.PNG', 'Nostrum occaecat iur', NULL, 'Dolore mollit fuga', 'Commodi laboriosam', 'Expedita sunt expedi', 'Distinctio Non ut m', 'Exercitationem magni', 'Id molestiae accusa', 'Sed velit odit sit v', 'Culpa quibusdam ver', 'Iste nostrum aut eni', 'Aut laboris Nam ipsu', 'Non in suscipit id n', 'Omnis molestiae sit', 'Eu et est amet corr', 'Est esse do officia', 'Aut placeat volupta', 'Voluptatibus aute it', 'Shelley Woods', '875as', '1', '1', 4, '1', '2023-08-22 04:12:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -347,6 +363,15 @@ CREATE TABLE `wishlists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `wishlists`
+--
+
+INSERT INTO `wishlists` (`id`, `user_id`, `property_id`, `created_at`, `updated_at`) VALUES
+(3, 3, 7, '2023-08-29 00:53:35', NULL),
+(4, 3, 6, '2023-08-29 00:53:36', NULL),
+(5, 3, 5, '2023-08-29 00:53:45', NULL);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -354,6 +379,12 @@ CREATE TABLE `wishlists` (
 -- Indexes for table `amenities`
 --
 ALTER TABLE `amenities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `compares`
+--
+ALTER TABLE `compares`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -437,6 +468,12 @@ ALTER TABLE `amenities`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `compares`
+--
+ALTER TABLE `compares`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
@@ -452,7 +489,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `multi_images`
@@ -494,7 +531,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
