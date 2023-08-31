@@ -9,6 +9,7 @@ use App\Models\MultiImage;
 use App\Models\Facility;
 use App\Models\Amenities;
 use App\Models\PackagePlan;
+use App\Models\PropertyMessage;
 use App\Models\PropertyType;
 use App\Models\User;
 use Intervention\Image\Facades\Image;
@@ -521,4 +522,22 @@ public function AgentUpdatePropertyThambnail(Request $request){
         return $pdf->download('invoice.pdf');
 
     }// End Method 
+
+    public function AgentPropertyMessage(){
+
+        $id = Auth::user()->id;
+        $usermsg = PropertyMessage::where('agent_id',$id)->get();
+        return view('agent.message.all_message',compact('usermsg'));
+
+    }// End Method
+    
+    public function AgentMessageDetails($id){
+
+        $uid = Auth::user()->id;
+        $usermsg = PropertyMessage::where('agent_id',$uid)->get();
+
+        $msgdetails = PropertyMessage::findOrFail($id);
+        return view('agent.message.message_details',compact('usermsg','msgdetails'));
+
+    }// End Method  
 }

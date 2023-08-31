@@ -61,6 +61,18 @@ Route::controller(WishlistController::class)->group(function(){
 });
 
 
+// User Compare All Route 
+Route::controller(CompareController::class)->group(function(){
+
+    Route::get('/user/compare', 'UserCompare')->name('user.compare');
+
+    Route::get('/get-compare-property', 'GetCompareProperty');
+
+    Route::get('/compare-remove/{id}', 'CompareRemove');
+
+});
+
+
 require __DIR__.'/auth.php';
 
 // START
@@ -187,6 +199,10 @@ Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name(
             Route::get('/admin/package/history', 'AdminPackageHistory')->name('admin.package.history');
 
             Route::get('/package/invoice/{id}', 'PackageInvoice')->name('package.invoice');
+
+            Route::get('/admin/property/message/', 'AdminPropertyMessage')->name('admin.property.message');
+
+            Route::get('/admin/message/details/{id}', 'AdminMessageDetails')->name('admin.message.details'); 
         
         });
 
@@ -243,6 +259,10 @@ Route::controller(AgentPropertyController::class)->group(function(){
 
     Route::get('/agent/delete/property/{id}', 'AgentDeleteProperty')->name('agent.delete.property'); 
 
+    Route::get('/agent/property/message/', 'AgentPropertyMessage')->name('agent.property.message'); 
+
+    Route::get('/agent/message/details/{id}', 'AgentMessageDetails')->name('agent.message.details');   
+
 });
 
 
@@ -275,4 +295,11 @@ Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDe
 Route::post('/add-to-wishList/{property_id}', [WishlistController::class, 'AddToWishList']); 
 
 // Compare Add Route 
-Route::post('/add-to-compare/{property_id}', [CompareController::class, 'AddToCompare']);   
+Route::post('/add-to-compare/{property_id}', [CompareController::class, 'AddToCompare']); 
+
+// Send Message from Property Details Page 
+Route::post('/property/message', [IndexController::class, 'PropertyMessage'])->name('property.message');
+
+// Agent Details Page in Frontend 
+Route::get('/agent/details/{id}', [IndexController::class, 'AgentDetails'])->name('agent.details');
+
