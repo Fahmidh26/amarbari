@@ -93,7 +93,7 @@
 
 
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-9">
             <div class="mb-3">
                 <label class="form-label">Address</label>
                 <input type="text" name="address"  class="form-control" value="{{ $property->address }}" >
@@ -102,22 +102,34 @@
         <div class="col-sm-3">
             <div class="mb-3">
                 <label class="form-label">City</label>
-                <input type="text" name="city"  class="form-control" value="{{ $property->city }}" >
+                <select name="city" class="form-select" id="exampleFormControlSelect1">
+                    <option value="{{ $property->city }}" selected="">{{ $property->pstate->state_name }}</option>
+                   @foreach($pstate as $state)
+                    <option value="{{ $state->id }}">{{ $state->state_name }}</option>
+                   @endforeach
+                </select>
             </div>
         </div><!-- Col -->
-        <div class="col-sm-3">
+        {{-- <div class="col-sm-3">
             <div class="mb-3">
                 <label class="form-label">State</label>
-                 <input type="text" name="state"  class="form-control" value="{{ $property->state }}" >
+                <select name="state" class="form-select" id="exampleFormControlSelect1">
+                    <option value="{{ $property->city }}" selected="" disabled="">{{ $property->pstate->state_name }}</option>
+                   @foreach($pstate as $state)
+                    <option value="{{ $state->id }}">{{ $state->state_name }}</option>
+                   @endforeach
+                </select>
             </div>
-        </div><!-- Col -->
+        </div> --}}
+        <!-- Col -->
 
-          <div class="col-sm-3">
+          {{-- <div class="col-sm-3">
             <div class="mb-3">
                 <label class="form-label">Postal Code </label>
                  <input type="text" name="postal_code"  class="form-control" value="{{ $property->postal_code }}" >
             </div>
-        </div><!-- Col --> 
+        </div> --}}
+        <!-- Col --> 
 
     </div><!-- Row -->
 

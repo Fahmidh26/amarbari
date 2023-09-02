@@ -16,6 +16,7 @@ use Intervention\Image\Facades\Image;
 use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\PropertyMessage;
+use App\Models\State;
 use Illuminate\Support\Facades\Auth;
 
 class PropertyController extends Controller
@@ -31,8 +32,9 @@ class PropertyController extends Controller
 
         $propertytype = PropertyType::latest()->get();
         $amenities = Amenities::latest()->get();
+        $pstate = State::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
-        return view('backend.property.add_property',compact('propertytype','amenities','activeAgent'));
+        return view('backend.property.add_property',compact('propertytype','amenities','activeAgent','pstate'));
 
     }// End Method 
 
@@ -143,7 +145,7 @@ class PropertyController extends Controller
 
         $property = Property::findOrFail($id);
         $facilities = Facility::where('property_id',$id)->get();
-
+        $pstate = State::latest()->get();
         $type = $property->amenities_id;
         $property_ami = explode(',', $type);
 
@@ -153,7 +155,7 @@ class PropertyController extends Controller
         $amenities = Amenities::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
-        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent','property_ami','multiImage','facilities'));
+        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent','property_ami','multiImage','facilities','pstate'));
 
     }// End Method
     
