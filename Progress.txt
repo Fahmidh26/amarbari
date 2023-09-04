@@ -1,9 +1,6 @@
 126 Done
-171 Video Start
+182 Video Start
 
 
 ////////////////////////////////////////////
 119- Map | Stuck for map
-
-////////////////////////////////////////////
-122- Wishlist could solve ajax request

@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Agent\AgentPropertyController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Frontend\CompareController;
@@ -256,6 +257,39 @@ Route::controller(TestimonialController::class)->group(function(){
 
 });
 
+    // Blog Cateory All Route 
+    Route::controller(BlogController::class)->group(function(){
+
+        Route::get('/all/blog/category', 'AllBlogCategory')->name('all.blog.category');
+
+        Route::post('/store/blog/category', 'StoreBlogCategory')->name('store.blog.category'); 
+
+        Route::get('/blog/category/{id}', 'EditBlogCategory');
+
+        Route::post('/update/blog/category', 'UpdateBlogCategory')->name('update.blog.category');
+
+        Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');  
+
+    });
+
+
+        // Testimonials  All Route 
+    Route::controller(BlogController::class)->group(function(){
+
+        Route::get('/all/post', 'AllPost')->name('all.post'); 
+      
+        Route::get('/add/post', 'AddPost')->name('add.post');
+      
+        Route::post('/store/post', 'StorePost')->name('store.post'); 
+
+        Route::get('/edit/post/{id}', 'EditPost')->name('edit.post');
+     
+        Route::post('/update/post', 'UpdatePost')->name('update.post');
+     
+        Route::get('/delete/post/{id}', 'DeletePost')->name('delete.post');  
+
+    });
+
 }); // End Group Admin Middleware
 
 
@@ -356,3 +390,6 @@ Route::post('/rent/property/search', [IndexController::class, 'RentPropertySeach
 
  // All Property Seach Option
  Route::post('/all/property/search', [IndexController::class, 'AllPropertySeach'])->name('all.property.search');
+
+  // Blog Details Route 
+  Route::get('/blog/details/{slug}', [BlogController::class, 'BlogDetails']);
