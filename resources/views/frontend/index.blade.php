@@ -42,7 +42,7 @@
 
 
         <!-- team-section -->
-        @include('frontend.home.team')
+        {{-- @include('frontend.home.team') --}}
         <!-- team-section end -->
 
 
@@ -52,7 +52,7 @@
 
 
         <!-- news-section -->
-        @include('frontend.home.news')
+        {{-- @include('frontend.home.news') --}}
         <!-- news-section end -->
 
 
