@@ -264,8 +264,39 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                         <div class="property-sidebar default-sidebar">
+
+                            {{-- STATA CALCULATOR --}}
+                            <div class="author-widget sidebar-widget">
+                                <div class="widget-title">
+                                    <h4>Smart Home Estimate</h4>
+                                    <span style="font-size: 10px">Powered By STATA</span>
+                                </div>
+                            
+                                  @php
+                                      $pOfL = 43000;
+                                      $pBedroom = 15100;
+
+                                  @endphp
+                                        <p>Upgrade Cost</p>
+                                    <span>{{($property->bedrooms * $pBedroom) + $pOfL}}</span>
+
+                                   
+                                 <br>
+                                
+                                 <p>New Upgraded Value</p>
+                                 <span><a href="#" style="font-size:20px"> TK {{$property->lowest_price * 1.10}} </a></span>
+                                 <hr>
+                                 <p style="font-size: 10px">One Click Away from making your home SMART</p>
+                                 <a style="font-size: 14px" href="https://stataglobal.com/">stataglobal.com</a>
+                                   
+                               
+                            </div>
+
+                            {{-- STATA CALCULATOR END--}}
+
                             <div class="author-widget sidebar-widget">
                                 <div class="author-box">
                     
