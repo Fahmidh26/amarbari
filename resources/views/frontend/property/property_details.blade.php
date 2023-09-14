@@ -32,7 +32,14 @@
             <div class="auto-container">
                 <div class="top-details clearfix">
                     <div class="left-column pull-left clearfix">
-                        <h3>{{ $property->property_name }}</h3>
+                        <div class="row">
+                            <div class="col"><h3>{{ $property->property_name }}</h3></div>
+                            <div class="col-1">
+                                <a href="https://stataglobal.com/" data-toggle="tooltip" data-placement="top" title="This Home is smart"><i class="fa fa-check text-success" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                       
+                        <h5>{{$property->address}}</h5>
                         <div class="author-info clearfix">
                             <div class="author-box pull-left">
                   @if($property->agent_id == Null)
@@ -91,23 +98,14 @@
         </div>
     </div>
 
-                            <div class="discription-box content-widget">
+                            {{-- <div class="discription-box content-widget">
                                 <div class="title-box">
                                     <h4>{{$property->address}}</h4>
                                 </div>
-                                {{-- <div class="text">
-                                    <p>{{$property->address}}</p>
-                                </div> --}}
-                            </div>
+                              
+                            </div> --}}
 
-                            <div class="discription-box content-widget">
-                                <div class="title-box">
-                                    <h4>Property Description</h4>
-                                </div>
-                                <div class="text">
-                                    <p>{!! $property->long_descp !!}</p>
-                                </div>
-                            </div>
+                    
 
                             <div class="details-box content-widget">
                                 <div class="title-box">
@@ -134,6 +132,14 @@
                                     <li>{{ $amen }}</li>
                                     @endforeach
                                 </ul>
+                            </div>
+                            <div class="discription-box content-widget">
+                                <div class="title-box">
+                                    <h4>Property Description</h4>
+                                </div>
+                                <div class="text">
+                                    <p>{!! $property->long_descp !!}</p>
+                                </div>
                             </div>
 
                             @if(Auth::check())
@@ -297,7 +303,79 @@
 
                             {{-- STATA CALCULATOR END--}}
 
-                            <div class="author-widget sidebar-widget">
+
+                             {{-- Land Calculator --}}
+                            <div class="calculator-widget sidebar-widget">
+                                <div class="calculate-inner">
+                                    <div class="widget-title">
+                                        <h4>Land Conversion</h4>
+                                    </div>
+                                    <form id="land-calculator" class="default-form">
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <input type="number" id="total_amount" placeholder="From">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <div class="select-box">
+                                                        <select id="payment_frequency" class="wide">
+                                                            <option value="12">Monthly</option>
+                                                            <option value="1">Yearly</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <br>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <input type="number" id="total_amount" placeholder="To">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <div class="select-box">
+                                                        <select id="payment_frequency" class="wide">
+                                                            <option value="12">Monthly</option>
+                                                            <option value="1">Yearly</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                      
+                                   
+                                        
+                                        <div class="form-group message-btn">
+                                            <button type="button" id="calculate_btn" class="theme-btn btn-one">Calculate Now</button>
+                                        </div>
+                                         <div id="result"></div>
+                                    </form>
+                                </div>
+                                <table>
+                                    <tr>
+                                      <th>Company</th>
+                                      <th>Contact</th>
+                                    </tr>
+                                    <tr>
+                                      <td>Alfreds Futterkiste</td>
+                                      <td>Maria Anders</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Centro comercial Moctezuma</td>
+                                      <td>Francisco Chang</td>
+
+                                    </tr>
+                                  </table>
+                            </div>
+                            {{-- Land Calculator END --}}
+
+                            {{-- <div class="author-widget sidebar-widget">
                                 <div class="author-box">
                     
                                  @if($property->agent_id == Null)
@@ -405,7 +483,7 @@
                                     
                                     
                                     
-                                    </div>
+                                    </div> --}}
                                     
                                       
                                 
