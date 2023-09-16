@@ -124,6 +124,19 @@
 
                                 </div>
                             </div>
+
+                            {{-- MAP --}}
+                            <div class="item-shorting clearfix">
+                                <gmp-map center="{{ $centerLat }},{{ $centerLng }}" zoom="10" map-id="73bb0dcf80d7bebe" style="width: 720px; height:300px">
+                                    @foreach($property as $item)
+                                    <gmp-advanced-marker position="{{ $item->latitude }},{{ $item->longitude }}" title="My location">
+                                    </gmp-advanced-marker>
+                                    @endforeach
+                                  </gmp-map>   
+                                
+                            </div>
+                            {{-- MAP END --}}
+
                             <div class="wrapper list">
                                 <div class="deals-list-content list-item">
 

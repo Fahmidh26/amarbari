@@ -154,9 +154,25 @@ class IndexController extends Controller
     public function StateDetails($id){
 
         $property = Property::where('status','1')->where('city',$id)->get();
- 
+        
+        // Initialize variables to calculate the center
+    $centerLat = 0;
+    $centerLng = 0;
+
+    foreach ($property as $item) {
+        // Add the latitude and longitude of each property to the center variables
+        $centerLat += $item->latitude;
+        $centerLng += $item->longitude;
+    }
+
+      // Calculate the center by taking the average
+      $centerLat /= count($property);
+      $centerLng /= count($property);
+
+
+        
         $bstate = State::where('id',$id)->first();
-         return view('frontend.property.state_property',compact('property','bstate'));
+         return view('frontend.property.state_property',compact('property','bstate','centerLat', 'centerLng'));
  
      }// End Method
 
