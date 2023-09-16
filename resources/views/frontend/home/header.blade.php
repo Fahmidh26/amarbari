@@ -3,11 +3,11 @@
     <div class="header-top">
         <div class="top-inner clearfix">
             <div class="left-column pull-left">
-                <ul class="info clearfix">
+                {{-- <ul class="info clearfix">
                     <li><i class="far fa-map-marker-alt"></i>Discover St, New York, NY 10012, USA</li>
                     <li><i class="far fa-clock"></i>Mon - Sat  9.00 - 18.00</li>
                     <li><i class="far fa-phone"></i><a href="tel:2512353256">+251-235-3256</a></li>
-                </ul>
+                </ul> --}}
             </div>
             <div class="right-column pull-right">
                 <ul class="social-links clearfix">
@@ -93,9 +93,9 @@
                         <!--Keep This Empty / Menu will come through Javascript-->
                     </nav>
                 </div>
-                <div class="btn-box">
+                {{-- <div class="btn-box">
                     <a href="index.html" class="theme-btn btn-one"><span>+</span>Add Listing</a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
