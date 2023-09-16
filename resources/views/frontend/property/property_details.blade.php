@@ -105,7 +105,12 @@
                               
                             </div> --}}
 
-                    
+                            <div class="amenities-box content-widget">
+                                <gmp-map center="{{ $property->latitude }},{{ $property->longitude }}" zoom="14" map-id="DEMO_MAP_ID" style="width: 720px; height:300px">
+                                    <gmp-advanced-marker position="{{ $property->latitude }},{{ $property->longitude }}" title="My location">
+                                    </gmp-advanced-marker>
+                                  </gmp-map>      
+                            </div>
 
                             <div class="details-box content-widget">
                                 <div class="title-box">
@@ -133,6 +138,7 @@
                                     @endforeach
                                 </ul>
                             </div>
+                       
                             <div class="discription-box content-widget">
                                 <div class="title-box">
                                     <h4>Property Description</h4>
@@ -177,10 +183,7 @@
                                 </ul>
                                 <div >
                                     
-                                    <gmp-map center="{{ $property->latitude }},{{ $property->longitude }}" zoom="14" map-id="DEMO_MAP_ID">
-                                        <gmp-advanced-marker position="{{ $property->latitude }},{{ $property->longitude }}" title="My location">
-                                        </gmp-advanced-marker>
-                                      </gmp-map>                                    
+                                                              
                                 </div> 
                         
                             </div> --}}
