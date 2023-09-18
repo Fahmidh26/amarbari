@@ -306,27 +306,26 @@
 
                             {{-- STATA CALCULATOR END--}}
 
-
                              {{-- Land Calculator --}}
                             <div class="calculator-widget sidebar-widget">
                                 <div class="calculate-inner">
                                     <div class="widget-title">
                                         <h4>Land Conversion</h4>
                                     </div>
-                                    <form id="land-calculator" class="default-form">
+                                     <form id="land-calculator" class="default-form">
 
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <input type="number" id="total_amount" placeholder="From">
+                                                    <input type="number" id="input" placeholder="From">
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
                                                     <div class="select-box">
-                                                        <select id="payment_frequency" class="wide">
-                                                            <option value="12">Monthly</option>
-                                                            <option value="1">Yearly</option>
+                                                        <select id="from" class="wide">
+                                                            <option value="1">Bigha</option>
+                                                            <option value="20">Katha</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -336,55 +335,52 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <input type="number" id="total_amount" placeholder="To">
+                                                    {{-- <input type="number" id="to" placeholder="To"> --}}
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
                                                     <div class="select-box">
-                                                        <select id="payment_frequency" class="wide">
-                                                            <option value="12">Monthly</option>
-                                                            <option value="1">Yearly</option>
+                                                        <select id="to" class="wide">
+                                                            <option value="1">Bigha</option>
+                                                            <option value="20">Katha</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <br>
-                                      
-                                   
+                    
                                         
                                         <div class="form-group message-btn">
-                                            <button type="button" id="calculate_btn" class="theme-btn btn-one">Calculate Now</button>
+                                            <button type="button" id="calculate_btn_convert" class="theme-btn btn-one">Calculate Now</button>
                                         </div>
-                                         <div id="result"></div>
-                                    </form>
+                                         <div id="resultConvert"></div>
+                                    </form> 
+                                {{-- TEST --}}
+
+                              
+                               
+                                {{-- TEST END --}}
+
                                 </div>
                                 <table class="table">
-                                    <tr>
-                                        <td>100 Ojutangsho</td>
-                                        <td>1 Shotok</td>
-                                        <td>435.6 Sq Feet</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1 Katha</td>
-                                        <td>1.65 Shotok</td>
-                                        <td>720 Sq Feet</td>
-                                      </tr>
                                     <tr>
                                       <td>33 Shotok</td>
                                       <td>20 Kattah</td>
                                       <td>1 Bigha</td>
                                     </tr>
                                     <tr>
-                                      <td>100 Shotok</td>
-                                      <td>3 Bigha</td>
-                                      <td>1 Acre</td>
+                                      <td>1 Katha</td>
+                                      <td>720 Sq Feet</td>
+                                      <td>165 Ojutangsho</td>
                                     </tr>
-                                  
+                                    <tr>
+                                      <td>100 Ojutangsho</td>
+                                      <td>1 Shotok</td>
+                                      <td>435.6 Sq Feet</td>
+                                    </tr>
                                   </table>
-                                  *Decimal = Shotok = Shotangsho
-                                 <br> <a href="https://minland.gov.bd/site/page/4e44d7ef-2c36-4483-aa4e-77b294de729c">**Get more information here</a>
                             </div>
                             {{-- Land Calculator END --}}
 
@@ -647,6 +643,31 @@
             });
         });
         </script>
+
+
+{{-- CONVERSION SCRIPT --}}
+
+<script>
+    $(document).ready(function() {
+        $("#calculate_btn_convert").click(function() {
+            const to = parseFloat($("#to").val());
+            const from = parseFloat($("#from").val());
+            const input = parseFloat($("#input").val());
+
+            let converted; // Declare the variable here
+
+          if (to < from) {
+             converted = input * (to * from);
+          } else {
+             converted = input * (from / to);
+          }
+         
+
+            $("#resultConvert").html("Your Convertion : " + converted);
+        });
+    });
+    </script>
+{{-- CONVERSION SCRIPT END--}}
         
 
 @endsection

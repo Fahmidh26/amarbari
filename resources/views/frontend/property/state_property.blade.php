@@ -127,7 +127,7 @@
 
                             {{-- MAP --}}
                             <div class="item-shorting clearfix">
-                                <gmp-map center="{{ $centerLat }},{{ $centerLng }}" zoom="10" map-id="73bb0dcf80d7bebe" style="width: 720px; height:300px">
+                                <gmp-map center="23.684994,90.356331" zoom="1" map-id="73bb0dcf80d7bebe" style="width: 720px; height:300px">
                                     @foreach($property as $item)
                                     <gmp-advanced-marker position="{{ $item->latitude }},{{ $item->longitude }}" title="My location">
                                     </gmp-advanced-marker>
