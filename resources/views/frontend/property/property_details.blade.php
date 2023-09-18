@@ -299,7 +299,7 @@
                                  <span><a href="#" style="font-size:20px"> TK {{$property->lowest_price * 1.10}} </a></span>
                                  <hr>
                                  <p style="font-size: 10px">One Click Away from making your home SMART</p>
-                                 <a style="font-size: 14px" href="https://stataglobal.com/">stataglobal.com</a>
+                                 <a style="font-size: 14px" rel=”dofollow” target="_blank" href="https://stataglobal.com/">stataglobal.com</a>
                                    
                                
                             </div>
