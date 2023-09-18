@@ -366,19 +366,24 @@
                                 </div>
                                 <table class="table">
                                     <tr>
+                                        <td>100 Ojutangsho</td>
+                                        <td>1 Shotok</td>
+                                        <td>435.6 Sq Feet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 Katha</td>
+                                        <td>1.65 Shotok</td>
+                                        <td>720 Sq Feet</td>
+                                      </tr>
+                                    <tr>
                                       <td>33 Shotok</td>
                                       <td>20 Kattah</td>
                                       <td>1 Bigha</td>
                                     </tr>
                                     <tr>
-                                      <td>1 Katha</td>
-                                      <td>720 Sq Feet</td>
-                                      <td>165 Ojutangsho</td>
-                                    </tr>
-                                    <tr>
-                                      <td>100 Ojutangsho</td>
-                                      <td>1 Shotok</td>
-                                      <td>435.6 Sq Feet</td>
+                                      <td>100 Shotok</td>
+                                      <td>3 Bigha</td>
+                                      <td>1 Acre</td>
                                     </tr>
                                   </table>
                             </div>
