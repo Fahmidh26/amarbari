@@ -360,19 +360,21 @@
                                          <div id="result"></div>
                                     </form>
                                 </div>
-                                <table>
+                                <table class="table">
                                     <tr>
-                                      <th>Company</th>
-                                      <th>Contact</th>
+                                      <td>33 Shotok</td>
+                                      <td>20 Kattah</td>
+                                      <td>1 Bigha</td>
                                     </tr>
                                     <tr>
-                                      <td>Alfreds Futterkiste</td>
-                                      <td>Maria Anders</td>
+                                      <td>1 Katha</td>
+                                      <td>720 Sq Feet</td>
+                                      <td>165 Ojutangsho</td>
                                     </tr>
                                     <tr>
-                                      <td>Centro comercial Moctezuma</td>
-                                      <td>Francisco Chang</td>
-
+                                      <td>100 Ojutangsho</td>
+                                      <td>1 Shotok</td>
+                                      <td>435.6 Sq Feet</td>
                                     </tr>
                                   </table>
                             </div>
