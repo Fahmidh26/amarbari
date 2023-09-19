@@ -386,6 +386,8 @@
                                       <td>1 Acre</td>
                                     </tr>
                                   </table>
+                                  *Decimal = Shotok = Shotangsho
+                                  <br> <a href="https://minland.gov.bd/site/page/4e44d7ef-2c36-4483-aa4e-77b294de729c">**Get more information here</a>
                             </div>
                             {{-- Land Calculator END --}}
 
