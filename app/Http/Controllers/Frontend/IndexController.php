@@ -273,29 +273,5 @@ class IndexController extends Controller
 
         }
     }// End Method 
-
-
-    // TEST CONVERSION FUNCTION
-    public function convert(Request $request)
-    {
-        $from = $request->input('from');
-        $to = $request->input('to');
-        $value = $request->input('value');
-
-        $conversionRates = [
-            'square_meters_to_square_feet' => 10.7639,
-            'square_feet_to_square_meters' => 0.092903,
-        ];
-
-        if ($from === 'square_meters' && $to === 'square_feet') {
-            $result = $value * $conversionRates['square_meters_to_square_feet'];
-        } elseif ($from === 'square_feet' && $to === 'square_meters') {
-            $result = $value * $conversionRates['square_feet_to_square_meters'];
-        } else {
-            return response()->json(['error' => 'Invalid conversion units'], 400);
-        }
-
-        return response()->json(['result' => $result]);
-    }
 } 
 

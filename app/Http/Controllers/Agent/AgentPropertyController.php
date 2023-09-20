@@ -96,6 +96,11 @@ class AgentPropertyController extends Controller
             'garage' => $request->garage,
             'garage_size' => $request->garage_size,
 
+            'smart_home' => $request->smart_home,
+            'doorbell' => $request->doorbell,
+            's_lock' => $request->s_lock,
+            'automated' => $request->automated,
+
             'property_size' => $request->property_size,
             'property_video' => $request->property_video,
             'address' => $request->address,

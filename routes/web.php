@@ -415,5 +415,3 @@ Route::post('/reply/message', [BlogController::class, 'ReplyMessage'])->name('re
 // Schedule Message Request Route 
 Route::post('/store/schedule', [IndexController::class, 'StoreSchedule'])->name('store.schedule');
 
-// TEST CONVERSION
-Route::post('/convert', [IndexController::class, 'convert']);

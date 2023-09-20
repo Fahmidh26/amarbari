@@ -33,9 +33,15 @@
                 <div class="top-details clearfix">
                     <div class="left-column pull-left clearfix">
                         <div class="row">
-                            <div class="col"><h3>{{ $property->property_name }}</h3></div>
-                            <div class="col-1">
-                                <a href="https://stataglobal.com/" data-toggle="tooltip" data-placement="top" title="This Home is smart"><i class="fa fa-check text-success" aria-hidden="true"></i></a>
+                            <div class="col-4"><h3>{{ $property->property_name }}</h3></div>
+                            <div class="col-3">
+                                @if ($property->smart_home && $property->doorbell && $property->s_lock && $property->automated == 1)
+                                <a href="https://stataglobal.com/"><img src="{{ url('upload/smart_home.jpg')}}" alt=""></a>
+                                @else
+                                <a href="https://stataglobal.com/"><img src="{{ url('upload/spi.png')}}" style="width:50px; height:40px" alt=""></a>
+                                @endif
+                              
+                                {{-- <a href="https://stataglobal.com/" data-toggle="tooltip" data-placement="top" title="This Home is smart"><i class="fa fa-check text-success" aria-hidden="true"></i></a> --}}
                             </div>
                         </div>
                        
@@ -126,6 +132,16 @@
                                     <li>Property Status: <span>For {{ $property->property_status }}</span></li>
                                     <li>Property Size: <span>{{ $property->property_size }} Sq Ft</span></li>
                                     <li>Garage: <span>{{ $property->garage }}</span></li>
+                                    @php
+                                        
+                                    @endphp
+                                    <li>Price/Sq ft:
+                                        @if ($property->lowest_price == NULL)
+                                        <span>TK {{ number_format($property->max_price / $property->property_size, 2) }}</span>
+                                    @else
+                                        <span>TK {{ number_format($property->lowest_price / $property->property_size, 2) }}</span>
+                                    @endif
+                                  </li>
                                 </ul>
                             </div>
                             <div class="amenities-box content-widget">
@@ -312,51 +328,28 @@
                                     <div class="widget-title">
                                         <h4>Land Conversion</h4>
                                     </div>
-                                     <form id="land-calculator" class="default-form">
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <input type="number" id="input" placeholder="From">
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <div class="select-box">
-                                                        <select id="from" class="wide">
-                                                            <option value="1">Bigha</option>
-                                                            <option value="20">Katha</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                            <br>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    {{-- <input type="number" id="to" placeholder="To"> --}}
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <div class="select-box">
-                                                        <select id="to" class="wide">
-                                                            <option value="1">Bigha</option>
-                                                            <option value="20">Katha</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br>
-                    
+                                    <form id="calculator-form" class="default-form">
+                                        @csrf
                                         
-                                        <div class="form-group message-btn">
-                                            <button type="button" id="calculate_btn_convert" class="theme-btn btn-one">Calculate Now</button>
+                                           <input type="text" name="num1" id="num1" placeholder="0"><br>
+                                           <select name="operator" id="operator" style="width: 20px;">
+                                                <option value="add">+</option>
+                                                <option value="subtract">-</option>
+                                                <option value="multiply">*</option>
+                                                <option value="divide">/</option>
+                                            </select>
+                                            <br><br><br>
+                                            <input type="text" name="num2" id="num2" placeholder="0">
+                                            {{-- <button type="button" id="calculate-btn">Calculate</button> --}}
+                                        <br>
+                                           <div class="form-group message-btn">
+                                            <button type="button" id="calculate-btn" class="theme-btn btn-one">Calculate Now</button>
                                         </div>
-                                         <div id="resultConvert"></div>
-                                    </form> 
+                                     
+                                    </form>
+                                    <hr>
+                                    <h5>Result: <span id="result"></span></h5>
+                                    <br>
                                 {{-- TEST --}}
 
                               
@@ -537,7 +530,7 @@
                                         <div class="form-group message-btn">
                                             <button type="button" id="calculate_btn" class="theme-btn btn-one">Calculate Now</button>
                                         </div>
-                                         <div id="result"></div>
+                                         <div id="resultm"></div>
                                     </form>
                                 </div>
                             </div>
@@ -646,7 +639,7 @@
                 
                 const mortgagePayment = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
                 
-                $("#result").html("Your monthly mortgage payment: TK " + mortgagePayment.toFixed(2));
+                $("#resultm").html("Your monthly mortgage payment: TK " + mortgagePayment.toFixed(2));
             });
         });
         </script>
@@ -655,25 +648,42 @@
 {{-- CONVERSION SCRIPT --}}
 
 <script>
-    $(document).ready(function() {
-        $("#calculate_btn_convert").click(function() {
-            const to = parseFloat($("#to").val());
-            const from = parseFloat($("#from").val());
-            const input = parseFloat($("#input").val());
+    $(document).ready(function () {
+        $('#calculate-btn').click(function () {
+            var num1 = parseFloat($('#num1').val());
+            var num2 = parseFloat($('#num2').val());
+            var operator = $('#operator').val();
 
-            let converted; // Declare the variable here
+            if (!isNaN(num1) && !isNaN(num2)) {
+                switch (operator) {
+                    case 'add':
+                        var result = num1 + num2;
+                        break;
+                    case 'subtract':
+                        var result = num1 - num2;
+                        break;
+                    case 'multiply':
+                        var result = num1 * num2;
+                        break;
+                    case 'divide':
+                        if (num2 !== 0) {
+                            var result = num1 / num2;
+                        } else {
+                            var result = 'Division by zero error';
+                        }
+                        break;
+                    default:
+                        var result = 'Invalid operator';
+                        break;
+                }
+            } else {
+                var result = 'Please enter valid numbers';
+            }
 
-          if (to < from) {
-             converted = input * (to * from);
-          } else {
-             converted = input * (from / to);
-          }
-         
-
-            $("#resultConvert").html("Your Convertion : " + converted);
+            $('#result').text(result);
         });
     });
-    </script>
+</script>
 {{-- CONVERSION SCRIPT END--}}
         
 
