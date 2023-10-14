@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/statait/public_html/
+    - export DEPLOYPATH=/home1/statait/bari.statait.com/
     - /bin/cp -R * $DEPLOYPATH
