@@ -36,9 +36,9 @@
                             <div class="col-4"><h3>{{ $property->property_name }}</h3></div>
                             <div class="col-3">
                                 @if ($property->smart_home && $property->doorbell && $property->s_lock && $property->automated == 1)
-                                <a href="https://stataglobal.com/"><img src="{{ url('upload/smart_home.jpg')}}" alt=""></a>
+                                <a href="https://stataglobal.com/"><img src="{{ url('upload/smart_home.png')}}" style="width:55px; height:50px" alt=""></a>
                                 @else
-                                <a href="https://stataglobal.com/"><img src="{{ url('upload/spi.png')}}" style="width:50px; height:40px" alt=""></a>
+                                <a href="https://stataglobal.com/"><img src="{{ url('upload/spi.png')}}" style="width:55px; height:50px" alt=""></a>
                                 @endif
                               
                                 {{-- <a href="https://stataglobal.com/" data-toggle="tooltip" data-placement="top" title="This Home is smart"><i class="fa fa-check text-success" aria-hidden="true"></i></a> --}}
