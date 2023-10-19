@@ -16,10 +16,10 @@
             </div>
             <div class="auto-container">
                 <div class="content-box clearfix">
-                    <h1>{{ $property->property_name }}</h1>
+                    <h1>{{ $property->address }}</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index.html">Home</a></li>
-                        <li>{{ $property->property_name }}</li>
+                        <li>{{ $property->address }}</li>
                     </ul>
                 </div>
             </div>
@@ -33,8 +33,8 @@
                 <div class="top-details clearfix">
                     <div class="left-column pull-left clearfix">
                         <div class="row">
-                            <div class="col-4"><h3>{{ $property->property_name }}</h3></div>
-                            <div class="col-3">
+                            <div class="col-11"><h3>{{ $property->address }}</h3></div>
+                            <div class="col-1">
                                 @if ($property->smart_home && $property->doorbell && $property->s_lock && $property->automated == 1)
                                 <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/smart_home.png')}}" style="width:55px; height:50px" alt=""></a>
                                 @else
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                        
-                        <h5>{{$property->address}}</h5>
+                        {{-- <h5>{{$property->address}}</h5> --}}
                         <div class="author-info clearfix">
                             <div class="author-box pull-left">
                   @if($property->agent_id == Null)
@@ -544,7 +544,7 @@
                             <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""></figure>
+                                       <a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}"><figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""></figure></a>
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">{{ $item->type->type_name }}</span>
                                     </div>
@@ -562,13 +562,17 @@
                                          <h6>{{ $item->user->name }}</h6>
                                    @endif    
                                             </div>
-                                            <div class="buy-btn pull-right"><a href="property-details.html">For {{ $item->property_status }}</a></div>
+                                            @if($item->property_status == 'buy')
+                                        <div class="buy-btn pull-right"><a href="{{ route('buy.property') }}">For {{ $item->property_status }}</a></div>
+                                        @else
+                                        <div class="buy-btn pull-right"><a href="{{ route('rent.property') }}">For {{ $item->property_status }}</a></div>
+                                        @endif
                                         </div>
-                                        <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->property_name }}</a></h4></div>
+                                        <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->address }}</a></h4></div>
                                         <div class="price-box clearfix">
                                             <div class="price-info pull-left">
                                                 <h6>Start From</h6>
-                                                <h4>TK {{ $item->lowest_price }}</h4>
+                                                <h4>TK {{ $item->max_price }}</h4>
                                             </div>
                                             <ul class="other-option pull-right clearfix">
                                                 <li><a href="property-details.html"><i class="icon-12"></i></a></li>

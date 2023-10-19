@@ -36,7 +36,11 @@ $property = App\Models\Property::where('status','1')->where('hot','1')->limit(3)
 @endif                     
 
    </div>
-   <div class="buy-btn pull-right"><a href="property-details.html">For {{ $item->property_status }}</a></div>
+                                        @if($item->property_status == 'buy')
+                                        <div class="buy-btn pull-right"><a href="{{ route('buy.property') }}">For {{ $item->property_status }}</a></div>
+                                        @else
+                                        <div class="buy-btn pull-right"><a href="{{ route('rent.property') }}">For {{ $item->property_status }}</a></div>
+                                        @endif
 </div>
 
 <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->address }}</a></h4></div>
