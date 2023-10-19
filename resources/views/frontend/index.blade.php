@@ -1,6 +1,11 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+@section('title')
+  AmarBari
+@endsection
+
+
         <!-- banner-section -->
 
         @include('frontend.home.banner')

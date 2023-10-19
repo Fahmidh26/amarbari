@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2023 at 10:08 AM
+-- Generation Time: Oct 19, 2023 at 01:33 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -96,6 +96,32 @@ INSERT INTO `blog_posts` (`id`, `blogcat_id`, `user_id`, `post_title`, `post_slu
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `user_id`, `post_id`, `parent_id`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, NULL, 'TEST1', 'hello good property', '2023-09-07 01:10:11', NULL),
+(2, 3, 1, 1, 'TEST1 Reply', 'Thanks', '2023-09-07 01:23:04', NULL),
+(3, 3, 1, NULL, 'TEST2', 'hello good property2112 sasad', '2023-09-07 02:21:15', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `compares`
 --
 
@@ -148,7 +174,10 @@ INSERT INTO `facilities` (`id`, `property_id`, `facility_name`, `distance`, `cre
 (13, 5, 'Entertainment', '2', '2023-08-06 23:26:26', '2023-08-06 23:26:26'),
 (14, 6, 'Railways', '2', '2023-08-09 03:18:46', '2023-08-09 03:18:46'),
 (15, 6, 'Beach', '3', '2023-08-09 03:18:46', '2023-08-09 03:18:46'),
-(16, 7, 'Airport', 'Ab dolores officia o', '2023-08-22 04:12:23', '2023-08-22 04:12:23');
+(16, 7, 'Airport', 'Ab dolores officia o', '2023-08-22 04:12:23', '2023-08-22 04:12:23'),
+(17, 8, 'Entertainment', '2', '2023-09-20 04:02:47', '2023-09-20 04:02:47'),
+(18, 8, 'Bus Stop', '3', '2023-09-20 04:02:47', '2023-09-20 04:02:47'),
+(19, 8, 'Beach', '4', '2023-09-20 04:02:47', '2023-09-20 04:02:47');
 
 -- --------------------------------------------------------
 
@@ -201,7 +230,36 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (16, '2023_09_02_070322_create_states_table', 11),
 (17, '2023_09_02_112931_create_testimonials_table', 12),
 (18, '2023_09_03_044209_create_blog_categories_table', 13),
-(19, '2023_09_04_103204_create_blog_posts_table', 14);
+(19, '2023_09_04_103204_create_blog_posts_table', 14),
+(20, '2023_09_07_065359_create_comments_table', 15),
+(21, '2023_09_07_082654_create_schedules_table', 16),
+(22, '2023_10_19_100406_create_site_settings_table', 17),
+(23, '2023_10_19_103348_create_permission_tables', 18),
+(24, '2023_10_19_111106_create_permission_tables', 19);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `model_has_permissions`
+--
+
+CREATE TABLE `model_has_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `model_has_roles`
+--
+
+CREATE TABLE `model_has_roles` (
+  `role_id` bigint(20) UNSIGNED NOT NULL,
+  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -236,7 +294,9 @@ INSERT INTO `multi_images` (`id`, `property_id`, `photo_name`, `created_at`, `up
 (15, 6, 'upload/property/multi-image/1773742562670023.jpg', '2023-08-09 03:18:46', NULL),
 (16, 6, 'upload/property/multi-image/1773742562868405.jpg', '2023-08-09 03:18:46', NULL),
 (17, 7, 'upload/property/multi-image/1774923694759763.jpg', '2023-08-22 04:12:22', NULL),
-(18, 7, 'upload/property/multi-image/1774923695937366.png', '2023-08-22 04:12:22', NULL);
+(18, 7, 'upload/property/multi-image/1774923695937366.png', '2023-08-22 04:12:22', NULL),
+(19, 8, 'upload/property/multi-image/1777550404390665.jpg', '2023-09-20 04:02:47', NULL),
+(20, 8, 'upload/property/multi-image/1777550404731786.jpg', '2023-09-20 04:02:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -278,6 +338,21 @@ CREATE TABLE `password_reset_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `group_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `personal_access_tokens`
 --
 
@@ -308,8 +383,8 @@ CREATE TABLE `properties` (
   `property_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `property_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `property_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lowest_price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `max_price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lowest_price` int(25) DEFAULT NULL,
+  `max_price` int(255) DEFAULT NULL,
   `property_thambnail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `short_descp` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `long_descp` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -331,6 +406,10 @@ CREATE TABLE `properties` (
   `khatiyan_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `owner_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `dag_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `smart_home` int(4) DEFAULT NULL,
+  `doorbell` int(4) DEFAULT NULL,
+  `s_lock` int(4) DEFAULT NULL,
+  `automated` int(4) DEFAULT NULL,
   `featured` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `hot` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `agent_id` int(11) DEFAULT NULL,
@@ -343,12 +422,13 @@ CREATE TABLE `properties` (
 -- Dumping data for table `properties`
 --
 
-INSERT INTO `properties` (`id`, `ptype_id`, `amenities_id`, `property_name`, `property_slug`, `property_code`, `property_status`, `lowest_price`, `max_price`, `property_thambnail`, `short_descp`, `long_descp`, `bedrooms`, `bathrooms`, `garage`, `garage_size`, `property_size`, `property_video`, `address`, `city`, `latitude`, `longitude`, `division`, `district`, `upazila`, `khatiyan_type`, `mouja`, `khatiyan_no`, `owner_name`, `dag_number`, `featured`, `hot`, `agent_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, '2', 'Air Conditioning', 'Shafira Jensen', 'shafira-jensen', 'AB001', 'buy', '200', '211', 'upload/property/thambnail/1773224445495641.jpg', 'Minima amet dolorum', '<p>saas wsaasd sadds</p>', '2', '2', '1', 'Animi id reprehend', '3000', 'https://www.youtube.com/embed/_-6Ess_OUN4', 'Commodo laborum Non', '2', '23.810331', '90.412521', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', 2, '1', '2023-08-03 10:03:30', '2023-08-08 04:30:20'),
-(4, '2', 'Refrigerator,fan', 'Sophia Waters', 'sophia-waters', 'AB004', 'rent', '220', '164', 'upload/property/thambnail/1773409997531513.png', 'Voluptatem at volupt', NULL, '5', '2', '1', 'Aut non qui fugiat e', '2000', 'https://www.youtube.com/embed/_-6Ess_OUN4', 'Eiusmod et et offici', '2', 'Sit adipisicing est', 'Maiores id voluptat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', 2, '1', '2023-08-05 11:12:47', NULL),
-(5, '2', 'Air Conditioning,Refrigerator,fan,gym', 'ifaz er bari', 'ifaz-er-bari', 'AB004', 'rent', '20000', '50000', 'upload/property/thambnail/1773546748014522.jpg', 'saddsc asdsdads', '<p><span style=\"color: rgb(255, 255, 255);\">sadads sadasdasd asdasd</span></p>', '8', '4', '2', '2000', '50000', 'https://www.youtube.com/embed/_-6Ess_OUN4', 'West Wind Point, Shahjadpur, Dhaka 1212', '4', '22.356852', '91.783180', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, '1', '2023-08-06 23:26:24', '2023-09-02 03:41:12'),
-(6, '4', 'Air Conditioning,Refrigerator,gym', 'JKH', 'jkh', 'AB005', 'rent', '200', '1800', 'upload/property/thambnail/1773742561560924.jpg', 'sdda vasdads', '<p>asdds asdads asdads</p>', '2', '1', '1', '1500', '20000', 'https://www.youtube.com/embed/hXM0w1DPL3I', 'West Wind Point, Shahjadpur, Dhaka 1212', '4', '23.810331', '90.412521', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, '1', '2023-08-09 03:18:45', NULL),
-(7, '2', 'gym', 'Lysandra Kelley', 'lysandra-kelley', 'AB006', 'rent', '', '277', 'upload/property/thambnail/1774923693639763.PNG', 'Nostrum occaecat iur', NULL, 'Dolore mollit fuga', 'Commodi laboriosam', 'Expedita sunt expedi', 'Distinctio Non ut m', 'Exercitationem magni', 'Id molestiae accusa', 'Sed velit odit sit v', '2', 'Iste nostrum aut eni', 'Aut laboris Nam ipsu', 'Non in suscipit id n', 'Omnis molestiae sit', 'Eu et est amet corr', 'Est esse do officia', 'Aut placeat volupta', 'Voluptatibus aute it', 'Shelley Woods', '875as', '1', '1', 2, '1', '2023-08-22 04:12:21', NULL);
+INSERT INTO `properties` (`id`, `ptype_id`, `amenities_id`, `property_name`, `property_slug`, `property_code`, `property_status`, `lowest_price`, `max_price`, `property_thambnail`, `short_descp`, `long_descp`, `bedrooms`, `bathrooms`, `garage`, `garage_size`, `property_size`, `property_video`, `address`, `city`, `latitude`, `longitude`, `division`, `district`, `upazila`, `khatiyan_type`, `mouja`, `khatiyan_no`, `owner_name`, `dag_number`, `smart_home`, `doorbell`, `s_lock`, `automated`, `featured`, `hot`, `agent_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, '2', 'Air Conditioning', 'Shafira Jensen', 'shafira-jensen', 'AB001', 'buy', 200, 211, 'upload/property/thambnail/1773224445495641.jpg', 'Minima amet dolorum', '<p>saas wsaasd sadds</p>', '2', '2', '1', 'Animi id reprehend', '3000', 'https://www.youtube.com/embed/_-6Ess_OUN4', 'Commodo laborum Non', '2', '23.810331', '90.412521', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', 2, '1', '2023-08-03 10:03:30', '2023-08-08 04:30:20'),
+(4, '2', 'Refrigerator,fan', 'Sophia Waters', 'sophia-waters', 'AB004', 'rent', 220, 164, 'upload/property/thambnail/1773409997531513.png', 'Voluptatem at volupt', NULL, '5', '2', '1', 'Aut non qui fugiat e', '2000', 'https://www.youtube.com/embed/_-6Ess_OUN4', 'Eiusmod et et offici', '2', '22.356852', '91.783180', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', 2, '1', '2023-08-05 11:12:47', NULL),
+(5, '2', 'Air Conditioning,Refrigerator,fan,gym', 'ifaz er bari', 'ifaz-er-bari', 'AB004', 'rent', 20, 50, 'upload/property/thambnail/1773546748014522.jpg', 'saddsc asdsdads', '<p><span style=\"color: rgb(255, 255, 255);\">sadads sadasdasd asdasd</span></p>', '8', '4', '2', '2000', '50000', 'https://www.youtube.com/embed/_-6Ess_OUN4', 'West Wind Point, Shahjadpur, Dhaka 1212', '4', '23.568235', '89.906921', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, '1', '2023-08-06 23:26:24', '2023-09-02 03:41:12'),
+(6, '4', 'Air Conditioning,Refrigerator,gym', 'JKH', 'jkh', 'AB005', 'rent', 200, 1800, 'upload/property/thambnail/1773742561560924.jpg', 'sdda vasdads', '<p>asdds asdads asdads</p>', '2', '1', '1', '1500', '20000', 'https://www.youtube.com/embed/hXM0w1DPL3I', 'West Wind Point, Shahjadpur, Dhaka 1212', '4', '23.507802', '89.731022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '1', NULL, '1', '2023-08-09 03:18:45', NULL),
+(7, '2', 'gym', 'Lysandra Kelley', 'lysandra-kelley', 'AB006', 'rent', 123, 277, 'upload/property/thambnail/1774923693639763.PNG', 'Nostrum occaecat iur', NULL, '5', '3', 'Expedita sunt expedi', 'Distinctio Non ut m', 'Exercitationem magni', 'Id molestiae accusa', 'Sed velit odit sit v', '2', '22.383335', '91.775451', 'Non in suscipit id n', 'Omnis molestiae sit', 'Eu et est amet corr', 'Est esse do officia', 'Aut placeat volupta', 'Voluptatibus aute it', 'Shelley Woods', '875as', NULL, NULL, NULL, NULL, '1', '1', 2, '1', '2023-08-22 04:12:21', NULL),
+(8, '3', 'Air Conditioning,Refrigerator,fan', 'Rifat Bhai er basha', 'rifat-bhai-er-basha', 'AB007', 'buy', 120000, 150000, 'upload/property/thambnail/1777550403271552.webp', 'west wind point', '<p>asdds asdasd asdasdas asdasd&nbsp;</p>', '3', '2', '2', '200', '5000', 'https://www.youtube.com/embed/y9j-BL5ocW8?si=s_oRklCIueg60Svs', 'West Wind Point, Cha-89/4-5, 2nd Floor Corporate Zone Progati Shoroni, Bir Uttam Rafikul Islam Avenue, Dhaka 1212', '5', '23.810331', '90.412521', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, '1', '1', 2, '1', '2023-09-20 04:02:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -381,7 +461,8 @@ INSERT INTO `property_messages` (`id`, `user_id`, `agent_id`, `property_id`, `ms
 (5, 3, '2', 7, 'User', 'user@gmail.com', 'sa', 'asdadsads', '2023-08-31 04:35:41', NULL),
 (6, 3, '2', 7, 'Usersaasd', 'user@gmail.com', 'ads', 'sdadsacxzcxzcasd asdasd sadadsads', '2023-08-31 04:44:54', NULL),
 (7, 3, NULL, 5, 'User', 'user@gmail.com', 'saddas', 'asdads', '2023-08-31 04:58:09', NULL),
-(8, 3, '2', 7, 'User', 'user@gmail.com', 'asd', 'dsaadsadsda', '2023-09-04 22:30:57', NULL);
+(8, 3, '2', 7, 'User', 'user@gmail.com', 'asd', 'dsaadsadsda', '2023-09-04 22:30:57', NULL),
+(9, 3, '2', 7, 'Fahmid Hasan', 'fahmidh26@gmail.com', '01964870827', 'Rifat Bhai', '2023-09-09 23:41:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -405,6 +486,91 @@ INSERT INTO `property_types` (`id`, `type_name`, `type_icon`, `created_at`, `upd
 (2, 'Apartment', 'icon-1', NULL, NULL),
 (3, 'Office', 'icon-2', NULL, '2023-08-06 01:19:00'),
 (4, 'Plot', 'icon-3', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role_has_permissions`
+--
+
+CREATE TABLE `role_has_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedules`
+--
+
+CREATE TABLE `schedules` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `property_id` int(11) DEFAULT NULL,
+  `agent_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tour_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tour_time` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `schedules`
+--
+
+INSERT INTO `schedules` (`id`, `user_id`, `property_id`, `agent_id`, `tour_date`, `tour_time`, `message`, `status`, `created_at`, `updated_at`) VALUES
+(1, 3, 7, '2', NULL, NULL, NULL, '0', '2023-09-07 02:45:04', NULL),
+(2, 3, 7, '2', NULL, NULL, NULL, '0', '2023-09-07 02:45:19', NULL),
+(3, 3, 7, '2', '09/22/2023', '21', 'xasdasd', '1', '2023-09-07 02:47:21', '2023-09-07 03:43:15'),
+(4, 3, 7, '2', NULL, NULL, NULL, '0', '2023-09-07 02:47:59', NULL),
+(5, 3, 7, '2', NULL, NULL, NULL, '0', '2023-09-07 02:50:12', NULL),
+(6, 3, 7, '2', '09/07/2023', '21', NULL, '0', '2023-09-07 02:53:29', NULL),
+(7, 3, 7, '2', '09/11/2023', '21', 'das', '0', '2023-09-07 03:00:54', NULL),
+(8, 3, 7, '2', '09/20/2023', '21', 'sa', '0', '2023-09-07 03:03:39', NULL),
+(9, 3, 7, '2', '09/22/2023', '21', 'demo email check', '1', '2023-09-13 23:52:50', '2023-09-13 23:54:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_settings`
+--
+
+CREATE TABLE `site_settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `support_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `copyright` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `site_settings`
+--
+
+INSERT INTO `site_settings` (`id`, `logo`, `support_phone`, `company_address`, `email`, `facebook`, `twitter`, `copyright`, `created_at`, `updated_at`) VALUES
+(1, 'upload/logo/1780178957189104.jpg', '2132', 'sad', 'sda@gmail.com', 'sda', 'das', 'ads', NULL, '2023-10-19 04:22:30');
 
 -- --------------------------------------------------------
 
@@ -483,7 +649,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `photo`, `phone`, `address`, `role`, `status`, `credit`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$6NOqq47CWut6dEUOigZ1FexSsbd4GJomIFlxYy8BzxJPZj5scdvNe', NULL, NULL, NULL, 'admin', 'active', '0', NULL, NULL, NULL),
-(2, 'Agent', 'agent', 'agent@gmail.com', NULL, '$2y$10$Wh77X6/C.lNnp0/spGpcb.lC0T/HipS9siv8wMk2fO8kVFQ/45cM2', NULL, NULL, NULL, 'agent', 'active', '4', NULL, NULL, '2023-08-06 23:31:11'),
+(2, 'Agent', 'agent', 'agent@gmail.com', NULL, '$2y$10$Wh77X6/C.lNnp0/spGpcb.lC0T/HipS9siv8wMk2fO8kVFQ/45cM2', NULL, NULL, NULL, 'agent', 'active', '5', NULL, NULL, '2023-09-20 04:02:47'),
 (3, 'User', 'user', 'user@gmail.com', NULL, '$2y$10$B0gUnaCosv5eT56Ak9b1O.F6QioVLNyJTzf8ehNEEEIABusUU0g/y', NULL, NULL, NULL, 'user', 'active', '0', NULL, NULL, NULL),
 (4, 'Jody Fritsch', NULL, 'emmy99@example.com', '2023-07-31 12:34:47', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'https://via.placeholder.com/60x60.png/00aa66?text=neque', '(831) 957-1366', '189 Spinka Ports\nNorth Haleighchester, NC 32921-6647', 'agent', 'active', '0', 'UWbgOEbpLN', '2023-07-31 12:34:47', '2023-07-31 12:34:47'),
 (5, 'Immanuel Rau', NULL, 'ozella89@example.org', '2023-07-31 12:34:47', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'https://via.placeholder.com/60x60.png/009955?text=ipsa', '479.835.8162', '6377 Lila Inlet Apt. 921\nNicolasshire, ID 82805-1684', 'admin', 'inactive', '0', 'YbdCs6YWIa', '2023-07-31 12:34:47', '2023-07-31 12:34:47'),
@@ -537,6 +703,12 @@ ALTER TABLE `blog_posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `compares`
 --
 ALTER TABLE `compares`
@@ -562,6 +734,20 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
+-- Indexes for table `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
 -- Indexes for table `multi_images`
 --
 ALTER TABLE `multi_images`
@@ -578,6 +764,13 @@ ALTER TABLE `package_plans`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`);
 
 --
 -- Indexes for table `personal_access_tokens`
@@ -603,6 +796,32 @@ ALTER TABLE `property_messages`
 -- Indexes for table `property_types`
 --
 ALTER TABLE `property_types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`);
+
+--
+-- Indexes for table `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
+
+--
+-- Indexes for table `schedules`
+--
+ALTER TABLE `schedules`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `site_settings`
+--
+ALTER TABLE `site_settings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -653,6 +872,12 @@ ALTER TABLE `blog_posts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `compares`
 --
 ALTER TABLE `compares`
@@ -662,7 +887,7 @@ ALTER TABLE `compares`
 -- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -674,19 +899,25 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `multi_images`
 --
 ALTER TABLE `multi_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `package_plans`
 --
 ALTER TABLE `package_plans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -698,19 +929,37 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `property_messages`
 --
 ALTER TABLE `property_messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `property_types`
 --
 ALTER TABLE `property_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `schedules`
+--
+ALTER TABLE `schedules`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `site_settings`
+--
+ALTER TABLE `site_settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `states`
@@ -735,6 +984,29 @@ ALTER TABLE `users`
 --
 ALTER TABLE `wishlists`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

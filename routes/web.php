@@ -10,11 +10,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Agent\AgentPropertyController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Frontend\CompareController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -414,4 +416,25 @@ Route::post('/reply/message', [BlogController::class, 'ReplyMessage'])->name('re
 
 // Schedule Message Request Route 
 Route::post('/store/schedule', [IndexController::class, 'StoreSchedule'])->name('store.schedule');
+
+// Site Setting  All Route 
+Route::controller(SettingController::class)->group(function(){
+
+    Route::get('/site/setting', 'SiteSetting')->name('site.setting');
+    // Route::post('/update/smpt/setting', 'UpdateSmtpSetting')->name('update.smpt.setting'); 
+    Route::post('/update/site/setting', 'UpdateSiteSetting')->name('update.site.setting');   
+
+});
+
+// Permission All Route 
+Route::controller(RoleController::class)->group(function(){
+
+    Route::get('/all/permission', 'AllPermission')->name('all.permission'); 
+    Route::get('/add/type', 'AddType')->name('add.type');
+    Route::post('/store/type', 'StoreType')->name('store.type'); 
+    Route::get('/edit/type/{id}', 'EditType')->name('edit.type');
+    Route::post('/update/type', 'UpdateType')->name('update.type');
+    Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');  
+
+});
 

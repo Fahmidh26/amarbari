@@ -1,6 +1,9 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+@section('title')
+  {{ $property->property_name }} | AmarBari 
+@endsection
 
 <script src="https://kit.fontawesome.com/7e6003b995.js" crossorigin="anonymous"></script>
 
