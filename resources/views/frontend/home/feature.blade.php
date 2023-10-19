@@ -19,8 +19,9 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->ord
                     <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
                         <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
+                                
                                 <div class="image-box">
-                                    <figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""></figure>
+                                    <a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}"><figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""></figure></a>
                                     <div class="batch"><i class="icon-11"></i></div>
                                     <span class="category">Featured</span>
                                 </div>
@@ -38,18 +39,19 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->ord
                                 <h6>{{ $item->user->name }}</h6>
            @endif                
                                         </div>
-                                        <div class="buy-btn pull-right"><a href="property-details.html">For {{ $item->property_status }}</a></div>
+                                        @if($item->property_status == 'buy')
+                                        <div class="buy-btn pull-right"><a href="{{ route('buy.property') }}">For {{ $item->property_status }}</a></div>
+                                        @else
+                                        <div class="buy-btn pull-right"><a href="{{ route('rent.property') }}">For {{ $item->property_status }}</a></div>
+                                        @endif
                                     </div>
-                                    <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->property_name }}</a></h4></div>
+                                    <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->address }}</a></h4></div>
                         <div class="price-box clearfix">
                             <div class="price-info pull-left">
                                 <h6>Start From</h6>
-                                @if ( $item->lowest_price == NULL)
+                                
                                     <h4>TK {{ $item->max_price }}</h4>
-                                @else
-                                    <h4>TK {{ $item->lowest_price }}</h4>
-                                    <strike class="text-danger font-weight-bold">TK {{ $item->max_price }}</strike>
-                                @endif
+                                
                               
                             </div>
                             <ul class="other-option pull-right clearfix">

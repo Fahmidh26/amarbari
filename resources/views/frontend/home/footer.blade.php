@@ -13,8 +13,7 @@
                             <h3>About</h3>
                         </div>
                         <div class="text">
-                            <p>Lorem ipsum dolor amet consetetur adi pisicing elit sed eiusm tempor in cididunt ut labore dolore magna aliqua enim ad minim venitam</p>
-                            <p>Quis nostrud exercita laboris nisi ut aliquip commodo.</p>
+                        <p>Discover your dream home with Amarbari - Your Trusted Partner in Real Estate. Explore our listings and make your property dreams a reality today.</p>
                         </div>
                     </div>
                 </div>
@@ -58,9 +57,16 @@
                         </div>
                         <div class="widget-content">
                             <ul class="info-list clearfix">
+<<<<<<< HEAD
                                 <li><i class="fas fa-map-marker-alt"></i>{{ $setting->company_address }}</li>
                                 <li><i class="fas fa-microphone"></i><a href="tel:23055873407">+{{ $setting->support_phone }}</a></li>
                                 <li><i class="fas fa-envelope"></i><a href="mailto:info@example.com">{{ $setting->email }}</a></li>
+=======
+                                <li><i class="fas fa-map-marker-alt"></i>STATA, West Wind Point, Cha-89/4-5, Progati Sharani, North Badda, Bir Uttam Rafiqul Islam Avenue, Dhaka-1212
+                                </li>
+                                <li><i class="fas fa-phone"></i><a href="tel:+8801312735557">+8801312735557</a></li>
+                                <li><i class="fas fa-envelope"></i><a href="mailto:info@example.com">info@amarbaribd.com</a></li>
+>>>>>>> 3daaf3cedc166d39f443abc99c7eded8c02b80dd
                             </ul>
                         </div>
                     </div>
@@ -73,7 +79,11 @@
             <div class="inner-box clearfix">
                 <figure class="footer-logo"><a href="index.html"><img src="{{ asset('frontend/assets/images/footer-logo.png') }}" alt=""></a></figure>
                 <div class="copyright pull-left">
+<<<<<<< HEAD
                     <p><a href="index.html">{{ $setting->copyright }}</p>
+=======
+                    <p><a href="https://statait.com/">STATA IT</a> &copy; 2021 All Right Reserved</p>
+>>>>>>> 3daaf3cedc166d39f443abc99c7eded8c02b80dd
                 </div>
                 <ul class="footer-nav pull-right clearfix">
                     <li><a href="index.html">Terms of Service</a></li>

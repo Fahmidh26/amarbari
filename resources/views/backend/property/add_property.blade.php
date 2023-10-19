@@ -22,11 +22,23 @@
 
     <div class="row">
         <div class="col-sm-6">
+            <div class="mb-3">
+                <label class="form-label">Property Type </label>
+                <select name="ptype_id" class="form-select" id="exampleFormControlSelect1">
+                    <option selected="" disabled="">Select Type</option>
+                   @foreach($propertytype as $ptype)
+                    <option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
+                   @endforeach
+                </select>
+            </div>
+        </div><!-- Col -->
+        {{-- <div class="col-sm-6">
             <div class="form-group mb-3">
                 <label class="form-label">Property Name </label>
                 <input type="text" name="property_name" class="form-control"  >
             </div>
-        </div><!-- Col -->
+        </div> --}}
+        <!-- Col -->
         <div class="col-sm-6">
             <div class="form-group mb-3">
                 <label class="form-label">Property Status</label>
@@ -39,12 +51,13 @@
         </div><!-- Col -->
 
 
-    <div class="col-sm-6">
+    {{-- <div class="col-sm-6">
         <div class="form-group mb-3">
                 <label class="form-label">Discounted Price </label>
                 <input type="text" name="lowest_price" class="form-control"  >
             </div>
-        </div><!-- Col -->
+        </div> --}}
+        <!-- Col -->
 
 
             <div class="col-sm-6">
@@ -191,17 +204,7 @@
         </div><!-- Col -->
     </div><!-- Row -->
     <div class="row">
-        <div class="col-sm-4">
-            <div class="mb-3">
-                <label class="form-label">Property Type </label>
-                <select name="ptype_id" class="form-select" id="exampleFormControlSelect1">
-                    <option selected="" disabled="">Select Type</option>
-                   @foreach($propertytype as $ptype)
-                    <option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
-                   @endforeach
-                </select>
-            </div>
-        </div><!-- Col -->
+       
         <div class="col-sm-4">
             <div class="mb-3">
                 <label class="form-label">Property Amenities </label>
