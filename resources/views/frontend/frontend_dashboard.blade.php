@@ -191,14 +191,12 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
                 <div class="buy-btn"><a href="#">For ${value.property.property_status}</a></div>
             </div>
             <div class="lower-content">
-                <div class="title-text"><h4><a href="">${value.property.property_name}</a></h4></div>
+                <div class="title-text"><h4><a href="">${value.property.address}</a></h4></div>
                 <div class="price-box clearfix">
                     <div class="price-info pull-left">
                         <h6>Start From</h6>
-                        ${value.property.lowest_price === null ? 
-                            `<h4>TK ${value.property.max_price}</h4>` :
-                            `<h4>TK ${value.property.lowest_price} <strike class="text-danger">TK ${value.property.max_price}</strike></h4>`
-                        }
+                       
+                            <h4>TK ${value.property.max_price}</h4>
 
                     }
                       

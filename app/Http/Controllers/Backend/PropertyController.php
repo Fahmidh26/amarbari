@@ -56,12 +56,12 @@ class PropertyController extends Controller
 
             'ptype_id' => $request->ptype_id,
             'amenities_id' => $amenites,
-            'property_name' => $request->property_name,
-            'property_slug' => strtolower(str_replace(' ', '-', $request->property_name)),
+            // 'property_name' => $request->property_name,
+            'property_slug' => strtolower(str_replace(' ', '-', $request->address)),
             'property_code' => $pcode,
             'property_status' => $request->property_status,
 
-            'lowest_price' => $request->lowest_price,
+            // 'lowest_price' => $request->lowest_price,
             'max_price' => $request->max_price,
             'short_descp' => $request->short_descp,
             'long_descp' => $request->long_descp,
@@ -171,11 +171,11 @@ class PropertyController extends Controller
 
             'ptype_id' => $request->ptype_id,
             'amenities_id' => $amenites,
-            'property_name' => $request->property_name,
-            'property_slug' => strtolower(str_replace(' ', '-', $request->property_name)), 
+            // 'property_name' => $request->property_name,
+            'property_slug' => strtolower(str_replace(' ', '-', $request->address)), 
             'property_status' => $request->property_status,
 
-            'lowest_price' => $request->lowest_price,
+            // 'lowest_price' => $request->lowest_price,
             'max_price' => $request->max_price,
             'short_descp' => $request->short_descp,
             'long_descp' => $request->long_descp,
