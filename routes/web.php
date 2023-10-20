@@ -83,7 +83,7 @@ require __DIR__.'/auth.php';
 // START
 
 // ADMIN MIDDLEWARE
-Route::middleware(['auth','role:admin'])->group(function(){
+Route::middleware(['auth','roles:admin'])->group(function(){
 
     Route::get('/admin/dashboard', [AdminController::class , 'AdminDashboard'])->name('admin.dashboard');
     
@@ -103,7 +103,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
 // AGENT MIDDLEWARE
 
-Route::middleware(['auth','role:agent'])->group(function(){
+Route::middleware(['auth','roles:agent'])->group(function(){
 
     Route::get('/agent/dashboard', [AgentController::class , 'AgentDashboard'])->name('agent.dashboard');
 
@@ -132,15 +132,14 @@ Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.
 Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register'); 
 
  /// ADMIN Group Middleware 
- Route::middleware(['auth','role:admin'])->group(function(){ 
+ Route::middleware(['auth','roles:admin'])->group(function(){ 
 
 
     // PROPERTY TYPE All Route 
    Route::controller(PropertyTypeController::class)->group(function(){
-
-        Route::get('/all/type', 'AllType')->name('all.type'); 
-
-        Route::get('/add/type', 'AddType')->name('add.type');   
+    
+    Route::get('/all/type', 'AllType')->name('all.type')->middleware('permission:all.type'); 
+    Route::get('/add/type', 'AddType')->name('add.type')->middleware('permission:add.type');
         
         Route::post('/store/type', 'StoreType')->name('store.type');
         
@@ -296,7 +295,7 @@ Route::controller(TestimonialController::class)->group(function(){
 
 
 /// Agent Group Middleware 
-Route::middleware(['auth','role:agent'])->group(function(){
+Route::middleware(['auth','roles:agent'])->group(function(){
 
     // Agent All Property  
 Route::controller(AgentPropertyController::class)->group(function(){
@@ -430,11 +429,52 @@ Route::controller(SettingController::class)->group(function(){
 Route::controller(RoleController::class)->group(function(){
 
     Route::get('/all/permission', 'AllPermission')->name('all.permission'); 
-    Route::get('/add/type', 'AddType')->name('add.type');
-    Route::post('/store/type', 'StoreType')->name('store.type'); 
-    Route::get('/edit/type/{id}', 'EditType')->name('edit.type');
-    Route::post('/update/type', 'UpdateType')->name('update.type');
-    Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');  
+    Route::get('/add/permission', 'AddPermission')->name('add.permission');
+    Route::post('/store/permission', 'StorePermission')->name('store.permission'); 
+    Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission');
+    Route::post('/update/permission', 'UpdatePermission')->name('update.permission');
+    Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission');  
+
+    // PERMISSION
+    Route::get('/import/permission', 'ImportPermission')->name('import.permission');
+    Route::get('/export', 'Export')->name('export');
+    Route::post('/import', 'Import')->name('import');
+
+});
+
+
+// Roles All Route 
+Route::controller(RoleController::class)->group(function(){
+
+    Route::get('/all/roles', 'AllRoles')->name('all.roles'); 
+    Route::get('/add/roles', 'AddRoles')->name('add.roles');
+    Route::post('/store/roles', 'StoreRoles')->name('store.roles'); 
+    Route::get('/edit/roles/{id}', 'EditRoles')->name('edit.roles');
+    Route::post('/update/roles', 'UpdateRoles')->name('update.roles');
+    Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles');
+
+
+    Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission'); 
+    Route::post('/role/permission/store', 'RolePermissionStore')->name('role.permission.store'); 
+    Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission'); 
+    Route::get('/admin/edit/roles/{id}', 'AdminEditRoles')->name('admin.edit.roles'); 
+    Route::post('/admin/roles/update/{id}', 'AdminRolesUpdate')->name('admin.roles.update');
+    Route::get('/admin/delete/roles/{id}', 'AdminDeleteRoles')->name('admin.delete.roles');
+
+});
+
+ // Admin User All Route 
+ Route::controller(AdminController::class)->group(function(){
+
+    Route::get('/all/admin', 'AllAdmin')->name('all.admin');
+    Route::get('/add/admin', 'AddAdmin')->name('add.admin');
+    Route::post('/store/admin', 'StoreAdmin')->name('store.admin');
+    Route::get('/edit/admin/{id}', 'EditAdmin')->name('edit.admin');
+    Route::post('/update/admin/{id}', 'UpdateAdmin')->name('update.admin');
+    Route::get('/delete/admin/{id}', 'DeleteAdmin')->name('delete.admin');
+
+
+
 
 });
 

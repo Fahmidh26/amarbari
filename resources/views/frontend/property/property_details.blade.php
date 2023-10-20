@@ -143,6 +143,13 @@
                                     @endif
                                   </li>
                                 </ul>
+
+                                {{-- SEND MESSAGE --}}
+                            <div id="app">
+                                <span>Down Here</span>
+                                <send-message></send-message>
+                            
+                            </div>
                             </div>
                             <div class="amenities-box content-widget">
                                 <div class="title-box">

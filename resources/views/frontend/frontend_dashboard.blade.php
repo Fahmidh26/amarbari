@@ -5,6 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>@yield('title') </title>
+{{-- Load VUE --}}
+@vite(['resources/js/app.js'])
 <!-- Fav Icon -->
 <link rel="icon" href="{{ asset('frontend/assets/images/favicon.png') }}" type="image/x-icon">
 <!-- Google Fonts -->
