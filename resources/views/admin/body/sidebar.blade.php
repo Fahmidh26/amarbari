@@ -44,6 +44,7 @@
         </li>
         @endif
 
+        @if(Auth::user()->can('amenities.menu'))
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#amenitie" role="button" aria-expanded="false" aria-controls="emails">
             <i class="link-icon" data-feather="mail"></i>
@@ -52,17 +53,22 @@
           </a>
           <div class="collapse" id="amenitie">
             <ul class="nav sub-menu">
+              @if(Auth::user()->can('all.amenities'))
               <li class="nav-item">
                 <a href="{{ route('all.amenitie') }}" class="nav-link">All Amenitie</a>
               </li>
+              @endif
+              @if(Auth::user()->can('add.amenities'))
               <li class="nav-item">
                 <a href="{{ route('add.amenitie') }}" class="nav-link">Add Amenitie</a>
               </li>
-
+              @endif
             </ul>
           </div>
         </li>
+        @endif
 
+        @if(Auth::user()->can('property.menu'))
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false" aria-controls="emails">
             <i class="link-icon" data-feather="mail"></i>
@@ -71,31 +77,40 @@
           </a>
           <div class="collapse" id="property">
             <ul class="nav sub-menu">
+              @if(Auth::user()->can('all.property'))
               <li class="nav-item">
                 <a href="{{ route('all.property') }}" class="nav-link">All Property</a>
               </li>
+              @endif
+              @if(Auth::user()->can('add.property'))
               <li class="nav-item">
                 <a href="{{ route('add.property') }}" class="nav-link">Add Property</a>
               </li>
-
+              @endif
             </ul>
           </div>
         </li>
+        @endif
       
+        @if(Auth::user()->can('phistory.menu'))
         <li class="nav-item">
           <a href="{{ route('admin.package.history') }}" class="nav-link">
             <i class="link-icon" data-feather="calendar"></i>
             <span class="link-title">Package History</span>
           </a>
         </li>
+        @endif
 
+        @if(Auth::user()->can('pmessage.menu'))
         <li class="nav-item">
           <a href="{{ route('admin.property.message') }}" class="nav-link">
             <i class="link-icon" data-feather="calendar"></i>
             <span class="link-title">Property Message </span>
           </a>
         </li>
+        @endif
 
+        @if(Auth::user()->can('testimonials.menu'))
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#testimonials" role="button" aria-expanded="false" aria-controls="emails">
             <i class="link-icon" data-feather="mail"></i>
@@ -104,18 +119,23 @@
           </a>
           <div class="collapse" id="testimonials">
             <ul class="nav sub-menu">
+              @if(Auth::user()->can('all.testimonials'))
               <li class="nav-item">
                 <a href="{{ route('all.testimonials') }}" class="nav-link">All Testimonials</a>
               </li>
+              @endif
+              @if(Auth::user()->can('add.testimonials'))
               <li class="nav-item">
                <a href="{{ route('add.testimonials') }}" class="nav-link">Add Testimonials</a>
               </li>
-
+              @endif
             </ul>
           </div>
         </li>
+        @endif
 
         <li class="nav-item nav-category">User All Function</li>
+        @if(Auth::user()->can('agent.menu'))
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
             <i class="link-icon" data-feather="feather"></i>
@@ -124,15 +144,22 @@
           </a>
           <div class="collapse" id="uiComponents">
             <ul class="nav sub-menu">
+              @if(Auth::user()->can('all.agent'))
               <li class="nav-item">
                 <a href="{{ route('all.agent') }}" class="nav-link">All Agent </a>
               </li>
+              @endif
+              @if(Auth::user()->can('add.agent'))
               <li class="nav-item">
-                <a href="pages/ui-components/alerts.html" class="nav-link">Add Agent</a>
+                <a href="{{ route('add.agent') }}" class="nav-link">Add Agent</a>
               </li>
+              @endif
             </ul>
           </div>
         </li>
+        @endif
+
+        @if(Auth::user()->can('bcategory.menu'))
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#blogcategory" role="button" aria-expanded="false" aria-controls="uiComponents">
             <i class="link-icon" data-feather="feather"></i>
@@ -141,15 +168,17 @@
           </a>
           <div class="collapse" id="blogcategory">
             <ul class="nav sub-menu">
+              @if(Auth::user()->can('all.bcategory'))
               <li class="nav-item">
                 <a href="{{ route('all.blog.category') }}" class="nav-link">All Blog Category </a>
               </li>
-
-
+              @endif
             </ul>
           </div>
         </li>
+        @endif
 
+        @if(Auth::user()->can('bpost.menu'))
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#Post" role="button" aria-expanded="false" aria-controls="uiComponents">
             <i class="link-icon" data-feather="feather"></i>
@@ -158,26 +187,31 @@
           </a>
           <div class="collapse" id="Post">
             <ul class="nav sub-menu">
+              @if(Auth::user()->can('all.bpost'))
               <li class="nav-item">
                 <a href="{{ route('all.post') }}" class="nav-link">All Post </a>
               </li>
-
+              @endif
+              @if(Auth::user()->can('add.bpost'))
               <li class="nav-item">
                 <a href="{{ route('add.post') }}" class="nav-link">Add Post </a>
               </li>
-
+              @endif
             </ul>
           </div>
         </li>
+        @endif
 
+        @if(Auth::user()->can('bcomment.menu'))
         <li class="nav-item">
           <a href="{{ route('admin.blog.comment') }}" class="nav-link">
             <i class="link-icon" data-feather="calendar"></i>
             <span class="link-title">Blog Comment </span>
           </a>
         </li>
+        @endif
 
-
+        @if(Auth::user()->can('state.menu'))
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="emails">
             <i class="link-icon" data-feather="mail"></i>
@@ -186,40 +220,46 @@
           </a>
           <div class="collapse" id="state">
             <ul class="nav sub-menu">
-             
+              @if(Auth::user()->can('all.state'))
               <li class="nav-item">
                 <a href="{{ route('all.state') }}" class="nav-link">All State</a>
               </li>
-          
+              @endif
+              @if(Auth::user()->can('add.state'))
               <li class="nav-item">
                 <a href="{{ route('add.state') }}" class="nav-link">Add State</a>
               </li>
-
+              @endif
             </ul>
           </div>
         </li>
+        @endif
 
+        @if(Auth::user()->can('sitesettings.menu'))
         <li class="nav-item">
           <a href="{{ route('site.setting') }}" class="nav-link">
             <i class="link-icon" data-feather="calendar"></i>
             <span class="link-title">Site Setting </span>
           </a>
         </li>
+        @endif
 
         <li class="nav-item nav-category">Role & Permission</li>
+        @if(Auth::user()->can('rolepermission.menu'))
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
+            <a class="nav-link" data-bs-toggle="collapse" href="#role" role="button" aria-expanded="false" aria-controls="role">
               <i class="link-icon" data-feather="anchor"></i>
        
               <span class="link-title">Role & Permission</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse" id="advancedUI">
+            <div class="collapse" id="role">
               <ul class="nav sub-menu">
+                @if(Auth::user()->can('all.rolepermission'))
                 <li class="nav-item">
-                  
                   <a href="{{ route('all.permission') }}" class="nav-link">All Permission</a>
                 </li>
+               
                 <li class="nav-item">
                   <a href="{{ route('all.roles') }}" class="nav-link">All Roles </a>
                 </li>
@@ -230,12 +270,13 @@
                 <li class="nav-item">
                   <a href="{{ route('all.roles.permission') }}" class="nav-link">All Role in Permission </a>
                 </li>
-                
+                @endif
               </ul>
             </div>
           </li>
+          @endif
 
-
+          @if(Auth::user()->can('adminuser.menu'))
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#admin" role="button" aria-expanded="false" aria-controls="admin">
               <i class="link-icon" data-feather="anchor"></i>
@@ -244,15 +285,20 @@
             </a>
             <div class="collapse" id="admin">
               <ul class="nav sub-menu">
+                @if(Auth::user()->can('all.adminuser'))
                 <li class="nav-item">
                   <a href="{{ route('all.admin') }}" class="nav-link">All Admin</a>
                 </li>
+                @endif
+                @if(Auth::user()->can('add.adminuser'))
                 <li class="nav-item">
                   <a href="{{ route('add.admin') }}" class="nav-link">Add Admin </a>
                 </li> 
+                @endif
               </ul>
             </div>
           </li>
+          @endif
 
 
         <li class="nav-item">

@@ -35,8 +35,12 @@
                         <td>{{ $item['cat']['category_name'] }}</td>
                         <td><img src="{{ asset($item->post_image) }}" style="width:70px;height: 40px;"> </td>
                         <td>
+                          @if(Auth::user()->can('edit.bpost'))
                             <a href="{{ route('edit.post',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
+                          @endif
+                          @if(Auth::user()->can('delete.bpost'))
                             <a href="{{ route('delete.post',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach

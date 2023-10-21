@@ -51,11 +51,15 @@
 
                         </td> 
                         <td>
+                          @if(Auth::user()->can('view.property'))
                           <a href="{{ route('details.property',$item->id) }}" class="btn btn-inverse-info" title="Details"> <i data-feather="eye"></i> </a>
-
+                          @endif
+                          @if(Auth::user()->can('edit.property'))
                           <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Edit"> <i data-feather="edit"></i> </a>
-                   
+                          @endif
+                          @if(Auth::user()->can('delete.property'))
                           <a href="{{ route('delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Delete"> <i data-feather="trash-2"></i>  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach

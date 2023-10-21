@@ -39,8 +39,12 @@
                         <td>{{ $item->name }}</td> 
                         <td>{{ $item->group_name }}</td> 
                         <td>
-                          <a href="{{ route('edit.permission',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
-                          <a href="{{ route('delete.permission',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @if(Auth::user()->can('edit.rolepermission'))
+                            <a href="{{ route('edit.permission',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
+                          @endif
+                          @if(Auth::user()->can('delete.rolepermission'))
+                            <a href="{{ route('delete.permission',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach
