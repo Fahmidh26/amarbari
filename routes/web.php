@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function () {
 
   Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 
+  Route::get('/live/chat', [UserController::class, 'LiveChat'])->name('live.chat');
+
 });
 
 // User WishlistAll Route 
@@ -478,4 +480,10 @@ Route::controller(RoleController::class)->group(function(){
 
  // Chat Post Request Route 
  Route::post('/send-message', [ChatController::class, 'SendMsg'])->name('send.msg');
+
+ Route::get('/user-all', [ChatController::class, 'GetAllUsers']);
+
+ Route::get('/user-message/{id}', [ChatController::class, 'UserMsgById']);
+
+ Route::get('/agent/live/chat', [ChatController::class, 'AgentLiveChat'])->name('agent.live.chat');
 
