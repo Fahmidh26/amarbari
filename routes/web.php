@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\CompareController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\Backend\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -473,8 +474,8 @@ Route::controller(RoleController::class)->group(function(){
     Route::post('/update/admin/{id}', 'UpdateAdmin')->name('update.admin');
     Route::get('/delete/admin/{id}', 'DeleteAdmin')->name('delete.admin');
 
-
-
-
 });
+
+ // Chat Post Request Route 
+ Route::post('/send-message', [ChatController::class, 'SendMsg'])->name('send.msg');
 

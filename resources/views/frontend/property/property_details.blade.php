@@ -76,7 +76,8 @@
                     <div class="right-column pull-right clearfix">
                         <div class="price-inner clearfix">
                             <ul class="category clearfix pull-left">
-     <li><a href="property-details.html">{{ $property->type->type_name }}</a></li>
+                                
+                                <li><a href="property-details.html">{{ $property->type->type_name }}</a></li>
                                 <li><a href="property-details.html">For {{ $property->property_status }}</a></li>
                             </ul>
                             <div class="price-box pull-right">
@@ -86,8 +87,20 @@
                             </div>
                         </div>
                         <ul class="other-option pull-right clearfix">
-                            <li><a href="property-details.html"><i class="icon-37"></i></a></li>
-                            <li><a href="property-details.html"><i class="icon-38"></i></a></li>
+                            <li>
+                                @auth
+                                    <div id="app">
+                                     <send-message :recevierid="{{ $property->agent_id }}" receivername="{{ $property->user->name }}" >
+
+                                        </send-message>
+                                    
+                                    </div>
+                                @else
+                                    <span class="text-danger">For Chat Login First </span>
+                                @endauth
+                            </li>
+                            {{-- <li><a href="property-details.html"><i class="icon-37"></i></a></li>
+                            <li><a href="property-details.html"><i class="icon-38"></i></a></li> --}}
                             <li><a href="property-details.html"><i class="icon-12"></i></a></li>
                             <li><a href="property-details.html"><i class="icon-13"></i></a></li>
                         </ul>
@@ -144,12 +157,7 @@
                                   </li>
                                 </ul>
 
-                                {{-- SEND MESSAGE --}}
-                            <div id="app">
-                                <span>Down Here</span>
-                                <send-message></send-message>
-                            
-                            </div>
+                               
                             </div>
                             <div class="amenities-box content-widget">
                                 <div class="title-box">
