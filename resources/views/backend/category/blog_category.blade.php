@@ -35,10 +35,14 @@
                         <td>{{ $item->category_name }}</td>
                         <td>{{ $item->category_slug }}</td>
                         <td>
+                          @if(Auth::user()->can('edit.bcategory'))
                           <button type="button" class="btn btn-inverse-warning" data-bs-toggle="modal" data-bs-target="#catedit" id="{{ $item->id }}" onclick="categoryEdit(this.id)" > 
                             Edit
                            </button>
+                           @endif
+                           @if(Auth::user()->can('delete.bcategory'))
        <a href="{{ route('delete.blog.category',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+       @endif
                         </td> 
                       </tr>
                      @endforeach

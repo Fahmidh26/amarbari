@@ -47,19 +47,18 @@
                           @endif 
                             </td> 
     
-
                     <td>
             <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger"  data-toggle="toggle" data-on="Active" data-off="Inactive" {{ $item->status ? 'checked' : '' }} >
 
                     </td>  
-
-
                         <td>
 
-
-        <a href="{{ route('edit.agent',$item->id) }}" class="btn btn-inverse-warning" title="Edit"> <i data-feather="edit"></i> </a>
-
-        <a href="{{ route('delete.agent',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Delete"> <i data-feather="trash-2"></i>  </a>
+                          @if(Auth::user()->can('edit.agent'))
+                            <a href="{{ route('edit.agent',$item->id) }}" class="btn btn-inverse-warning" title="Edit"> <i data-feather="edit"></i> </a>
+                          @endif
+                          @if(Auth::user()->can('delete.agent'))
+                            <a href="{{ route('delete.agent',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Delete"> <i data-feather="trash-2"></i>  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach

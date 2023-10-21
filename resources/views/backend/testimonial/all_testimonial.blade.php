@@ -35,8 +35,12 @@
                          <td>{{ $item->position }}</td>
                         <td><img src="{{ asset($item->image) }}" style="width:70px;height: 40px;"> </td>
                         <td>
+                          @if(Auth::user()->can('edit.testimonials'))
                             <a href="{{ route('edit.testimonials',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
+                          @endif
+                          @if(Auth::user()->can('delete.testimonials'))
                             <a href="{{ route('delete.testimonials',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach

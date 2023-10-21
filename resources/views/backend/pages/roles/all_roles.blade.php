@@ -33,8 +33,12 @@
                         <td>{{ $key+1 }}</td>
                         <td>{{ $item->name }}</td>  
                         <td>
+                          @if(Auth::user()->can('edit.rolepermission'))
                             <a href="{{ route('edit.roles',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
+                          @endif
+                          @if(Auth::user()->can('delete.rolepermission'))
                             <a href="{{ route('delete.roles',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach

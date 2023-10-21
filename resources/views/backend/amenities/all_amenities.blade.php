@@ -31,8 +31,12 @@
                         <td>{{ $key+1 }}</td>
                         <td>{{ $item->amenitis_name }}</td> 
                         <td>
+                          @if(Auth::user()->can('edit.amenities'))
                             <a href="{{ route('edit.amenitie',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
+                          @endif
+                          @if(Auth::user()->can('delete.amenities'))
                             <a href="{{ route('delete.amenitie',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach

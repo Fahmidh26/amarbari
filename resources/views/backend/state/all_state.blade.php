@@ -33,8 +33,12 @@
                         <td>{{ $item->state_name }}</td>
                         <td><img src="{{ asset($item->state_image) }}" style="width:70px;height: 40px;"> </td>
                         <td>
-        <a href="{{ route('edit.state',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
-       <a href="{{ route('delete.state',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @if(Auth::user()->can('edit.state'))
+                            <a href="{{ route('edit.state',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
+                          @endif
+                          @if(Auth::user()->can('delete.state'))
+                            <a href="{{ route('delete.state',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach

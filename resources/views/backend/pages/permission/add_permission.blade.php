@@ -42,7 +42,7 @@
                 <option value="category">Blog Category</option> 
                 <option value="post">Blog Post</option> 
                 <option value="comment">Blog Comment</option> 
-                <option value="smtp">SMTP Setting</option> 
+                <option value="adminuser">Admin User</option> 
                 <option value="site">Site Setting</option> 
                 <option value="role">Role & Permission </option>  
             </select>

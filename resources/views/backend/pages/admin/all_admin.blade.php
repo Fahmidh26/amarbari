@@ -46,9 +46,12 @@
                         @endforeach
                          </td>   
                         <td> 
+                          @if(Auth::user()->can('edit.adminuser'))
                           <a href="{{ route('edit.admin',$item->id) }}" class="btn btn-inverse-warning" title="Edit"> <i data-feather="edit"></i> </a>
-
-       <a href="{{ route('delete.admin',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Delete"> <i data-feather="trash-2"></i>  </a>
+                          @endif
+                          @if(Auth::user()->can('delete.adminuser'))
+                          <a href="{{ route('delete.admin',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Delete"> <i data-feather="trash-2"></i>  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach

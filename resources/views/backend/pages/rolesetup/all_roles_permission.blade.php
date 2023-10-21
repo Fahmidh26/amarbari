@@ -39,12 +39,13 @@
                 <span class="badge bg-danger">{{ $prem->name }}</span>
                 @endforeach
               </td> 
-
-
-
                         <td>
-       <a href="{{ route('admin.edit.roles',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
-       <a href="{{ route('admin.delete.roles',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @if(Auth::user()->can('edit.rolepermission'))
+                            <a href="{{ route('admin.edit.roles',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
+                          @endif
+                          @if(Auth::user()->can('delete.rolepermission'))
+                            <a href="{{ route('admin.delete.roles',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+                          @endif
                         </td> 
                       </tr>
                      @endforeach
