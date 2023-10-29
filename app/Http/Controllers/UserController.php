@@ -117,6 +117,16 @@ class UserController extends Controller
             return view('frontend.dashboard.live_chat',compact('userData'));
     
         } // End Method 
+
+
+        
+
+        public function setLocale($locale)
+{
+    session()->put('locale', $locale);
+    return redirect()->back(); // Redirect back to the previous page
+}
+
     
     
     

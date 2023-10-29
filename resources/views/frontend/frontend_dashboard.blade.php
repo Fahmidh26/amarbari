@@ -41,6 +41,14 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
       console.log('Maps JavaScript API loaded.');
     }
   </script>
+
+  <style>
+    /* Hide the Google Translate widget */
+body .VIpgJd-ZVi9od-ORHb {
+    display: none !important;
+}
+
+  </style>
 </head>
 <!-- page wrapper -->
 <body>
@@ -80,9 +88,11 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
         </button>
     </div>
 
+
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
     <!-- jequery plugins -->
     <script src="{{ asset('frontend/assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/lang/translations.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/owl.js') }}"></script>
@@ -111,7 +121,69 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8bXAGhxZG7KXI-wCtUmgXU4i
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
    
-   <script>
+
+
+{{-- Language --}}
+    <script>
+    function changeLanguage(language) {
+    const translationKeys = translations[language];
+    if (translationKeys) {
+        const elementsToTranslate = document.querySelectorAll('[data-translation-key]');
+        elementsToTranslate.forEach(element => {
+            const translationKey = element.getAttribute('data-translation-key');
+            if (translationKeys[translationKey]) {
+                element.textContent = translationKeys[translationKey];
+            }
+        });
+    }
+}
+    </script>
+
+
+
+{{-- Google translate --}}
+<script type="text/javascript">
+ // Initialize Google Translate with additional configuration
+googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        gaTrack: false, // Disable translation rating
+        gaId: '' // Set an empty string as the Google Analytics ID
+    }, 'google_translate_element');
+};
+
+    </script>
+    
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <script>
+        // Function to remove or hide specific elements within the Google Translate widget
+        function hideTranslateWidgetElements() {
+            // Select and hide the specific elements
+            var ratingElement = document.querySelector('span.VIpgJd-ZVi9od-ORHb-bN97Pc');
+            var googleTranslateElement = document.querySelector('a.VIpgJd-ZVi9od-l4eHX-hSRGPd');
+
+            if (ratingElement) {
+                ratingElement.style.display = 'none';
+            }
+
+            if (googleTranslateElement) {
+                googleTranslateElement.style.display = 'none';
+            }
+        }
+
+        // Delay execution until the page has fully loaded
+        window.addEventListener('load', function() {
+            // Remove or hide specific elements in the Google Translate widget
+            hideTranslateWidgetElements();
+        });
+    </script>
+
+
+
+<script>
      @if(Session::has('message'))
      var type = "{{ Session::get('alert-type','info') }}"
      switch(type){

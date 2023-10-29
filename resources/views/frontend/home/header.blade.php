@@ -64,13 +64,23 @@ $setting = App\Models\SiteSetting::find(1);
    
        </ul>
    </li>
+   <div id="google_translate_element"></div>
+   
             <li><a href="{{ url('/') }}"><span>Agent </span></a> </li>       
    
-            <li><a href="{{ route('blog.list') }}"><span>Blog  </span></a> </li>
+            <li><a href="{{ route('blog.list') }}" data-translation-key="blog"><span>Blog  </span></a> </li>
    
    
-        <li><a href="contact.html"><span>Contact</span></a></li> 
-   
+        {{-- <li><a href="contact.html"><span>Contact</span></a></li>  --}}
+        <li><a href="contact.html" data-translation-key="contact">Contact</a></li>
+
+
+
+        <a href="javascript:void(0);" onclick="changeLanguage('en')">English</a>
+<a href="javascript:void(0);" onclick="changeLanguage('bn')">বাংলা</a>
+<!-- Add more language options as needed -->
+
+        
         <li> 
        <a href="{{ route('agent.login') }}" class="btn btn-success"><span>+</span>Add Listing</a> 
    </li>  
