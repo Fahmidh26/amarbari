@@ -144,15 +144,24 @@ body .VIpgJd-ZVi9od-ORHb {
 {{-- Google translate --}}
 <script type="text/javascript">
  // Initialize Google Translate with additional configuration
-googleTranslateElementInit = function() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        gaTrack: false, // Disable translation rating
-        gaId: '' // Set an empty string as the Google Analytics ID
-    }, 'google_translate_element');
-};
+// googleTranslateElementInit = function() {
+//     new google.translate.TranslateElement({
+//         pageLanguage: 'en',
+//         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+//         gaTrack: false, // Disable translation rating
+//         gaId: '' // Set an empty string as the Google Analytics ID
+//     }, 'google_translate_element');
+// };
 
+// function googleTranslateElementInit() {
+//         new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+//     }
+    </script>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+    }
     </script>
     
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

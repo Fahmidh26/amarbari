@@ -182,7 +182,7 @@ class IndexController extends Controller
         $sstate = $request->state;
         $stype = $request->ptype_id;
 
-   $property = Property::where('property_name', 'like' , '%' .$item. '%')->where('property_status','buy')->with('type','pstate')
+   $property = Property::where('address', 'like' , '%' .$item. '%')->where('property_status','buy')->with('type','pstate')
         ->whereHas('pstate', function($q) use ($sstate){
             $q->where('state_name','like' , '%' .$sstate. '%');
         })

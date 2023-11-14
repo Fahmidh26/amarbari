@@ -20,18 +20,22 @@ $setting = App\Models\SiteSetting::find(1);
                     <li><a href="index.html"><i class="fab fa-pinterest-p"></i></a></li>
                     <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
                     <li><a href="index.html"><i class="fab fa-vimeo-v"></i></a></li>
+                    <li><a id="google_translate_element"></a></li>
                 </ul>
+
+               
                 @auth
 
          <div class="sign-box">
                 <a href="{{ route('dashboard') }}"><i class="fas fa-user"></i>Dashboard</a>
                <a href="{{ route('user.logout') }}"><i class="fas fa-user"></i>Logout</a>
+             
         </div> 
 
          @else 
 
          <div class="sign-box">
-         <a href="{{ route('login') }}"><i class="fas fa-user"></i>Sign In</a>
+         <a href="{{ route('agent.login') }}"><i class="fas fa-user"></i>Sign In</a>    
                 </div>
                 @endauth    
             </div>
@@ -64,9 +68,10 @@ $setting = App\Models\SiteSetting::find(1);
    
        </ul>
    </li>
-   <div id="google_translate_element"></div>
+   {{-- <div id="google_translate_element"></div> --}}
    
             <li><a href="{{ url('/') }}"><span>Agent </span></a> </li>       
+           
    
             <li><a href="{{ route('blog.list') }}" data-translation-key="blog"><span>Blog  </span></a> </li>
    
@@ -75,9 +80,9 @@ $setting = App\Models\SiteSetting::find(1);
         <li><a href="contact.html" data-translation-key="contact">Contact</a></li>
 
 
-
+{{-- 
         <a href="javascript:void(0);" onclick="changeLanguage('en')">English</a>
-<a href="javascript:void(0);" onclick="changeLanguage('bn')">বাংলা</a>
+<a href="javascript:void(0);" onclick="changeLanguage('bn')">বাংলা</a> --}}
 <!-- Add more language options as needed -->
 
         
