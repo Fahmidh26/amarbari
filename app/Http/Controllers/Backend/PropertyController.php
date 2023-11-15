@@ -469,4 +469,26 @@ class PropertyController extends Controller
 
     }// End Method  
 
+    public function Featured(){
+
+        $property = Property::where('status','1')->where('featured','1')->orderBy('id','DESC')->get();
+        return view('frontend.property.featured_property', compact('property'));
+
+    }// End Method 
+
+    public function Deal(){
+
+        $property = Property::where('status','1')->where('hot','1')->get();
+        return view('frontend.property.deal_property', compact('property'));
+
+    }// End Method 
+
+    public function ListAll(){
+
+        $property = Property::latest()->paginate(4);
+        return view('frontend.property.all_listings', compact('property'));
+
+    }// End Method 
+
+
 }

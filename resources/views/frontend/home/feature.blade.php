@@ -82,7 +82,7 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->ord
               </gmp-map>  </div> --}}
 
                 </div>
-                <div class="more-btn centred"><a href="property-list.html" class="theme-btn btn-one">View All Listing</a></div>
+                <div class="more-btn centred"><a href="{{ route('featured.property') }}" class="theme-btn btn-one">View All Listing</a></div>
             </div>
 
 

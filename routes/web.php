@@ -493,3 +493,10 @@ Route::get('/about', [IndexController::class, 'About'])->name('about.us');
 // CONTACT US PAGE
 Route::get('/contact', [IndexController::class, 'Contact'])->name('contact.us');
 
+Route::get('/featured/all', [PropertyController::class, 'Featured'])->name('featured.property');
+
+Route::get('/deal/all', [PropertyController::class, 'Deal'])->name('deal.property');
+
+Route::get('/property/all', [PropertyController::class, 'ListAll'])->name('all.listing');
+
+Route::get('/terms&services', [IndexController::class, 'Terms'])->name('terms.services');

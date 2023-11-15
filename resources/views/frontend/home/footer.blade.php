@@ -24,12 +24,12 @@
                         </div>
                         <div class="widget-content">
                             <ul class="links-list class">
-                                <li><a href="index.html">About Us</a></li>
-                                <li><a href="index.html">Listing</a></li>
-                                <li><a href="index.html">How It Works</a></li>
-                                <li><a href="index.html">Our Services</a></li>
-                                <li><a href="index.html">Our Blog</a></li>
-                                <li><a href="index.html">Contact Us</a></li>
+                                <li><a href="{{ route('about.us') }}">About Us</a></li>
+                                <li><a href="{{ route('all.listing') }}">Listing</a></li>
+                                {{-- <li><a href="index.html">How It Works</a></li>
+                                <li><a href="index.html">Our Services</a></li> --}}
+                                <li><a href="{{ route('blog.list') }}">Our Blog</a></li>
+                                <li><a href="{{ route('contact.us') }}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -75,8 +75,8 @@
                     <p><a href="index.html">{{ $setting->copyright }}</p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
-                    <li><a href="index.html">Terms of Service</a></li>
-                    <li><a href="index.html">Privacy Policy</a></li>
+                    <li><a href="{{route('terms.services')}}">Terms of Service</a></li>
+                    <li><a href="{{route('terms.services')}}">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>

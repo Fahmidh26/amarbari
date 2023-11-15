@@ -63,6 +63,7 @@ $setting = App\Models\SiteSetting::find(1);
    
    <li class="dropdown"><a href="index.html"><span>Property</span></a>
        <ul>
+           <li><a href="{{ route('all.listing') }}">All Property</a></li>
            <li><a href="{{ route('rent.property') }}">Rent Property</a></li>
            <li><a href="{{ route('buy.property') }}">Buy Property </a></li>
    
@@ -70,7 +71,7 @@ $setting = App\Models\SiteSetting::find(1);
    </li>
    {{-- <div id="google_translate_element"></div> --}}
    
-            <li><a href="{{ url('/') }}"><span>Agent </span></a> </li>       
+            {{-- <li><a href="{{ url('/') }}"><span>Agent </span></a> </li>        --}}
            
    
             <li><a href="{{ route('blog.list') }}" data-translation-key="blog"><span>Blog  </span></a> </li>

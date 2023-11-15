@@ -111,6 +111,12 @@ class IndexController extends Controller
 
     }// End Method 
 
+    public function Terms(){
+
+        return view('frontend.home.terms');
+
+    }// End Method 
+
 
     public function AgentDetailsMessage(Request $request){
 

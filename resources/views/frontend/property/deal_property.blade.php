@@ -3,7 +3,7 @@
 
 
 @section('title')
-  Featured Property AmarBari  
+  Hot Property AmarBari  
 @endsection
  <!--Page Title-->
 
@@ -14,10 +14,10 @@
             </div>
             <div class="auto-container">
                 <div class="content-box clearfix">
-                    <h1>Featured Property </h1>
+                    <h1>Hot Property </h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index.html">Home</a></li>
-                        <li>Featured Property List</li>
+                        <li>Hot Property List</li>
                     </ul>
                 </div>
             </div>

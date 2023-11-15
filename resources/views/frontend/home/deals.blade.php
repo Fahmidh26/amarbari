@@ -72,6 +72,6 @@ $property = App\Models\Property::where('status','1')->where('hot','1')->limit(3)
         @endforeach 
 
 </div>
-
+<div class="more-btn centred"><a href="{{ route('deal.property') }}" class="theme-btn btn-one">View All Listing</a></div>
     </div>
 </section>
