@@ -488,5 +488,8 @@ Route::controller(RoleController::class)->group(function(){
  Route::get('/agent/live/chat', [ChatController::class, 'AgentLiveChat'])->name('agent.live.chat');
 
 
-
+// ABOUT US PAGE
+Route::get('/about', [IndexController::class, 'About'])->name('about.us');
+// CONTACT US PAGE
+Route::get('/contact', [IndexController::class, 'Contact'])->name('contact.us');
 

@@ -59,7 +59,7 @@ $setting = App\Models\SiteSetting::find(1);
 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
     <ul class="navigation clearfix">
         <li><a href="{{ url('/') }}"><span>Home</span></a> </li>
-        <li><a href="{{ url('/') }}"><span>About Us </span></a> </li>
+        <li><a href="{{ route('about.us') }}"><span>About Us </span></a> </li>
    
    <li class="dropdown"><a href="index.html"><span>Property</span></a>
        <ul>
@@ -77,7 +77,7 @@ $setting = App\Models\SiteSetting::find(1);
    
    
         {{-- <li><a href="contact.html"><span>Contact</span></a></li>  --}}
-        <li><a href="contact.html" data-translation-key="contact">Contact</a></li>
+        <li><a href="{{ route('contact.us') }}" data-translation-key="contact">Contact</a></li>
 
 
 {{-- 

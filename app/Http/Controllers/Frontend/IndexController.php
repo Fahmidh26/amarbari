@@ -100,6 +100,17 @@ class IndexController extends Controller
 
     }// End Method 
 
+    public function About(){
+
+        return view('frontend.home.about');
+
+    }// End Method 
+    public function Contact(){
+
+        return view('frontend.home.contact');
+
+    }// End Method 
+
 
     public function AgentDetailsMessage(Request $request){
 
