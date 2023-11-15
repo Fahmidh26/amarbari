@@ -86,7 +86,7 @@ class IndexController extends Controller
 
     public function RentProperty(){
 
-        $property = Property::where('status','1')->where('property_status','rent')->paginate(2);
+        $property = Property::where('status','1')->where('property_status','rent')->paginate(3);
 
         return view('frontend.property.rent_property',compact('property'));
 
@@ -94,7 +94,7 @@ class IndexController extends Controller
 
     public function BuyProperty(){
 
-        $property = Property::where('status','1')->where('property_status','buy')->get();
+        $property = Property::where('status','1')->where('property_status','buy')->paginate(3);
 
         return view('frontend.property.buy_property',compact('property'));
 
