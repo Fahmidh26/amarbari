@@ -182,37 +182,41 @@ class IndexController extends Controller
         $sstate = $request->state;
         $stype = $request->ptype_id;
 
-   $property = Property::where('address', 'like' , '%' .$item. '%')->where('property_status','buy')->with('type','pstate')
-        ->whereHas('pstate', function($q) use ($sstate){
-            $q->where('state_name','like' , '%' .$sstate. '%');
-        })
-        ->whereHas('type', function($q) use ($stype){
-            $q->where('type_name','like' , '%' .$stype. '%');
-         })
-        ->get();
+        // dd($request);
+
+//    $property = Property::where('address', 'like' , '%' .$item. '%')->where('property_status','buy')->with('type','pstate')
+//         ->whereHas('pstate', function($q) use ($sstate){
+//             $q->where('state_name','like' , '%' .$sstate. '%');
+//         })
+//         ->whereHas('type', function($q) use ($stype){
+//             $q->where('type_name','like' , '%' .$stype. '%');
+//          })
+//         ->get();
 
 
-            // Execute a query on the Property model with the search term as a mandatory condition.
-            // $property = Property::where('address', 'like' , '%' .$item. '%')
-            // ->where('property_status','buy')
-            // ->with('type','pstate');
+               // Execute a query on the Property model with the search term as a mandatory condition.
+    $property = Property::where('property_status', 'buy')
+    ->with('type', 'pstate');
 
-            // // Add optional conditions if $sstate is provided.
-            // if ($sstate) {
-            // $property->whereHas('pstate', function($q) use ($sstate){
-            //     $q->where('state_name','like' , '%' .$sstate. '%');
-            // });
-            // }
+// Add optional conditions based on provided values.
+if ($item) {
+    $property->where('address', 'like', '%' . $item . '%');
+}
 
-            // // // Add optional conditions if $stype is provided.
-            // if ($stype) {
-            // $property->whereHas('type', function($q) use ($stype){
-            //     $q->where('type_name','like' , '%' .$stype. '%');
-            // });
-            // }
+if ($sstate) {
+    $property->whereHas('pstate', function($q) use ($sstate){
+        $q->where('state_name', 'like', '%' . $sstate . '%');
+    });
+}
 
-            // // Retrieve the results of the query.
-            // $property = $property->get();
+if ($stype) {
+    $property->whereHas('type', function($q) use ($stype){
+        $q->where('type_name', 'like', '%' . $stype . '%');
+    });
+}
+
+// Retrieve the results of the query.
+$property = $property->get();
 
         return view('frontend.property.property_search',compact('property'));
      }// End Method 
@@ -224,14 +228,28 @@ class IndexController extends Controller
         $sstate = $request->state;
         $stype = $request->ptype_id;
 
-   $property = Property::where('property_name', 'like' , '%' .$item. '%')->where('property_status','rent')->with('type','pstate')
-        ->whereHas('pstate', function($q) use ($sstate){
-            $q->where('state_name','like' , '%' .$sstate. '%');
-        })
-        ->whereHas('type', function($q) use ($stype){
-            $q->where('type_name','like' , '%' .$stype. '%');
-         })
-        ->get();
+        $property = Property::where('property_status', 'rent')
+        ->with('type', 'pstate');
+    
+    // Add optional conditions based on provided values.
+    if ($item) {
+        $property->where('address', 'like', '%' . $item . '%');
+    }
+    
+    if ($sstate) {
+        $property->whereHas('pstate', function($q) use ($sstate){
+            $q->where('state_name', 'like', '%' . $sstate . '%');
+        });
+    }
+    
+    if ($stype) {
+        $property->whereHas('type', function($q) use ($stype){
+            $q->where('type_name', 'like', '%' . $stype . '%');
+        });
+    }
+    
+    // Retrieve the results of the query.
+    $property = $property->get();
 
         return view('frontend.property.property_search',compact('property'));
 

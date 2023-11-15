@@ -40,10 +40,10 @@ $ptypes = App\Models\PropertyType::latest()->get();
         <div class="select-box">
             <i class="far fa-compass"></i>
             <select name="state" class="wide">
-               <option data-display="Input location">Input location</option>
-               @foreach($states as $state)
+                <option value="">Input location</option>
+                @foreach($states as $state)
                     <option value="{{ $state->state_name }}">{{ $state->state_name }}</option>
-               @endforeach
+                @endforeach
             </select>
         </div>
     </div>
@@ -53,10 +53,10 @@ $ptypes = App\Models\PropertyType::latest()->get();
         <label>Property Type</label>
         <div class="select-box">
             <select name="ptype_id" class="wide">
-               <option data-display="All Type">All Type</option>
-               @foreach($ptypes as $type)
+                <option value="">All Type</option>
+                @foreach($ptypes as $type)
                     <option value="{{ $type->type_name }}">{{ $type->type_name }}</option>
-               @endforeach
+                @endforeach
             </select>
         </div>
     </div>
@@ -92,9 +92,9 @@ $ptypes = App\Models\PropertyType::latest()->get();
         <div class="select-box">
             <i class="far fa-compass"></i>
             <select name="state" class="wide">
-               <option data-display="Input location">Input location</option>
-               @foreach($states as $state)
-                <option value="{{ $state->state_name }}">{{ $state->state_name }}</option>
+                <option value="">Input location</option>
+                @foreach($states as $state)
+                    <option value="{{ $state->state_name }}">{{ $state->state_name }}</option>
                 @endforeach
             </select>
         </div>
@@ -105,10 +105,10 @@ $ptypes = App\Models\PropertyType::latest()->get();
         <label>Property Type</label>
         <div class="select-box">
             <select name="ptype_id" class="wide">
-               <option data-display="All Type">All Type</option>
-               @foreach($ptypes as $type)
-                <option value="{{ $type->type_name }}">{{ $type->type_name }}</option>
-               @endforeach
+                <option value="">All Type</option>
+                @foreach($ptypes as $type)
+                    <option value="{{ $type->type_name }}">{{ $type->type_name }}</option>
+                @endforeach
             </select>
         </div>
     </div>
