@@ -191,6 +191,29 @@ class IndexController extends Controller
          })
         ->get();
 
+
+            // Execute a query on the Property model with the search term as a mandatory condition.
+            // $property = Property::where('address', 'like' , '%' .$item. '%')
+            // ->where('property_status','buy')
+            // ->with('type','pstate');
+
+            // // Add optional conditions if $sstate is provided.
+            // if ($sstate) {
+            // $property->whereHas('pstate', function($q) use ($sstate){
+            //     $q->where('state_name','like' , '%' .$sstate. '%');
+            // });
+            // }
+
+            // // // Add optional conditions if $stype is provided.
+            // if ($stype) {
+            // $property->whereHas('type', function($q) use ($stype){
+            //     $q->where('type_name','like' , '%' .$stype. '%');
+            // });
+            // }
+
+            // // Retrieve the results of the query.
+            // $property = $property->get();
+
         return view('frontend.property.property_search',compact('property'));
      }// End Method 
 
