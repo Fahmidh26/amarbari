@@ -1,10 +1,12 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+
 @section('title')
   Buy Property AmarBari  
 @endsection
  <!--Page Title-->
+
         <section class="page-title-two bg-color-1 centred">
             <div class="pattern-layer">
                 <div class="pattern-1" style="background-image: url({{ asset('frontend/assets/images/shape/shape-9.png') }});"></div>
@@ -151,7 +153,7 @@
                         <div class="price-box clearfix">
                             <div class="price-info pull-left">
                                 <h6>Start From</h6>
-                                <h4>${{ $item->max_price }}</h4>
+                                <h4>TK {{ $item->max_price }}</h4>
                             </div>
 
   @if($item->agent_id == Null)
@@ -198,12 +200,7 @@
 
                             </div>
                             <div class="pagination-wrapper">
-                                <ul class="pagination clearfix">
-                                    <li><a href="property-list.html" class="current">1</a></li>
-                                    <li><a href="property-list.html">2</a></li>
-                                    <li><a href="property-list.html">3</a></li>
-                                    <li><a href="property-list.html"><i class="fas fa-angle-right"></i></a></li>
-                                </ul>
+                                {{ $property->links('vendor.pagination.custom') }}
                             </div>
                         </div>
                     </div>
