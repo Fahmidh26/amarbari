@@ -35,7 +35,7 @@ $setting = App\Models\SiteSetting::find(1);
          @else 
 
          <div class="sign-box">
-         <a href="{{ route('agent.login') }}"><i class="fas fa-user"></i>Sign In</a>    
+         <a href="{{ route('login') }}"><i class="fas fa-user"></i>Sign In</a>    
                 </div>
                 @endauth    
             </div>

@@ -10,10 +10,10 @@ $status = $agentId->status;
 
  <div class="page-content">
   @if($status === 'active')
-  <h4>Agent Account Is <span class="text-success">Active </span> </h4>
+  <h4>Account Is <span class="text-success">Active </span> </h4>
 
   @else
-<h4>Agent Account Is <span class="text-danger">Inactive </span> </h4>
+<h4>Account Is <span class="text-danger">Inactive </span> </h4>
 <p class="text-danger"><b> Plz wait admin will check and approve your account</b></p>
   @endif
   

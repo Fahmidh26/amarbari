@@ -18,7 +18,7 @@ use Carbon\Carbon;
 
 class IndexController extends Controller
 {
-    public function PropertyDetails($id,$slug){
+    public function PropertyDetails($id){
 
         $property = Property::findOrFail($id);
         $amenities = $property->amenities_id;

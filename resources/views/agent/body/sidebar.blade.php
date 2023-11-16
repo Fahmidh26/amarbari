@@ -7,7 +7,7 @@ $status = $agentId->status;
 <nav class="sidebar">
   <div class="sidebar-header">
     <a href="#" class="sidebar-brand">
-      AmarBari<span>Agent</span>
+      AmarBari<span>Seller</span>
     </a>
     <div class="sidebar-toggler not-active">
       <span></span>
@@ -67,12 +67,12 @@ $status = $agentId->status;
         </a>
       </li>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a href="{{ route('agent.schedule.request') }}" class="nav-link">
           <i class="link-icon" data-feather="calendar"></i>
           <span class="link-title">Schedule Request </span>
         </a>
-      </li>
+      </li> --}}
 
       <li class="nav-item nav-category">Components</li>
       <li class="nav-item">
@@ -83,7 +83,7 @@ $status = $agentId->status;
             <span class="link-title">Live Chat </span>
           </a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
           <i class="link-icon" data-feather="anchor"></i>
           <span class="link-title">Advanced UI</span>
@@ -100,7 +100,7 @@ $status = $agentId->status;
 
           </ul>
         </div>
-      </li>
+      </li> --}}
 
 
       @else
@@ -108,13 +108,13 @@ $status = $agentId->status;
       @endif
 
 
-      <li class="nav-item nav-category">Docs</li>
+      {{-- <li class="nav-item nav-category">Docs</li>
       <li class="nav-item">
         <a href="#" target="_blank" class="nav-link">
           <i class="link-icon" data-feather="hash"></i>
           <span class="link-title">Documentation</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </nav>

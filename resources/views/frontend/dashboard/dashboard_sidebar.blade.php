@@ -3,14 +3,13 @@
 
 <li class="current">  <a href="blog-details.html"><i class="fab fa fa-envelope "></i> Dashboard </a></li>
 
-
-<li><a href="{{ route('user.profile') }}"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
-<li><a href="blog-details.html"><i class="fa fa-credit-card" aria-hidden="true"></i> Buy credits<span class="badge badge-info">( 10 credits)</span></a></li>
-<li><a href="blog-details.html"><i class="fa fa-list-alt" aria-hidden="true"></i></i> Properties </a></li>
+{{-- <li><a href="blog-details.html"><i class="fa fa-credit-card" aria-hidden="true"></i> Buy credits<span class="badge badge-info">( 10 credits)</span></a></li>
+<li><a href="blog-details.html"><i class="fa fa-list-alt" aria-hidden="true"></i></i> Properties </a></li> --}}
 <li><a href="{{route('agent.dashboard')}}"><i class="fa fa-list-alt" aria-hidden="true"></i></i> Switch to Seller </a></li>
 <li><a href="{{ route('user.compare') }}"><i class="fa fa-list-alt" aria-hidden="true"></i></i> Compare </a></li>
 <li><a href="{{ route('live.chat') }}"><i class="fa fa-indent" aria-hidden="true"></i> Live Chat  </a></li>
 <li><a href="{{ route('user.wishlist') }}"><i class="fa fa-indent" aria-hidden="true"></i> WishList  </a></li>
+<li><a href="{{ route('user.profile') }}"><i class="fa fa-cog" aria-hidden="true"></i> Profile</a></li>
 <li><a href="{{ route('user.change.password') }}"><i class="fa fa-key" aria-hidden="true"></i> Security </a></li>
 <li><a href="{{ route('user.logout') }}"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i> Logout </a></li>
     </ul>
