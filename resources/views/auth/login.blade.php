@@ -41,7 +41,7 @@ User Login | AmarBari
         <div class="tab active-tab" id="tab-1">
             <div class="inner-box">
                 <h4>Sign in</h4>
-                <form action="{{ route('login') }}" method="post" class="default-form">
+                <form action="{{ route('agent.login') }}" method="post" class="default-form">
                @csrf
 
                     <div class="form-group">
