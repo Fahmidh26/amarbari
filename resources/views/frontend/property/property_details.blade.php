@@ -198,6 +198,16 @@
                                     <a target="_blank" href="https://eporcha.gov.bd/">Verify</a>
                                 </div>
                             </div>
+                            @else
+                            <div class="location-box content-widget">
+                                <div class="title-box">
+                                    <h4>Legal Information</h4>
+                                </div>
+                               
+                                <div class="title-box">
+                                    <a target="_blank" href="https://eporcha.gov.bd/">Login to verify Property legal details</a>
+                                </div>
+                            </div>
                             @endif
                             {{-- <div class="location-box content-widget">
                                 <div class="title-box">
