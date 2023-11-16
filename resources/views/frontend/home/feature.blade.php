@@ -21,7 +21,7 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->ord
                             <div class="inner-box">
                                 
                                 <div class="image-box">
-                                    <a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}"><figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""></figure></a>
+                                    <a href="{{ url('property/details/'.$item->id) }}"><figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""></figure></a>
                                     <div class="batch"><i class="icon-11"></i></div>
                                     <span class="category">Featured</span>
                                 </div>
@@ -45,7 +45,7 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->ord
                                         <div class="buy-btn pull-right"><a href="{{ route('rent.property') }}">For {{ $item->property_status }}</a></div>
                                         @endif
                                     </div>
-                                    <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->address }}</a></h4></div>
+                                    <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id) }}">{{ $item->address }}</a></h4></div>
                         <div class="price-box clearfix">
                             <div class="price-info pull-left">
                                 <h6>Start From</h6>
