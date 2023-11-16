@@ -2,7 +2,7 @@
 @section('main')
 
 @section('title')
-  {{ $property->property_name }} | AmarBari 
+  {{ $property->address }} | AmarBari 
 @endsection
 
 <script src="https://kit.fontawesome.com/7e6003b995.js" crossorigin="anonymous"></script>
@@ -89,12 +89,12 @@
                         <ul class="other-option pull-right clearfix">
                             <li>
                                 @auth
-                                    <div id="app">
+                                    {{-- <div id="app">
                                      <send-message :recevierid="{{ $property->agent_id }}" receivername="{{ $property->user->name }}" >
 
                                         </send-message>
                                     
-                                    </div>
+                                    </div> --}}
                                 @else
                                     <span class="text-danger">For Chat Login First </span>
                                 @endauth

@@ -72,7 +72,7 @@
             <div class="inner-box clearfix">
                 <figure class="footer-logo"><a href="index.html"><img src="{{ asset('frontend/assets/images/footer-logo.png') }}" alt=""></a></figure>
                 <div class="copyright pull-left">
-                    <p><a href="index.html">{{ $setting->copyright }}</p>
+                    <p><a href="https://stataglobal.com/">{{ $setting->copyright }}</p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
                     <li><a href="{{route('terms.services')}}">Terms of Service</a></li>
