@@ -56,7 +56,7 @@ class PropertyController extends Controller
 
             'ptype_id' => $request->ptype_id,
             'amenities_id' => $amenites,
-            // 'property_name' => $request->property_name,
+            'property_name' => "Null",
             'property_slug' => strtolower(str_replace(' ', '-', $request->address)),
             'property_code' => $pcode,
             'property_status' => $request->property_status,
