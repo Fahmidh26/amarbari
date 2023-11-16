@@ -77,8 +77,8 @@
                         <div class="price-inner clearfix">
                             <ul class="category clearfix pull-left">
                                 
-                                <li><a href="property-details.html">{{ $property->type->type_name }}</a></li>
-                                <li><a href="property-details.html">For {{ $property->property_status }}</a></li>
+                                <li><a href="#">{{ $property->type->type_name }}</a></li>
+                                <li><a href="#">For {{ $property->property_status }}</a></li>
                             </ul>
                             <div class="price-box pull-right">
                                
@@ -101,8 +101,8 @@
                             </li>
                             {{-- <li><a href="property-details.html"><i class="icon-37"></i></a></li>
                             <li><a href="property-details.html"><i class="icon-38"></i></a></li> --}}
-                            <li><a href="property-details.html"><i class="icon-12"></i></a></li>
-                            <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                            <li><a aria-label="Compare" class="action-btn" id="{{ $property->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
+                            <li><a aria-label="Add To Wishlist" class="action-btn" id="{{ $property->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
                                 </div>
                                
                                 <div class="title-box">
-                                    <a target="_blank" href="https://eporcha.gov.bd/">Login to verify Property legal details</a>
+                                   <p> <a target="_blank" href="https://eporcha.gov.bd/">Login </a> to verify Property legal details</p>
                                 </div>
                             </div>
                             @endif
