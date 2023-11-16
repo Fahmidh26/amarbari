@@ -77,8 +77,8 @@
                         <div class="price-inner clearfix">
                             <ul class="category clearfix pull-left">
                                 
-                                <li><a href="property-details.html">{{ $property->type->type_name }}</a></li>
-                                <li><a href="property-details.html">For {{ $property->property_status }}</a></li>
+                                <li><a href="#">{{ $property->type->type_name }}</a></li>
+                                <li><a href="#">For {{ $property->property_status }}</a></li>
                             </ul>
                             <div class="price-box pull-right">
                                
