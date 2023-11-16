@@ -403,7 +403,12 @@
 
                                   @endphp
                                         <p>Upgrade Cost</p>
-                                    <span>{{($property->bedrooms * $pBedroom) + $pOfL}}</span>
+                                        @if (is_string($property->bedrooms))
+                                            <span class="text-danger">*Price is calculated upon no of Bedrooms</span>
+                                        @else
+                                            <span>{{($property->bedrooms * $pBedroom) + $pOfL}}</span>
+                                        @endif
+                                   
 
                                    
                                  <br>
