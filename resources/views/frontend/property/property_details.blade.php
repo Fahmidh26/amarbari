@@ -205,7 +205,7 @@
                                 </div>
                                
                                 <div class="title-box">
-                                    <a target="_blank" href="https://eporcha.gov.bd/">Login to verify Property legal details</a>
+                                   <p> <a target="_blank" href="https://eporcha.gov.bd/">Login </a> to verify Property legal details</p>
                                 </div>
                             </div>
                             @endif
