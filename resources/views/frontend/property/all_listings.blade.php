@@ -170,10 +170,12 @@
   @else 
 
    <div class="author-box pull-right">
-        <figure class="author-thumb"> 
-            <img src="{{ (!empty($item->user->photo)) ? url('upload/agent_images/'.$item->user->photo) : url('upload/no_image.jpg') }}" alt="">
-            <span>{{ $item->user->name }}</span>
-        </figure>
+        <a href="{{ url('property/details/'.$item->id) }}">
+            <figure class="author-thumb">
+                <img src="{{ (!empty($item->user->photo)) ? url('upload/agent_images/'.$item->user->photo) : url('upload/no_image.jpg') }}" alt="">
+                <span>{{ $item->user->name }}</span>
+            </figure>
+        </a>
     </div>
 
   @endif 
