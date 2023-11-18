@@ -4,7 +4,7 @@
 
 <section class="testimonial-section bg-color-1 centred">
     <div class="pattern-layer" style="background-image: url({{ asset('frontend/assets/images/shape/shape-1.png') }});"></div>
-    <div class="auto-container">
+    {{-- <div class="auto-container">
         <div class="sec-title">
             <h5>Testimonials</h5>
             <h2>What They Say About Us</h2>
@@ -25,5 +25,5 @@
         </div>
             @endforeach        
         </div>
-    </div>
+    </div> --}}
 </section>

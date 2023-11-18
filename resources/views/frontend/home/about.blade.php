@@ -337,12 +337,6 @@ style="background-image: url(assets/images/background/cta-1.jpg)"
         <div class="icon-box"><i class="icon-18"></i></div>
         <h4>
           "AmarBari's Real Estate Finance Advisory provided invaluable insights into mortgage options. Their expertise not only saved me money but also ensured a smooth financing process. I highly recommend their services for anyone navigating the real estate market."
-
-
-
-
-
-
         </h4>
         <h5>Emma W.</h5>
         <span class="designation">Real Estate Finance Client</span>
