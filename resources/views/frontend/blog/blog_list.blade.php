@@ -128,8 +128,8 @@
 
     	@foreach($dpost as $post)
         <div class="post">
-            <figure class="post-thumb"><a href="blog-details.html"><img src="{{ asset($post->post_image) }}" alt=""></a></figure>
-            <h5><a href="blog-details.html">{{ $post->post_title }}</a></h5>
+            <figure class="post-thumb"><a href="{{ url('blog/details/'.$post->post_slug) }}"><img src="{{ asset($post->post_image) }}" alt=""></a></figure>
+            <h5><a href="{{ url('blog/details/'.$post->post_slug) }}">{{ $post->post_title }}</a></h5>
             <span class="post-date">{{ $post->created_at->format('M d Y') }}</span>
         </div>
       	@endforeach
