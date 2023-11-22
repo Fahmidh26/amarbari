@@ -53,6 +53,17 @@ User Login | AmarBari
                         <label>Password</label>
                         <input type="password" name="password" id="password" required="">
                     </div>
+
+                    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
 <div class="form-group message-btn">
     <button type="submit" class="theme-btn btn-one">Sign in</button>
 </div>
