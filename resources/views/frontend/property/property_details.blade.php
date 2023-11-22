@@ -205,7 +205,7 @@
                                 </div>
                                
                                 <div class="title-box">
-                                   <p> <a target="_blank" href="https://eporcha.gov.bd/">Login </a> to verify Property legal details</p>
+                                   <p> <a target="_blank" href="{{ route('login') }}">Login </a> to verify Property legal details</p>
                                 </div>
                             </div>
                             @endif
@@ -490,7 +490,7 @@
                                     </tr>
                                   </table>
                                   *Decimal = Shotok = Shotangsho
-                                  <br> <a href="https://minland.gov.bd/site/page/4e44d7ef-2c36-4483-aa4e-77b294de729c">**Get more information here</a>
+                                  <br> <a href="https://minland.gov.bd/site/page/4e44d7ef-2c36-4483-aa4e-77b294de729c" target="_blank">**Get more information here</a>
                             </div>
                             {{-- Land Calculator END --}}
 
