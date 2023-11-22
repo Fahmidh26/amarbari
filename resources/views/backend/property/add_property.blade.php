@@ -94,6 +94,36 @@
     </div><!-- Row -->
 
 
+    <div class="row">
+        <div class="col-sm-4">
+        <label class="form-check-label" for="show-options">Smart Home</label>
+        <input type="checkbox" name="smart_home" value="1" id="show-options" class="form-check-input">
+        </div>
+
+        <div class="options" style="display: none; margin-bottom:5px; margin-top:5px" >
+        <div class="form-check form-check-inline">
+            <label class="form-check-label" for="doorbell">
+                Has Smart Doorbell 
+             </label>
+            <input type="checkbox" name="doorbell" value="1" class="form-check-input" id="doorbell">              
+        </div>
+
+        <div class="form-check form-check-inline">
+            <label class="form-check-label" for="lock">
+                Has Smart Lock 
+             </label>
+            <input type="checkbox" name="s_lock" value="1" class="form-check-input" id="lock">              
+        </div>
+
+        <div class="form-check form-check-inline">
+            <label class="form-check-label" for="automated">
+               Are the rooms smart & automated 
+             </label>
+            <input type="checkbox" name="automated" value="1" class="form-check-input" id="automated">              
+        </div>
+        </div>
+
+    </div>
 
     <div class="row">
         <div class="col-sm-3">
@@ -534,6 +564,18 @@
    });
   });
    
+  </script>
+
+<script>
+    $(document).ready(function() {
+    $('#show-options').on('change', function() {
+        if (this.checked) {
+            $('.options').show();
+        } else {
+            $('.options').hide();
+        }
+    });
+});
   </script>
 
 @endsection

@@ -74,6 +74,11 @@ class PropertyController extends Controller
             'property_video' => $request->property_video,
             'address' => $request->address,
             'city' => $request->city,
+
+            'smart_home' => $request->smart_home,
+            'doorbell' => $request->doorbell,
+            's_lock' => $request->s_lock,
+            'automated' => $request->automated,
            
             'division' => $request->division,
             'district' => $request->district,
