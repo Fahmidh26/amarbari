@@ -61,7 +61,7 @@ class PropertyController extends Controller
             'property_code' => $pcode,
             'property_status' => $request->property_status,
 
-            // 'lowest_price' => $request->lowest_price,
+            'lowest_price' => $request->max_price,
             'max_price' => $request->max_price,
             'short_descp' => $request->short_descp,
             'long_descp' => $request->long_descp,
