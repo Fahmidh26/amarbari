@@ -61,7 +61,7 @@ $setting = App\Models\SiteSetting::find(1);
         <li><a href="{{ url('/') }}"><span>Home</span></a> </li>
         <li><a href="{{ route('about.us') }}"><span>About Us </span></a> </li>
    
-   <li class="dropdown"><a href="index.html"><span>Property</span></a>
+   <li class="dropdown"><a href="{{ route('all.listing') }}"><span>Property</span></a>
        <ul>
            <li><a href="{{ route('all.listing') }}">All Property</a></li>
            <li><a href="{{ route('rent.property') }}">Rent Property</a></li>

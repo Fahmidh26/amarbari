@@ -18,7 +18,7 @@
         <div class="sec-title centred">
             <h5>Top Places</h5>
             <h2>Most Popular Places</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt <br />labore dolore magna aliqua enim.</p>
+            <p>Discover the pulse of real estate excellence with our Most Popular Listings on AmarBari.com. Dive into a collection of sought-after properties that capture the essence of market trends and community preferences. These top-tier listings are curated for those seeking homes that resonate with popularity and style. Explore now to find the homes that are making waves in the real estate scene. Your dream property might just be among our most popular listings. Start your journey with AmarBari.com today!</p>
         </div>
         <div class="sortable-masonry">
             <div class="items-container row clearfix">

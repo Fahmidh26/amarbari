@@ -1,6 +1,6 @@
 @php
    $setting = App\Models\SiteSetting::find(1);
-   $blog = App\Models\BlogPost::latest()->limit(2)->get();
+   $blog = App\Models\BlogPost::latest()->limit(1)->get();
 @endphp
 
 <footer class="main-footer">

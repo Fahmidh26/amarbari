@@ -104,24 +104,49 @@ style="background-image: url({{ asset('frontend/assets/images/background/page-ti
     <div class="feature-block-two">
       <div class="inner-box">
         <div class="icon-box"><i class="icon-1"></i></div>
-        <h4>Excellent Reputation</h4>
+        <h4>Interior Design Solutions</h4>
         <p>
-          Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt
-          dolore magna.
+          Transform your living spaces into personalized havens with AmarBari's Interior Design Solutions, where creativity meets functionality to redefine the aesthetics of your home.
         </p>
       </div>
     </div>
     <div class="feature-block-two">
       <div class="inner-box">
         <div class="icon-box"><i class="icon-26"></i></div>
-        <h4>Best Local Agents</h4>
+        <h4>Home Inspections</h4>
         <p>
-          Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt
-          dolore magna.
+          Ensuring peace of mind through comprehensive property inspections, AmarBari Home Inspections provides detailed assessments to help you make informed real estate decisions.
         </p>
       </div>
     </div>
     <div class="feature-block-two">
+      <div class="inner-box">
+        <div class="icon-box"><i class="icon-21"></i></div>
+        <h4>Property Management</h4>
+        <p>
+          Effortlessly elevate your property investment with AmarBari Property Management, offering professional services to maximize rental returns and streamline property maintenance.
+        </p>
+      </div>
+    </div>
+    <div class="feature-block-two">
+      <div class="inner-box">
+        <div class="icon-box"><i class="icon-1"></i></div>
+        <h4>Realty Consultancy</h4>
+        <p>
+          Navigating the complexities of real estate transactions, AmarBari Realty Consultancy provides expert advice and personalized solutions to guide you through buying, selling, or investing in properties.
+        </p>
+      </div>
+    </div>
+    <div class="feature-block-two">
+      <div class="inner-box">
+        <div class="icon-box"><i class="icon-26"></i></div>
+        <h4> Real Estate Finance Advisory</h4>
+        <p>
+          Empowering your financial decisions, AmarBari Real Estate Finance Advisory offers strategic guidance on mortgage options, ensuring optimal financing solutions tailored to your property goals.
+        </p>
+      </div>
+    </div>
+    {{-- <div class="feature-block-two">
       <div class="inner-box">
         <div class="icon-box"><i class="icon-21"></i></div>
         <h4>Personalized Service</h4>
@@ -160,37 +185,7 @@ style="background-image: url({{ asset('frontend/assets/images/background/page-ti
           dolore magna.
         </p>
       </div>
-    </div>
-    <div class="feature-block-two">
-      <div class="inner-box">
-        <div class="icon-box"><i class="icon-1"></i></div>
-        <h4>Excellent Reputation</h4>
-        <p>
-          Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt
-          dolore magna.
-        </p>
-      </div>
-    </div>
-    <div class="feature-block-two">
-      <div class="inner-box">
-        <div class="icon-box"><i class="icon-26"></i></div>
-        <h4>Best Local Agents</h4>
-        <p>
-          Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt
-          dolore magna.
-        </p>
-      </div>
-    </div>
-    <div class="feature-block-two">
-      <div class="inner-box">
-        <div class="icon-box"><i class="icon-21"></i></div>
-        <h4>Personalized Service</h4>
-        <p>
-          Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt
-          dolore magna.
-        </p>
-      </div>
-    </div>
+    </div> --}}
   </div>
 </div>
 </section>
@@ -301,8 +296,7 @@ style="background-image: url(assets/images/background/cta-1.jpg)"
     <h5>Testimonials</h5>
     <h2>What They Say About Us</h2>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod
-      tempor incididunt <br />labore dolore magna aliqua enim.
+      Discover the essence of AmarBari through the voices of satisfied clients and industry accolades, echoing testimonials that speak to our commitment to excellence in real estate services.
     </p>
   </div>
   <div
@@ -312,14 +306,43 @@ style="background-image: url(assets/images/background/cta-1.jpg)"
       <div class="inner-box">
         <div class="icon-box"><i class="icon-18"></i></div>
         <h4>
-          “Our goal each day is to ensure that our residents’ needs are
-          not only met but exceeded.”
+          "AmarBari made the home-buying process seamless. Their attention to detail and commitment to client satisfaction exceeded my expectations. I'm now happily settled in my dream home, thanks to AmarBari!"
         </h4>
-        <h5>Rebeka Dawson</h5>
-        <span class="designation">Instructor</span>
+        <h5>John D.</h5>
+        <span class="designation">Happy Homeowner</span>
       </div>
     </div>
     <div class="testimonial-block-three">
+      <div class="inner-box">
+        <div class="icon-box"><i class="icon-18"></i></div>
+        <h4>
+          "AmarBari's Property Management services have been a game-changer for my investment portfolio. Their proactive approach and efficient handling of tenant relations have significantly increased my rental returns."
+        </h4>
+        <h5>Sarah M.</h5>
+        <span class="designation">Property Investor</span>
+      </div>
+    </div>
+    <div class="testimonial-block-three">
+      <div class="inner-box">
+        <div class="icon-box"><i class="icon-18"></i></div>
+        <h4>
+          "Working with AmarBari on my home's interior design was a delightful experience. Their team understood my vision and brought it to life, creating a space that reflects my style and personality. I couldn't be happier!"
+        </h4>
+        <h5>David R.</h5>
+        <span class="designation">Interior Design Client</span>
+      </div>
+    </div>
+    <div class="testimonial-block-three">
+      <div class="inner-box">
+        <div class="icon-box"><i class="icon-18"></i></div>
+        <h4>
+          "AmarBari's Real Estate Finance Advisory provided invaluable insights into mortgage options. Their expertise not only saved me money but also ensured a smooth financing process. I highly recommend their services for anyone navigating the real estate market."
+        </h4>
+        <h5>Emma W.</h5>
+        <span class="designation">Real Estate Finance Client</span>
+      </div>
+    </div>
+    {{-- <div class="testimonial-block-three">
       <div class="inner-box">
         <div class="icon-box"><i class="icon-18"></i></div>
         <h4>
@@ -373,40 +396,7 @@ style="background-image: url(assets/images/background/cta-1.jpg)"
         <h5>Owen Lester</h5>
         <span class="designation">Manager</span>
       </div>
-    </div>
-    <div class="testimonial-block-three">
-      <div class="inner-box">
-        <div class="icon-box"><i class="icon-18"></i></div>
-        <h4>
-          “Our goal each day is to ensure that our residents’ needs are
-          not only met but exceeded.”
-        </h4>
-        <h5>Rebeka Dawson</h5>
-        <span class="designation">Instructor</span>
-      </div>
-    </div>
-    <div class="testimonial-block-three">
-      <div class="inner-box">
-        <div class="icon-box"><i class="icon-18"></i></div>
-        <h4>
-          “Our goal each day is to ensure that our residents’ needs are
-          not only met but exceeded.”
-        </h4>
-        <h5>Marc Kenneth</h5>
-        <span class="designation">Founder CEO</span>
-      </div>
-    </div>
-    <div class="testimonial-block-three">
-      <div class="inner-box">
-        <div class="icon-box"><i class="icon-18"></i></div>
-        <h4>
-          “Our goal each day is to ensure that our residents’ needs are
-          not only met but exceeded.”
-        </h4>
-        <h5>Owen Lester</h5>
-        <span class="designation">Manager</span>
-      </div>
-    </div>
+    </div> --}}
   </div>
 </div>
 </section>

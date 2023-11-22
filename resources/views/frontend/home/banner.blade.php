@@ -2,8 +2,26 @@
 $states = App\Models\State::latest()->get();
 $ptypes = App\Models\PropertyType::latest()->get();
  @endphp
+<style>
+     video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
+        }
+</style>
 
-<section class="banner-section" style="background-image: url({{ asset('frontend/assets/images/banner/banner-1.png') }});">
+<section class="banner-section">
+    <video autoplay muted loop>
+        <!-- You can provide multiple video sources for compatibility -->
+        <source src="{{ asset('frontend/assets/images/banner/1.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="auto-container">
         <div class="inner-container">
             <div class="content-box centred">
