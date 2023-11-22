@@ -17,7 +17,7 @@
                 <div class="pattern-1" style="background-image: url({{ asset('frontend/assets/images/shape/shape-9.png') }});"></div>
                 <div class="pattern-2" style="background-image: url({{ asset('frontend/assets/images/shape/shape-10.png') }});"></div>
             </div>
-            <div class="auto-container">
+            {{-- <div class="auto-container">
                 <div class="content-box clearfix">
                     <h1>{{ $property->address }}</h1>
                     <ul class="bread-crumb clearfix">
@@ -25,7 +25,7 @@
                         <li>{{ $property->address }}</li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </section>
         <!--End Page Title-->
 
@@ -41,7 +41,7 @@
                                 @if ($property->smart_home && $property->doorbell && $property->s_lock && $property->automated == 1)
                                 <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/smart_home.png')}}" style="width:55px; height:50px" alt=""></a>
                                 @else
-                                <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/spi.png')}}" style="width:55px; height:50px" alt=""></a>
+                                {{-- <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/spi.png')}}" style="width:55px; height:50px" alt=""></a> --}}
                                 @endif
                               
                                 {{-- <a href="https://stataglobal.com/" data-toggle="tooltip" data-placement="top" title="This Home is smart"><i class="fa fa-check text-success" aria-hidden="true"></i></a> --}}

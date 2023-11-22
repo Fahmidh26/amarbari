@@ -137,7 +137,9 @@
             <div class="deals-block-one">
                 <div class="inner-box">
                     <div class="image-box">
+                    <a href="{{ url('property/details/'.$item->id) }}">
                         <figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""  style="width:300px; height:350px;"></figure>
+                    </a>
                         <div class="batch"><i class="icon-11"></i></div>
                        @if($item->featured == 1)
                         <span class="category">Featured</span>
@@ -149,7 +151,7 @@
                         <div class="buy-btn"><a href="property-details.html">For {{ $item->property_status }}</a></div>
                     </div>
                     <div class="lower-content">
-         <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->address }}</a></h4></div>
+         <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id) }}">{{ $item->address }}</a></h4></div>
                         <div class="price-box clearfix">
                             <div class="price-info pull-left">
                                 <h6>Start From</h6>
@@ -181,7 +183,7 @@
         <li><i class="icon-16"></i>{{ $item->property_size }} Sq Ft</li>
                         </ul>
                         <div class="other-info-box clearfix">
-                            <div class="btn-box pull-left"><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}" class="theme-btn btn-two">See Details</a></div>
+                            <div class="btn-box pull-left"><a href="{{ url('property/details/'.$item->id) }}" class="theme-btn btn-two">See Details</a></div>
                             <ul class="other-option pull-right clearfix">
              <li><a aria-label="Compare" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
 
