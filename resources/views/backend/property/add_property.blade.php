@@ -63,7 +63,7 @@
             <div class="col-sm-6">
                 <div class="form-group mb-3">
                 <label class="form-label">Price </label>
-                <input type="text" name="max_price" class="form-control"  >
+                <input type="text" name="lowest_price" class="form-control"  >
             </div>
         </div><!-- Col -->
 
