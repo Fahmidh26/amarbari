@@ -500,3 +500,5 @@ Route::get('/deal/all', [PropertyController::class, 'Deal'])->name('deal.propert
 Route::get('/property/all', [PropertyController::class, 'ListAll'])->name('all.listing');
 
 Route::get('/terms&services', [IndexController::class, 'Terms'])->name('terms.services');
+
+Route::get('/privacy&policy', [IndexController::class, 'Privacy'])->name('privacy.policy');

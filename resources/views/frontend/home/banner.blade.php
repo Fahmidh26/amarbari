@@ -25,7 +25,7 @@ $ptypes = App\Models\PropertyType::latest()->get();
     <div class="auto-container">
         <div class="inner-container">
             <div class="content-box centred">
-                <h2>Discover Your Dream Home with Amarbari: Where Bangladesh Finds Its Future</h2>
+                <h2>Discover Your Dream Home with Amarbari: Where Bangladesh Find It's Future</h2>
                 {{-- <p>Amarbari: Your Path to Perfect Living</p> --}}
             </div>
             <div class="search-field">

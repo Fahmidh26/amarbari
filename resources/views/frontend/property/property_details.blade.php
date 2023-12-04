@@ -39,7 +39,7 @@
                             <div class="col-11"><h3>{{ $property->address }}</h3></div>
                             <div class="col-1">
                                 @if ($property->smart_home && $property->doorbell && $property->s_lock && $property->automated == 1)
-                                <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/smart_home.png')}}" style="width:55px; height:50px" alt=""></a>
+                                <a target="_blank" href="https://amarbaribd.com/blog/details/the-evolution-of-living:-embracing-the-necessity-of-smart-homes"><img src="{{ url('upload/smart_home.png')}}" style="width:55px; height:50px" alt=""></a>
                                 @else
                                 {{-- <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/spi.png')}}" style="width:55px; height:50px" alt=""></a> --}}
                                 @endif

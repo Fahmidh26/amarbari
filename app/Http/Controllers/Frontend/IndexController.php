@@ -117,6 +117,12 @@ class IndexController extends Controller
 
     }// End Method 
 
+    public function Privacy(){
+
+        return view('frontend.home.privacy');
+
+    }// End Method 
+
 
     public function AgentDetailsMessage(Request $request){
 
