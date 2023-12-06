@@ -1,7 +1,7 @@
 <div class="widget-content">
     <ul class="category-list ">
 
-<li class="current">  <a href="blog-details.html"><i class="fab fa fa-envelope "></i> Dashboard </a></li>
+<li class="current">  <a href="{{ route('dashboard') }}"><i class="fab fa fa-envelope "></i> Dashboard </a></li>
 
 {{-- <li><a href="blog-details.html"><i class="fa fa-credit-card" aria-hidden="true"></i> Buy credits<span class="badge badge-info">( 10 credits)</span></a></li>
 <li><a href="blog-details.html"><i class="fa fa-list-alt" aria-hidden="true"></i></i> Properties </a></li> --}}

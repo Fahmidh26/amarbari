@@ -70,13 +70,13 @@
     <div class="footer-bottom">
         <div class="auto-container">
             <div class="inner-box clearfix">
-                <figure class="footer-logo"><a href="{{route('homepage')}}"><img src="{{ asset('frontend/assets/images/footer-logo.png') }}" alt=""></a></figure>
+                <figure class="footer-logo"><img src="{{ asset('frontend/assets/images/footer-logo.png') }}" alt=""></figure>
                 <div class="copyright pull-left">
-                    <p><a href="https://stataglobal.com/">{{ $setting->copyright }}</p>
+                    <p><a target="_blank" href="https://stataglobal.com/">{{ $setting->copyright }}</p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
                     <li><a href="{{route('terms.services')}}">Terms of Service</a></li>
-                    <li><a href="{{route('terms.services')}}">Privacy Policy</a></li>
+                    <li><a href="{{route('privacy.policy')}}">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>

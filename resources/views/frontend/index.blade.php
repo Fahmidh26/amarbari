@@ -12,7 +12,7 @@
         <!-- banner-section end -->
 
         <!-- category-section -->
-        @include('frontend.home.category')
+        {{-- @include('frontend.home.category') --}}
         <!-- category-section end -->
 
 

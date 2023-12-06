@@ -17,7 +17,7 @@
                 <div class="pattern-1" style="background-image: url({{ asset('frontend/assets/images/shape/shape-9.png') }});"></div>
                 <div class="pattern-2" style="background-image: url({{ asset('frontend/assets/images/shape/shape-10.png') }});"></div>
             </div>
-            <div class="auto-container">
+            {{-- <div class="auto-container">
                 <div class="content-box clearfix">
                     <h1>{{ $property->address }}</h1>
                     <ul class="bread-crumb clearfix">
@@ -25,7 +25,7 @@
                         <li>{{ $property->address }}</li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </section>
         <!--End Page Title-->
 
@@ -39,9 +39,9 @@
                             <div class="col-11"><h3>{{ $property->address }}</h3></div>
                             <div class="col-1">
                                 @if ($property->smart_home && $property->doorbell && $property->s_lock && $property->automated == 1)
-                                <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/smart_home.png')}}" style="width:55px; height:50px" alt=""></a>
+                                <a target="_blank" href="https://amarbaribd.com/blog/details/the-evolution-of-living:-embracing-the-necessity-of-smart-homes"><img src="{{ url('upload/smart_home.png')}}" style="width:55px; height:50px" alt=""></a>
                                 @else
-                                <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/spi.png')}}" style="width:55px; height:50px" alt=""></a>
+                                {{-- <a target="_blank" href="https://stataglobal.com/"><img src="{{ url('upload/spi.png')}}" style="width:55px; height:50px" alt=""></a> --}}
                                 @endif
                               
                                 {{-- <a href="https://stataglobal.com/" data-toggle="tooltip" data-placement="top" title="This Home is smart"><i class="fa fa-check text-success" aria-hidden="true"></i></a> --}}
@@ -205,7 +205,7 @@
                                 </div>
                                
                                 <div class="title-box">
-                                   <p> <a target="_blank" href="https://eporcha.gov.bd/">Login </a> to verify Property legal details</p>
+                                   <p> <a target="_blank" href="{{ route('login') }}">Login </a> to verify Property legal details</p>
                                 </div>
                             </div>
                             @endif
@@ -490,7 +490,7 @@
                                     </tr>
                                   </table>
                                   *Decimal = Shotok = Shotangsho
-                                  <br> <a href="https://minland.gov.bd/site/page/4e44d7ef-2c36-4483-aa4e-77b294de729c">**Get more information here</a>
+                                  <br> <a href="https://minland.gov.bd/site/page/4e44d7ef-2c36-4483-aa4e-77b294de729c" target="_blank">**Get more information here</a>
                             </div>
                             {{-- Land Calculator END --}}
 
@@ -657,7 +657,7 @@
                             <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                                 <div class="inner-box">
                                     <div class="image-box">
-                                       <a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}"><figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""></figure></a>
+                                       <a href="{{ url('property/details/'.$item->id) }}"><figure class="image"><img src="{{ asset($item->property_thambnail  ) }}" alt=""></figure></a>
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">{{ $item->type->type_name }}</span>
                                     </div>
@@ -681,7 +681,7 @@
                                         <div class="buy-btn pull-right"><a href="{{ route('rent.property') }}">For {{ $item->property_status }}</a></div>
                                         @endif
                                         </div>
-                                        <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->address }}</a></h4></div>
+                                        <div class="title-text"><h4><a href="{{ url('property/details/'.$item->id) }}">{{ $item->address }}</a></h4></div>
                                         <div class="price-box clearfix">
                                             <div class="price-info pull-left">
                                                 <h6>Start From</h6>
@@ -698,7 +698,7 @@
                                                     <li><i class="icon-15"></i>{{ $item->bathrooms }} Baths</li>
                                                     <li><i class="icon-16"></i>{{ $item->property_size }} Sq Ft</li>
                                                 </ul>
-                                        <div class="btn-box"><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}" class="theme-btn btn-two">See Details</a></div>
+                                        <div class="btn-box"><a href="{{ url('property/details/'.$item->id) }}" class="theme-btn btn-two">See Details</a></div>
                                     </div>
                                 </div>
                             </div>

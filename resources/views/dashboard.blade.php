@@ -139,7 +139,7 @@
         <!-- sidebar-page-container -->
 
         <!-- subscribe-section -->
-        <section class="subscribe-section bg-color-3">
+        {{-- <section class="subscribe-section bg-color-3">
             <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-2.png);"></div>
             <div class="auto-container">
                 <div class="row clearfix">
@@ -161,7 +161,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- subscribe-section end -->
 
 @endsection
