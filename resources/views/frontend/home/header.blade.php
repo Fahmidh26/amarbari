@@ -17,8 +17,8 @@ $setting = App\Models\SiteSetting::find(1);
                 <ul class="social-links clearfix">
                     <li><a target="_blank" href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a target="_blank" href="{{ $setting->twitter }}"><i class="fab fa-twitter"></i></a></li>
-                    {{-- <li><a href="index.html"><i class="fab fa-pinterest-p"></i></a></li>
-                    <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
+                    <li><a target="_blank" href="https://www.youtube.com/channel/UC0B3Nb1xHYJcAMRfrUq63mQ"><i class="fab fa-youtube"></i></a></li>
+                    {{-- <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
                     <li><a href="index.html"><i class="fab fa-vimeo-v"></i></a></li> --}}
                     <li><a id="google_translate_element"></a></li>
                 </ul>
