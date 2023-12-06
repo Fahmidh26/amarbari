@@ -238,6 +238,51 @@ $property = $property->get();
         return view('frontend.property.property_search',compact('property'));
      }// End Method 
 
+
+    //  SIDEBAR SEARCH
+
+     public function SidebarPropertySeach(Request $request){
+        // $request->validate(['search' => 'required']);
+        // $item = $request->search;
+        $sstate = $request->state;
+        $ptype = $request->ptype_id;
+
+        // dd($request);
+
+//    $property = Property::where('address', 'like' , '%' .$item. '%')->where('property_status','buy')->with('type','pstate')
+//         ->whereHas('pstate', function($q) use ($sstate){
+//             $q->where('state_name','like' , '%' .$sstate. '%');
+//         })
+//         ->whereHas('type', function($q) use ($stype){
+//             $q->where('type_name','like' , '%' .$stype. '%');
+//          })
+//         ->get();
+
+
+               // Execute a query on the Property model with the search term as a mandatory condition.
+    $property = Property::latest()->with('type', 'pstate');
+
+
+if ($sstate) {
+    $property->whereHas('pstate', function($q) use ($sstate){
+        $q->where('state_name', 'like', '%' . $sstate . '%');
+    });
+}
+
+if ($ptype) {
+    $property->whereHas('type', function($q) use ($ptype){
+        $q->where('type_name', 'like', '%' . $ptype . '%');
+    });
+}
+
+// Retrieve the results of the query.
+$property = $property->get();
+
+        return view('frontend.property.property_search',compact('property'));
+     }
+     // End Sidebar Search Method 
+
+
      public function RentPropertySeach(Request $request){
 
         $request->validate(['search' => 'required']);

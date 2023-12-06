@@ -35,7 +35,7 @@ use App\Http\Controllers\Backend\ChatController;
 // });
 
 // User Frontend All Route 
-Route::get('/', [UserController::class, 'Index']);
+Route::get('/', [UserController::class, 'Index'])->name('homepage');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -394,6 +394,11 @@ Route::get('/state/details/{id}', [IndexController::class, 'StateDetails'])->nam
 
 // Home Page Buy Seach Option
 Route::post('/buy/property/search', [IndexController::class, 'BuyPropertySeach'])->name('buy.property.search');
+
+Route::post('/sidebar/property/search', [IndexController::class, 'SidebarPropertySeach'])->name('sidebar.property.search');
+
+// Details Search Option
+Route::post('/property_details/search', [IndexController::class, 'PropertySeach'])->name('property.details.search');
 
 // Home Page Rent Seach Option
 Route::post('/rent/property/search', [IndexController::class, 'RentPropertySeach'])->name('rent.property.search');
