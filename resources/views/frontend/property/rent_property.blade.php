@@ -31,14 +31,48 @@
         <div class="row clearfix">
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                 <div class="default-sidebar property-sidebar">
+
+                    @php
+                    $states = App\Models\State::latest()->get();
+                    $ptypes = App\Models\PropertyType::latest()->get();
+                     @endphp
+                     
+                    <form action="{{ route('sidebar.property.search') }}" method="post" class="search-form">
+                        @csrf 
                     <div class="filter-widget sidebar-widget">
                         <div class="widget-title">
                             <h5>Property</h5>
                         </div>
-                        @php
-                        $states = App\Models\State::latest()->get();
-                        $ptypes = App\Models\PropertyType::latest()->get();
-                         @endphp
+                        <div class="widget-content">
+                           
+                            <div class="select-box">
+                                <select class="wide" name="state">
+                                   <option data-display="Select Location">Select Location</option>
+                                   @foreach($states as $state)
+                                       <option value="{{ $state->state_name }}">{{ $state->state_name }}</option>
+                                   @endforeach
+                                </select>
+                            </div>
+                            <div class="select-box">
+                                <select class="wide" class="ptype" name="ptype">
+                                   <option data-display="Select Property Type">Select Property Type</option>
+                                   @foreach($ptypes as $type)
+                                   <option value="{{ $type->type_name }}">{{ $type->type_name }}</option>
+                               @endforeach
+                                </select>
+                            </div>
+                       
+                            <div class="filter-btn">
+                                <button type="submit" class="theme-btn btn-one"><i class="fas fa-filter"></i>&nbsp;Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                    {{-- <div class="filter-widget sidebar-widget">
+                        <div class="widget-title">
+                            <h5>Property</h5>
+                        </div>
+                      
                         
                           <form action="{{ route('all.property.search') }}" method="post" class="search-form">
                             @csrf 
@@ -97,9 +131,9 @@
                         </form>
                         
                         
-                        </div>
+                        </div> --}}
                 
-                    <div class="price-filter sidebar-widget">
+                    {{-- <div class="price-filter sidebar-widget">
                         <div class="widget-title">
                             <h5>Select Price Range</h5>
                         </div>
@@ -111,7 +145,7 @@
                             </div>
                             <div class="price-range-slider"></div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="category-widget sidebar-widget">
                         <div class="widget-title">
                             <h5>Status Of Property</h5>
