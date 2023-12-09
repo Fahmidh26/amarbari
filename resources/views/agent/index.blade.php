@@ -17,7 +17,7 @@ $status = $agentId->status;
 <p class="text-danger"><b> Plz wait admin will check and approve your account</b></p>
   @endif
   
-        <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+        {{-- <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
           <div>
             <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
           </div>
@@ -355,7 +355,7 @@ $status = $agentId->status;
               </div> 
             </div>
           </div>
-        </div> <!-- row -->
+        </div> <!-- row --> --}}
 
       </div>
 
