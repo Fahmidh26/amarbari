@@ -75,7 +75,7 @@
                     <p><a target="_blank" href="https://stataglobal.com/">{{ $setting->copyright }}</p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
-                    <li><a href="{{route('terms.services')}}">Terms of Service</a></li>
+                    <li><a href="{{route('terms.services')}}">Terms & Service</a></li>
                     <li><a href="{{route('privacy.policy')}}">Privacy Policy</a></li>
                 </ul>
             </div>
